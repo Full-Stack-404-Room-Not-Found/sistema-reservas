@@ -25,7 +25,7 @@ completar
 - Lorena Paola Pereyra - lorepa330
 - Romina Vanesa HUK - rohu17
 - Laura Analía Brizuela - gerbena03
-- (agregar compañeros)
+
 
 ---
 
