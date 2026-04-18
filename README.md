@@ -15,7 +15,8 @@ completar
 ---
 
 ## 🔑 Objetivo
-completar
+Desarrollar una aplicación web para la administración hotelera que permita organizar y gestionar el flujo de huéspedes, facilitando a los usuarios buscar, visualizar, reservar habitaciones y solicitar servicios adicionales, como también visualizar métricas de ocupación.
+
 
 ---
 
@@ -36,9 +37,11 @@ completar
 ---
 
 ## 📂 Estructura del proyecto
-- `/docs` → documentación  
-- `/src` → código fuente
-- `/imagenes` → imagenes 
+- `/backend`  
+- `/frontend` 
+- `/imagenes` 
+- `/maqueta` 
+
 
 ---
 
