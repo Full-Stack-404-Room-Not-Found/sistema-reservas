@@ -5,12 +5,12 @@
 ---
 
 ## 🛎️ Descripción
-completar
+Sistema web de gestión hotelera que permite administrar reservas, habitaciones y servicios adicionales, integrando frontend y backend en una solución centralizada
 
 ---
 
 ## ❗ Problema
-completar
+En hoteles pequeños y medianos, la gestión manual o con herramientas aisladas genera errores como doble reserva y pérdida de información de servicios, debido a la falta de un sistema centralizado y en tiempo real.
 
 ---
 
@@ -32,7 +32,10 @@ Desarrollar una aplicación web para la administración hotelera que permita org
 ---
 
 ## 🛠️ Tecnologías
-- A definir
+- Frontend: Angular (HTML, CSS, TypeScript)
+- Control de versiones: Git y GitHub
+- Backend: (Python)
+- Base de datos: MYSQL
 
 ---
 
