@@ -26,7 +26,7 @@ Desarrollar una aplicación web para la administración hotelera que permita org
 
 - Nancy Maribel Morales - nancymorales1994
 - Julieta Victoria Cabrera - JuliCabrera
-- Lorena Paola Pereyra - lorepa330
+- Lorena Paola Pereyra - lore376
 - Romina Vanesa HUK - rohu17
 - Laura Analía Brizuela - gerbena03
 - Fernando Agustín Moyano - FernandoAMoyano
