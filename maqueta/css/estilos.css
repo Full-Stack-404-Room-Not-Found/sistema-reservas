@@ -1,0 +1,29 @@
+/* ----------------------- FUENTES -------------------------- */
+
+/* "Playfair Display" --- Títulos principales  */
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+/* "Lato" --- Cuerpo de texto    */
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+/* ----------------------- RESET BÁSICO--------------------- */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ----------------------- COLORES-------------------------- */
+
+/* #1B263B      /* Midnight Blue   — fondos, navbar, footer   */
+/* #415A77      /* Charcoal Grey   — textos secundarios, hover*/
+/* #C9A84C      /* Gold            — botones CTA, highlights  */
+/* #E0E1DD      /* Soft Gold/Cream — fondos suaves, cards     */
+/* #F8F9FA      /* White Smoke     — fondo general de página  */
+/* #FFFFFF      /* Blanco puro     — cards, modales           */
+/* #1B263B      /* Midnight Blue   — texto principal          */
+/* #415A77      /* Charcoal Grey   — texto secundario/labels  */
+/* #DDE1E7      /* Gris claro      — bordes y separadores     */
+/* #C0392B      /* Rojo            — mensajes de error        */
+/* #27AE60      /* Verde           — confirmaciones           */
