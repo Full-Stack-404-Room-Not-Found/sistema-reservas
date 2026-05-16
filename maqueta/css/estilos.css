@@ -1,18 +1,18 @@
 /* ----------------------- FUENTES -------------------------- */
 
-/* "Playfair Display" --- Títulos principales  */
+/* "Playfair Display" --- Títulos principales*/  
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
-/* "Lato" --- Cuerpo de texto    */
+/* "Lato" --- Cuerpo de texto   */ 
 @import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
 /* ----------------------- RESET BÁSICO--------------------- */
-
+/*
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-}
+}*/
 
 /* ----------------------- COLORES-------------------------- */
 
@@ -27,3 +27,460 @@
 /* #DDE1E7      /* Gris claro      — bordes y separadores     */
 /* #C0392B      /* Rojo            — mensajes de error        */
 /* #27AE60      /* Verde           — confirmaciones           */
+
+
+/* =========================================
+   1. VARIABLES Y CONFIGURACIÓN BASE
+   ========================================= */
+:root {
+    --midnight-blue: #1B263B;
+    --soft-gold: #E0E1DD;
+    --gold-accent: #C5A059;
+    --white-smoke: #F8F9FA;
+    --charcoal-grey: #415A77;
+    --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    --nav-height: 80px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--white-smoke);
+    color: var(--midnight-blue);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* =========================================
+   2. NAVBAR Y NAVEGACIÓN
+   ========================================= */
+header {
+    background-color: var(--midnight-blue);
+    height: var(--nav-height);
+    display: flex;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    padding: 0 5%;
+    
+}
+
+.navbar {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Logo y Marca */
+.nav-left {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.logo-container {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 2px solid var(--gold-accent);
+    background-color: white;
+    transition: var(--transition);
+}
+
+.logo-container:hover {
+    transform: scale(1.05);
+}
+
+.logo-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.brand-name {
+    color: white;
+    font-weight: 700;
+    font-size: 1.2rem;
+    letter-spacing: -0.5px;
+}
+
+/* Enlaces de Navegación */
+.nav-links {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.nav-item {
+    color: rgba(255, 255, 255, 0.85);
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 400;
+    position: relative;
+    padding: 5px 0;
+    transition: var(--transition);
+}
+
+.nav-item::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--gold-accent);
+    transition: var(--transition);
+}
+
+.nav-item:hover {
+    color: var(--gold-accent);
+}
+
+.nav-item:hover::after {
+    width: 100%;
+}
+
+/* Botón de Reserva */
+.btn-reservation {
+    background-color: var(--gold-accent);
+    color: white !important;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: var(--transition);
+    border: 1px solid transparent;
+}
+
+.btn-reservation:hover {
+    background-color: transparent;
+    border-color: var(--gold-accent);
+    box-shadow: 0 0 20px rgba(197, 160, 89, 0.3);
+    transform: translateY(-2px);
+}
+
+/* Checkbox Hack para Responsive */
+.menu-checkbox {
+    display: none;
+}
+
+.mobile-menu-btn {
+    display: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+    z-index: 1001;
+}
+
+/* =========================================
+   3. SECCIÓN HERO
+   ========================================= */
+.hero {
+    height: 70vh;
+    background: linear-gradient(rgba(27, 38, 59, 0.7), rgba(27, 38, 59, 0.7)), 
+                url('https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1350&q=80');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    padding: 0 20px;
+}
+
+.hero-content h1 {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+.hero-content p {
+    font-size: clamp(1rem, 2vw, 1.3rem);
+    margin-bottom: 30px;
+    opacity: 0.9;
+}
+
+.btn-primary {
+    background-color: var(--gold-accent);
+    color: white;
+    padding: 15px 35px;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: var(--transition);
+    display: inline-block;
+}
+
+.btn-primary:hover {
+    filter: brightness(1.1);
+    transform: scale(1.05);
+}
+
+/* =========================================
+   4. TARJETAS DE ESTADÍSTICAS (DASHBOARD)
+   ========================================= */
+.stats-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+    padding: 0 5%;
+    margin-top: -60px;
+}
+
+.card {
+    background: white;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+    transition: var(--transition);
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card h3 {
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+    color: var(--charcoal-grey);
+    border-left: 4px solid var(--gold-accent);
+    padding-left: 10px;
+}
+
+.chart-placeholder {
+    height: 180px;
+    background-color: #f8f9fa;
+    border: 1px dashed #dee2e6;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #adb5bd;
+}
+
+/* =========================================
+   5. MEDIA QUERIES (RESPONSIVE)
+   ========================================= */
+@media (max-width: 992px) {
+    .mobile-menu-btn {
+        display: block;
+    }
+
+    .nav-links {
+        position: fixed;
+        top: var(--nav-height);
+        left: -100%;
+        flex-direction: column;
+        background-color: var(--midnight-blue);
+        width: 100%;
+        height: calc(100vh - var(--nav-height));
+        padding: 50px 0;
+        transition: var(--transition);
+        gap: 40px;
+    }
+
+    /* Mostrar menú al activar checkbox */
+    .menu-checkbox:checked ~ .nav-links {
+        left: 0;
+    }
+
+    /* Cambio de icono a 'X' */
+    .menu-checkbox:checked ~ .mobile-menu-btn i::before {
+        content: "\f00d"; /* FontAwesome X */
+    }
+
+    .nav-item {
+        font-size: 1.3rem;
+    }
+
+    .brand-name {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .stats-container {
+        margin-top: 30px;
+        padding: 0 20px;
+    }
+    
+    .hero {
+        height: 50vh;
+    }
+}
+
+.menu-checkbox:checked ~ .mobile-menu-btn {
+    color: gold; /* El icono debería cambiar a dorado al hacer clic */
+}
+
+/* =========================================
+   6. SECCIÓN GALERÍA
+   ========================================= */
+.gallery-section {
+    padding: 80px 5%;
+    background-color: white;
+}
+
+.gallery-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.gallery-header h2 {
+    font-size: 2.5rem;
+    color: var(--midnight-blue);
+    margin-bottom: 10px;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: 200px;
+    gap: 15px;
+}
+
+.gallery-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 12px;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: var(--transition);
+}
+
+/* Clases para variar tamaños */
+.gallery-item.large {
+    grid-column: span 2;
+    grid-row: span 2;
+}
+
+.gallery-item.tall {
+    grid-row: span 2;
+}
+
+/* Efecto Overlay al pasar el mouse */
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(27, 38, 59, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: var(--transition);
+}
+
+.overlay span {
+    color: var(--soft-gold);
+    font-weight: 600;
+    border: 1px solid var(--soft-gold);
+    padding: 10px 20px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.gallery-item:hover .overlay {
+    opacity: 1;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.1);
+}
+
+/* Responsive Galería */
+@media (max-width: 992px) {
+    .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    .gallery-grid {
+        display: block; /* Una imagen debajo de otra */
+    }
+    .gallery-item {
+        margin-bottom: 15px;
+        height: 250px;
+    }
+}
+
+/* =========================================
+   7. FOOTER (Midnight Blue & Gold)
+   ========================================= */
+
+/* =========================================
+   7. FOOTER SENCILLO
+   ========================================= */
+.simple-footer {
+    background-color: var(--midnight-blue);
+    color: var(--white-pure);
+    padding: 40px 20px;
+    text-align: center;
+    width: 100%;
+}
+
+.footer-content {
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.footer-brand {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 25px;
+}
+
+.footer-logo-circle {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    border: 2px solid var(--gold);
+    overflow: hidden;
+    background-color: white;
+}
+
+.footer-logo-circle img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.footer-line {
+    border: 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    margin-bottom: 20px;
+}
+
+.copyright {
+    color: var(--charcoal-grey);
+    font-size: 0.85rem;
+}
+
+/* Responsivo rápido */
+@media (max-width: 480px) {
+    .footer-nav {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+}
