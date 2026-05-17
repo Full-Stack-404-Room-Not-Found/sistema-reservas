@@ -34,7 +34,7 @@
 
                 <ul>
 
-                    <li class="sidebar-menu-Selected">
+                    <li>
                         <a href="../pages/dashboard-usuario.html" class="item-menu">
                             <i class="fa-solid fa-house"></i>
                             Inicio
@@ -48,7 +48,7 @@
                         </a>
                     </li>
 
-                    <li>
+                    <li class="sidebar-menu-Selected">
                         <a href="../pages/dashboard-usuario-reservas.html" class="item-menu">
                             <i class="fa-solid fa-calendar-check"></i>
                             Mis Reservas
@@ -118,66 +118,65 @@
 
             </header>
 
-            <!-- ================= CARDS RESUMEN ================= -->
+            <!-- ================= MIS RESERVAS ================= -->
 
-            <section class="summary-cards">
+            <section class="reservations-section">
 
-                <article class="summary-card">
+                <div class="section-title">
+                    <h2>Mis Reservas</h2>
+                </div>
 
-                    <div>
+                <div class="table-container">
 
-                        <h3>Reservas Activas</h3>
-                        <p>2</p>
+                    <table>
 
-                    </div>
+                        <thead>
 
-                    <i class="fa-solid fa-hotel"></i>
+                            <tr>
 
-                </article>
+                                <th>Habitación</th>
+                                <th>Check-in</th>
+                                <th>Check-out</th>
+                                <th>Estado</th>
 
-                <article class="summary-card">
+                            </tr>
 
-                    <div>
+                        </thead>
 
-                        <h3>Próximo Check-in</h3>
-                        <p>18 Mayo</p>
+                        <tbody>
 
-                    </div>
+                            <tr>
 
-                    <i class="fa-solid fa-calendar-days"></i>
+                                <td>Suite Deluxe</td>
+                                <td>18/05/2026</td>
+                                <td>22/05/2026</td>
 
-                </article>
+                                <td class="status-confirmed">
+                                    Confirmada
+                                </td>
 
-                <article class="summary-card">
+                            </tr>
 
-                    <div>
+                            <tr>
 
-                        <h3>Servicios Contratados</h3>
-                        <p>5</p>
+                                <td>Habitación Premium</td>
+                                <td>10/06/2026</td>
+                                <td>15/06/2026</td>
 
-                    </div>
+                                <td class="status-pending">
+                                    Pendiente
+                                </td>
 
-                    <i class="fa-solid fa-spa"></i>
+                            </tr>
 
-                </article>
+                        </tbody>
 
-                <article class="summary-card">
+                    </table>
 
-                    <div>
-
-                        <h3>Historial</h3>
-                        <p>12 Reservas</p>
-
-                    </div>
-
-                    <i class="fa-solid fa-clock-rotate-left"></i>
-
-                </article>
+                </div>
 
             </section>
-
-
-            
+           
         </main>
 
     </div>
