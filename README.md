@@ -46,7 +46,6 @@ Desarrollar una aplicación web para la administración hotelera que permita org
 
 - `/backend`
 - `/frontend`
-- `/imagenes`
 - `/maqueta`
 
 ---
