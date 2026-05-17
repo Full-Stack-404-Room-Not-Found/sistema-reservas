@@ -1,0 +1,109 @@
+body {
+    background-color: #F8F9FA;
+    font-family: Arial, sans-serif;
+    padding: 20px;
+}
+
+.contenedor {
+    max-width: 1000px;
+    margin: auto;
+    background-color: #FFFFFF;
+    padding: 20px;
+    border-radius: 15px;
+}
+
+h1 {
+    color: #1B263B;
+    text-align: center;
+}
+
+/* Tarjetas resumen */
+.resumen {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin: 20px 0;
+}
+
+.carta {
+    background-color: #E0E1DD;
+    padding: 15px 25px;
+    text-align: center;
+    border-radius: 10px;
+}
+
+.carta .numero {
+    font-size: 36px;
+    font-weight: bold;
+}
+
+.disponible .numero {
+    color: #27AE60;
+}
+
+.ocupada .numero {
+    color: #C0392B;
+}
+
+.mantenimiento .numero {
+    color: #C9A84C;
+}
+
+/* Tabla */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th {
+    background-color: #1B263B;
+    color: #FFFFFF;
+    padding: 10px;
+    text-align: left;
+}
+
+td {
+    padding: 10px;
+    border-bottom: 1px solid #DDE1E7;
+}
+
+/* Estados */
+.estado {
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 12px;
+}
+
+.disponible-texto {
+    background-color: #E0E1DD;
+    color: #27AE60;
+}
+
+.ocupada-texto {
+    background-color: #E0E1DD;
+    color: #C0392B;
+}
+
+.mantenimiento-texto {
+    background-color: #E0E1DD;
+    color: #C9A84C;
+}
+
+/* Botones */
+button {
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn-ver {
+    background-color: #415A77;
+    color: white;
+}
+
+.btn-editar {
+    background-color: #C9A84C;
+    color: #1B263B;
+}
