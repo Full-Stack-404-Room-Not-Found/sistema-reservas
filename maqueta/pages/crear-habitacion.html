@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/crear-habitacion.css" />
+    <title>Crear habitación</title>
+  </head>
+  <body>
+    <main class="page">
+      <section class="form-card">
+        <h1>Nueva Habitación</h1>
+        <form>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Número de piso</label>
+              <input type="number" placeholder="1" />
+            </div>
+            <div class="form-group">
+              <label>Numero de habitación</label>
+              <input type="text" placeholder="H28" />
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label>Tipo</label>
+              <input type="text" placeholder="suite" />
+            </div>
+            <div class="form-group">
+              <label>Capacidad</label>
+              <select>
+                <option>1 persona</option>
+                <option>2 personas</option>
+                <option>3 personas</option>
+                <option selected>4 personas</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label>Precio/hora</label>
+              <input type="text" placeholder="$40.000" />
+            </div>
+            <div class="form-group">
+              <label>Servicios incluidos</label>
+              <select>
+                <option>Tv</option>
+                <option>Wifi</option>
+                <option>Aire acondicionado</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>Descripción</label>
+            <textarea
+              placeholder="Habitación en suite con capacidad para 4 personas..."
+            ></textarea>
+          </div>
+
+          <div class="form-actions">
+            <button type="submit" class="btn btn--blue">Crear</button>
+          </div>
+        </form>
+      </section>
+    </main>
+  </body>
+</html>
