@@ -27,3 +27,19 @@
 /* #DDE1E7      /* Gris claro      — bordes y separadores     */
 /* #C0392B      /* Rojo            — mensajes de error        */
 /* #27AE60      /* Verde           — confirmaciones           */
+:root {
+ /* ================= COLORES PRINCIPALES ================= */
+
+  --midnight-blue: #1B263B;
+  --charcoal-grey: #415A77;
+  --gold: #C9A84C;
+  --soft-gold: #E0E1DD;
+  --white-smoke: #F8F9FA;
+  --white: #FFFFFF;
+  --light-grey: #DDE1E7;
+
+  /* ================= ESTADOS ================= */
+
+  --error-red: #C0392B;
+  --success-green: #27AE60;
+}
