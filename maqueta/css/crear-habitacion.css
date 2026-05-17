@@ -1,0 +1,103 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Playfair+Display&display=swap");
+
+main {
+  background-color: #f8f9fa;
+  min-height: 100vh;
+  font-family: "Lato", sans-serif;
+  font-size: 16px;
+}
+
+section {
+  width: 700px;
+  margin: 4rem auto;
+  padding: 2rem 2.5rem;
+  border-radius: 6px;
+}
+
+section > h1 {
+  text-align: center;
+  color: #1b263b;
+  font-family: "Playfair Display", serif;
+  font-size: 26px;
+  font-weight: normal;
+  margin-bottom: 2rem;
+}
+
+label {
+  display: block;
+  color: #415a77;
+  font-size: 14px;
+  margin-bottom: 6px;
+}
+
+input,
+select,
+textarea {
+  width: 100%;
+  padding: 9px 12px;
+  border: 1px solid #dde1e7;
+  border-radius: 4px;
+  font-family: "Lato", sans-serif;
+  font-size: 14px;
+  color: #1b263b;
+  background-color: #ffffff;
+  box-sizing: border-box;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  border-color: #c9a84c;
+}
+
+textarea {
+  height: 110px;
+  resize: vertical;
+}
+
+.form-row {
+  margin-bottom: 1.5rem;
+  font-size: 0;
+}
+
+.form-row > div {
+  display: inline-block;
+  width: 48%;
+  vertical-align: top;
+  font-size: 16px;
+}
+
+.form-row > div:first-child {
+  margin-right: 4%;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-actions {
+  text-align: center;
+  margin-top: 1.5rem;
+}
+
+button {
+  padding: 10px 60px;
+  border: none;
+  border-radius: 4px;
+  font-family: "Lato", sans-serif;
+  font-size: 15px;
+  color: #ffffff;
+  background-color: #27ae60;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #1f884b;
+}
