@@ -483,4 +483,19 @@ header {
         flex-direction: column;
         gap: 15px;
     }
+:root {
+ /* ================= COLORES PRINCIPALES ================= */
+
+  --midnight-blue: #1B263B;
+  --charcoal-grey: #415A77;
+  --gold: #C9A84C;
+  --soft-gold: #E0E1DD;
+  --white-smoke: #F8F9FA;
+  --white: #FFFFFF;
+  --light-grey: #DDE1E7;
+
+  /* ================= ESTADOS ================= */
+
+  --error-red: #C0392B;
+  --success-green: #27AE60;
 }
