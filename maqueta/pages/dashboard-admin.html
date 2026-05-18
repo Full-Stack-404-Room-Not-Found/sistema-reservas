@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Sistema de Gestión Hotelera - Panel Administrador</title>
+    <link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet" href="../css/dashboard-admin.css">
+</head>
+
+<body>
+
+    <div class="contenedor">
+        <h1>🏨 SISTEMA DE GESTIÓN HOTELERA - ADMINISTRADOR</h1>
+
+        <!-- Tarjetas resumen de habitaciones -->
+        <div class="resumen">
+            <div class="carta disponible">
+                <div class="numero">12</div>
+                <div>🟢 Habitaciones Disponibles</div>
+            </div>
+            <div class="carta ocupada">
+                <div class="numero">8</div>
+                <div>🔴 Habitaciones Ocupadas</div>
+            </div>
+            <div class="carta mantenimiento">
+                <div class="numero">4</div>
+                <div>🟡 En Mantenimiento</div>
+            </div>
+        </div>
+
+        <!-- Tabla de estado de habitaciones -->
+        <table>
+            <thead>
+                <tr>
+                    <th>N° Hab.</th>
+                    <th>Tipo</th>
+                    <th>Estado</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>101</td>
+                    <td>Standard</td>
+                    <td><span class="estado disponible-texto">🟢 Disponible</span></td>
+                    <td><button class="btn-ver">Ver</button> <button class="btn-editar">Editar</button></td>
+                </tr>
+                <tr>
+                    <td>102</td>
+                    <td>Standard</td>
+                    <td><span class="estado disponible-texto">🟢 Disponible</span></td>
+                    <td><button class="btn-ver">Ver</button> <button class="btn-editar">Editar</button></td>
+                </tr>
+                <tr>
+                    <td>103</td>
+                    <td>Doble</td>
+                    <td><span class="estado ocupada-texto">🔴 Ocupada</span></td>
+                    <td><button class="btn-ver">Ver</button> <button class="btn-editar">Editar</button></td>
+                </tr>
+                <tr>
+                    <td>104</td>
+                    <td>Suite</td>
+                    <td><span class="estado disponible-texto">🟢 Disponible</span></td>
+                    <td><button class="btn-ver">Ver</button> <button class="btn-editar">Editar</button></td>
+                </tr>
+                <tr>
+                    <td>105</td>
+                    <td>Familiar</td>
+                    <td><span class="estado mantenimiento-texto">🟡 Mantenimiento</span></td>
+                    <td><button class="btn-ver">Ver</button> <button class="btn-editar">Editar</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</body>
+
+</html>

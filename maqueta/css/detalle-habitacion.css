@@ -1,0 +1,146 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Playfair+Display&display=swap");
+
+main {
+  background-color: #f8f9fa;
+  min-height: 100vh;
+  font-family: "Lato", sans-serif;
+  font-size: 16px;
+}
+
+section {
+  width: 700px;
+  margin: 4rem auto;
+  padding: 2rem 2.5rem;
+  border-radius: 6px;
+}
+
+section > h1 {
+  text-align: center;
+  color: #1b263b;
+  font-family: "Playfair Display", serif;
+  font-size: 26px;
+  font-weight: normal;
+  margin-bottom: 2rem;
+}
+
+label {
+  display: block;
+  color: #415a77;
+  font-size: 14px;
+  margin-bottom: 6px;
+}
+
+input {
+  width: 100%;
+  padding: 9px 12px;
+  border: 1px solid #dde1e7;
+  border-radius: 4px;
+  font-family: "Lato", sans-serif;
+  font-size: 14px;
+  color: #1b263b;
+  background-color: #ffffff;
+  box-sizing: border-box;
+}
+
+input:focus {
+  outline: none;
+  border-color: #c9a84c;
+}
+
+/* Tabla de detalle */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid #dde1e7;
+  margin-bottom: 2rem;
+}
+
+tr {
+  border-bottom: 1px solid #dde1e7;
+}
+
+td {
+  padding: 12px 16px;
+  color: #1b263b;
+  vertical-align: top;
+}
+
+td:first-child {
+  font-weight: bold;
+  width: 32%;
+}
+
+td:last-child {
+  width: 36px;
+  text-align: center;
+  color: #415a77;
+  cursor: pointer;
+  vertical-align: middle;
+}
+
+td:last-child:hover {
+  color: #c9a84c;
+}
+
+/* Filas de huéspedes */
+.guest-list {
+  margin-bottom: 2rem;
+}
+
+.guest-row {
+  font-size: 0;
+  margin-bottom: 1.2rem;
+}
+
+.guest-row > div {
+  display: inline-block;
+  width: 29%;
+  margin-right: 3%;
+  vertical-align: top;
+  font-size: 16px;
+}
+
+/* Botones de acción */
+.form-actions {
+  margin-top: 1.5rem;
+  font-size: 0;
+}
+
+button {
+  display: inline-block;
+  padding: 10px 22px;
+  border: none;
+  border-radius: 4px;
+  font-family: "Lato", sans-serif;
+  font-size: 15px;
+  color: #ffffff;
+  cursor: pointer;
+  margin-right: 10px;
+  vertical-align: top;
+}
+
+.btn--blue {
+  background-color: #27ae60;
+}
+.btn--green {
+  background-color: #c9a84c;
+}
+.btn--orange {
+  background-color: #c0392b;
+}
+
+.btn--blue:hover {
+  background-color: #1f884b;
+}
+.btn--green:hover {
+  background-color: #b69846;
+}
+.btn--orange:hover {
+  background-color: #a53226;
+}
