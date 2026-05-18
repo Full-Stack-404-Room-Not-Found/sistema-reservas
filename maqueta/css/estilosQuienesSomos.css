@@ -1,0 +1,243 @@
+/* ----------------------- FUENTES -------------------------- */
+
+/* "Playfair Display" --- Títulos principales  */
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+/* "Lato" --- Cuerpo de texto    */
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+/* ----------------------- RESET BÁSICO--------------------- */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ----------------------- COLORES-------------------------- */
+
+/* #1B263B      /* Midnight Blue   — fondos, navbar, footer   */
+/* #415A77      /* Charcoal Grey   — textos secundarios, hover*/
+/* #C9A84C      /* Gold            — botones CTA, highlights  */
+/* #E0E1DD      /* Soft Gold/Cream — fondos suaves, cards     */
+/* #F8F9FA      /* White Smoke     — fondo general de página  */
+/* #FFFFFF      /* Blanco puro     — cards, modales           */
+/* #1B263B      /* Midnight Blue   — texto principal          */
+/* #415A77      /* Charcoal Grey   — texto secundario/labels  */
+/* #DDE1E7      /* Gris claro      — bordes y separadores     */
+/* #C0392B      /* Rojo            — mensajes de error        */
+/* #27AE60      /* Verde           — confirmaciones           */
+
+
+.encabezadoQuienesSomos {
+  height: 100vh;
+  background-image:
+    linear-gradient(
+        rgba(0,0,0,0.6),
+        rgba(0,0,0,0.6)
+    ),
+    url("/maqueta/imagenes/desarrolladores/fondo_banner.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-width: 70vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  }
+
+  
+
+ .banner_QS{
+      
+      color:#FFFFFF;
+      font-size: 60px;
+      font-family: "Playfair Display", serif;
+      margin-bottom: 40px;
+      margin-left: 50px;
+      
+    }
+
+
+#parrafo_header{
+  color: #DDE1E7;
+  font-size: 25px;
+  margin-top: 20px;
+  margin-left: 10px;
+  margin-bottom: 10px;
+
+}
+
+.compromiso_QS{
+  text-align: center;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 50px ;
+  grid-template-columns: repeat(2, 320px);
+
+}
+.compromiso_QS_item{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #DDE1E7;
+  border-radius: 12px;
+  padding: 30px 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  width: 320px;
+}
+
+.parrafo_compromiso_h2{
+  font-size: 35px;
+  margin-bottom: 50px;
+  margin-top: 20px;
+  text-align: center; 
+  color: #C9A84C
+
+}
+
+.parrafo_compromiso_h3{
+  font-size: 30px;
+  margin-top: 10px;
+  margin-bottom: 15px;
+}
+
+.logos{
+  width: 100px;
+  border-radius: 50%;
+}
+#parrafo_compromiso_h2{
+  text-align: center;
+}
+.parrafo_h2{
+  font-family:'Poppins', sans-serif;
+  color:black;
+  line-height: 1.6;
+
+}
+
+
+.imagenes{
+  width: 220px;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 20px
+}
+
+.parrafo_imagenes_h3{
+  font-family:'Poppins', sans-serif;
+  color:black;
+  line-height: 1.6;
+  font-size: 20px;
+  line-height: 1.6;
+  margin-left: 20px;
+  margin-right: 20px;
+  text-align: center;
+
+}
+
+.nosotros{
+      margin-top:40px;
+      padding:50px;
+      border-radius:12px;      
+      justify-content: center;
+      align-items: center;
+      gap: 40px;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      
+      
+       
+    }
+
+
+
+
+.parrafo_imagenes_p{
+    font-family:'Poppins', sans-serif;
+    font-size: 15px;
+    line-height: 1.7;
+    margin-bottom: 0px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.info{
+    max-width: 800px;
+    width: 50%;
+
+}
+
+.tarjeta_desarrolador{
+    display: flex;
+    align-items: center;
+    text-align: justify;
+    margin-bottom: 40px;
+    max-width: 800px;
+    border-radius: 16px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    grid-gap: 30px;
+    flex-direction: column;
+    
+
+}
+.info_desarrolador{
+   
+    max-width: 800px;
+}
+
+.boton_1{
+    display: inline-block;
+    background-color: #0d1b2a;
+    color: #d4af37;
+    padding: 10px 20px 10px 10px;
+    border-radius: 10px;
+    text-decoration: none;
+    margin-top: 20px;
+    transition: 0.3s;
+    margin-bottom: 20px;
+    width: fit-content;
+    display: block;
+    margin: 20px auto;
+}
+
+
+
+.footer{
+    background-color: #1B263B;
+    padding: 30px 20px;
+    margin-top: 50px;
+}
+
+.footer-contenido{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.footer-links{
+    display: flex;
+    gap: 30px;
+    list-style: none;
+    padding: 0;
+}
+
+.footer-links a{
+    text-decoration: none;
+    color: white;
+    font-family: "Playfair Display", serif;
+    font-size: 16px;
+    transition: 0.3s;
+}
+
+.footer-texto{
+    color: white;
+    font-size: 14px;
+    font-family: "Lato", sans-serif;
+}
+
+  
+   
