@@ -45,7 +45,11 @@
   align-items: center;
   justify-content: center;
 
-  }
+.heroQ-content h1 {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    margin-bottom: 15px;
+    font-weight: 700;
+}
 
   
 
@@ -80,7 +84,6 @@
 .compromiso_QS_item{
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
   background-color: #DDE1E7;
   border-radius: 12px;
