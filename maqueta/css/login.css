@@ -1,13 +1,4 @@
-@import url(estilos.css); /*ESTILOS GENERALES*/
-
-body {
-    margin: 0;
-    padding: 0;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column; 
-    background-color: #1B263B; 
-}
+@import url(estilos.css); /* ESTILOS GENERALES */
 
 .login-wrapper-background {
     flex-grow: 1; 
@@ -20,13 +11,10 @@ body {
     box-sizing: border-box;
 }
 
-
-/* =========================================
-   1. FORMULARIO
-   ========================================= */
-
+/* ======================================================================
+   1. FORMULARIO DE INICIO DE SESIÓN
+   ====================================================================== */
 .formulario {
-    
     width: 100%;
     max-width: 420px;
     border-radius: 20px;
@@ -83,7 +71,6 @@ form .password {
     transition: .3s;
 }
 
-
 .username span::before,
 .password span::before {
     content: '';
@@ -112,6 +99,9 @@ form .password {
     font-size: 14px;
 }
 
+/* ======================================================================
+   2. BOTÓN Y ENLACES SECUNDARIOS
+   ====================================================================== */
 .olvidaste_tu_contrasena {
     margin: 10px 0 20px 5px;
     color: #415A77;
@@ -123,7 +113,6 @@ form .password {
     text-decoration: underline;
     color: #1B263B;
 }
-
 
 input[type="submit"] {
     width: 100%;
@@ -163,50 +152,4 @@ input[type="submit"]:hover {
 .registrarse a:hover {
     color: #1B263B;
     text-decoration: underline;
-}
-
-/* =========================================
-   2. DISPOSITIVOS MÓVILES
-   ========================================= */
-
-@media (max-width: 768px) {
-    .formulario {
-        width: 85%;
-    }
-}
-
-@media (max-width: 480px) {
-    .formulario {
-        width: 90%;
-        border-radius: 15px;
-    }
-
-    .formulario h1 {
-        font-size: 28px;
-        padding: 20px 0;
-    }
-
-    .formulario form {
-        padding: 0 25px;
-    }
-
-    .username input,
-    .password input {
-        height: 40px;
-        font-size: 15px;
-    }
-
-    .username label,
-    .password label {
-        font-size: 15px;
-    }
-
-    input[type="submit"] {
-        height: 48px;
-        font-size: 15px;
-    }
-
-    .registrarse, .olvidaste_tu_contrasena {
-        font-size: 13.5px;
-    }
 }

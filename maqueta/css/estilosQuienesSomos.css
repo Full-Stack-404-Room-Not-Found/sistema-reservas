@@ -220,34 +220,6 @@
   background-color: var(--midnight-blue);
 }
 
-/* =========================================
-   4. ADAPTACIÓN RESPONSIVE  
-   ========================================= */
-
-
-@media (max-width: 768px) {
-  .compromiso_QS {
-    flex-direction: column;   
-  }
-  
-  .nosotros {
-    grid-template-columns: 1fr; 
-  }
-
-  .tarjeta_desarrolador {
-    flex-direction: column;   
-    text-align: center;
-    padding: 20px;
-  }
-
-  .parrafo_imagenes_p {
-    text-align: center;
-  }
-
-  .boton_1 {
-    margin: 0 auto;         
-  }
-}
 
 
 
