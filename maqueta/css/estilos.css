@@ -255,7 +255,7 @@ header {
     transform: translateY(-5px);
 }
 
-.card h3 {
+.card h2 {
     font-size: 1.1rem;
     margin-bottom: 20px;
     color: var(--charcoal-grey);
