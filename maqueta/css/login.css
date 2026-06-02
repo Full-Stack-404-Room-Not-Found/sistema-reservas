@@ -16,7 +16,7 @@ body {
     justify-content: center; 
     background: linear-gradient(135deg, #0D1B2A 0%, #1B263B 40%, #415A77 100%);
     width: 100%;
-    padding: 40px 0; /* Margen de seguridad para que no toque los bordes en pantallas chicas */
+    padding: 40px 0; 
     box-sizing: border-box;
 }
 
@@ -24,7 +24,6 @@ body {
 /* =========================================
    1. FORMULARIO
    ========================================= */
-
 
 .formulario {
     
@@ -43,9 +42,9 @@ body {
     text-align: center;
     padding: 25px 0;
     margin: 0;
-    color: #1B263B; /* Midnight Blue */
+    color: #1B263B; 
     font-size: 34px;
-    border-bottom: 1px solid #E0E1DD; /* Soft Gold border */
+    border-bottom: 1px solid #E0E1DD; 
 }
 
 .formulario form {
@@ -56,7 +55,7 @@ body {
 form .username,
 form .password {
     position: relative;
-    border-bottom: 2px solid #415A77; /* Charcoal Grey */
+    border-bottom: 2px solid #415A77; 
     margin: 35px 0;
 }
 
@@ -84,7 +83,7 @@ form .password {
     transition: .3s;
 }
 
-/* Línea animada inferior con tu color Gold */
+
 .username span::before,
 .password span::before {
     content: '';
@@ -93,7 +92,7 @@ form .password {
     left: 0;
     width: 0%;
     height: 2px;
-    background: #C9A84C; /* Gold */
+    background: #C9A84C; 
     transition: .4s;
 }
 
@@ -109,7 +108,7 @@ form .password {
 .password input:focus ~ label,
 .password input:valid ~ label {
     top: -8px;
-    color: #C9A84C; /* Gold */
+    color: #C9A84C; 
     font-size: 14px;
 }
 
@@ -125,7 +124,7 @@ form .password {
     color: #1B263B;
 }
 
-/* Botón Iniciar Sesión adaptado a tus CTA */
+
 input[type="submit"] {
     width: 100%;
     height: 52px;
@@ -165,9 +164,6 @@ input[type="submit"]:hover {
     color: #1B263B;
     text-decoration: underline;
 }
-
-
-FORMULARIO
 
 /* =========================================
    2. DISPOSITIVOS MÓVILES
