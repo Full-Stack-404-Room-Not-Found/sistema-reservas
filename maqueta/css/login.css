@@ -1,54 +1,67 @@
+@import url(estilos.css); /*ESTILOS GENERALES*/
 
-/* Login */
-
-body{
+body {
     margin: 0;
-    padding: 20px;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background:linear-gradient(135deg,#0D1B2A 0%,#1B263B 40%,#415A77 100%);
-    height: 100vh;
+    padding: 0;
     min-height: 100vh;
-    overflow-x: hidden;
+    display: flex;
+    flex-direction: column; 
+    background-color: #1B263B; 
 }
 
-.formulario{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+.login-wrapper-background {
+    flex-grow: 1; 
+    display: flex;
+    align-items: center; 
+    justify-content: center; 
+    background: linear-gradient(135deg, #0D1B2A 0%, #1B263B 40%, #415A77 100%);
+    width: 100%;
+    padding: 40px 0; /* Margen de seguridad para que no toque los bordes en pantallas chicas */
+    box-sizing: border-box;
+}
+
+
+/* =========================================
+   1. FORMULARIO
+   ========================================= */
+
+
+.formulario {
+    
     width: 100%;
     max-width: 420px;
     border-radius: 20px;
     box-shadow: 0px 10px 30px rgba(0,0,0,0.30);
     overflow: hidden;
-    background: rgba(248,249,250,0.96);
+    background: rgba(248, 249, 250, 0.96); 
     backdrop-filter: blur(10px);
+    box-sizing: border-box;
 }
 
-.formulario h1{
+.formulario h1 {
     font-family: 'Playfair Display', serif;
     text-align: center;
     padding: 25px 0;
     margin: 0;
-    color: #1B263B;
+    color: #1B263B; /* Midnight Blue */
     font-size: 34px;
-    border-bottom: 1px solid #E0E1DD;
+    border-bottom: 1px solid #E0E1DD; /* Soft Gold border */
 }
 
-.formulario form{
+.formulario form {
     padding: 0 40px;
     box-sizing: border-box;
 }
 
 form .username,
-form .password{
+form .password {
     position: relative;
-    border-bottom: 2px solid #415A77;
+    border-bottom: 2px solid #415A77; /* Charcoal Grey */
     margin: 35px 0;
 }
 
 .username input,
-.password input{
+.password input {
     width: 100%;
     padding: 0;
     height: 45px;
@@ -56,10 +69,11 @@ form .password{
     border: none;
     background: none;
     outline: none;
+    color: #1B263B;
 }
 
 .username label,
-.password label{
+.password label {
     position: absolute;
     top: 50%;
     left: 5px;
@@ -70,51 +84,54 @@ form .password{
     transition: .3s;
 }
 
+/* Línea animada inferior con tu color Gold */
 .username span::before,
-.password span::before{
+.password span::before {
     content: '';
     position: absolute;
     bottom: -2px;
     left: 0;
     width: 0%;
     height: 2px;
-    background: #C9A84C;
+    background: #C9A84C; /* Gold */
     transition: .4s;
 }
 
 .username input:focus ~ span::before,
 .username input:valid ~ span::before,
 .password input:focus ~ span::before,
-.password input:valid ~ span::before{
+.password input:valid ~ span::before {
     width: 100%;
 }
 
 .username input:focus ~ label,
 .username input:valid ~ label,
 .password input:focus ~ label,
-.password input:valid ~ label{
+.password input:valid ~ label {
     top: -8px;
-    color: #C9A84C;
+    color: #C9A84C; /* Gold */
     font-size: 14px;
 }
 
-
-.olvidaste_tu_contrasena{
+.olvidaste_tu_contrasena {
     margin: 10px 0 20px 5px;
     color: #415A77;
     cursor: pointer;
+    font-size: 14px;
 }
 
-.olvidaste_tu_contrasena:hover{
+.olvidaste_tu_contrasena:hover {
     text-decoration: underline;
+    color: #1B263B;
 }
 
-input[type="submit"]{
+/* Botón Iniciar Sesión adaptado a tus CTA */
+input[type="submit"] {
     width: 100%;
     height: 52px;
     border: none;
     border-radius: 14px;
-    background: linear-gradient(135deg,#C9A84C,#D4AF37);
+    background: linear-gradient(135deg, #C9A84C, #D4AF37);
     color: white;
     font-size: 16px;
     font-weight: 600;
@@ -124,76 +141,76 @@ input[type="submit"]{
     margin-top: 10px;
 }
 
-input[type="submit"]:hover{
+input[type="submit"]:hover {
     transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(201,168,76,0.35);
-    background: linear-gradient(145deg,#D4AF37,#E5C97B, #D4AF37);
+    box-shadow: 0 8px 20px rgba(201, 168, 76, 0.35);
+    background: linear-gradient(145deg, #D4AF37, #E5C97B, #D4AF37);
 }
 
-.registrarse{
+.registrarse {
     margin: 30px;
     text-align: center;
-    font-size: 16px;
+    font-size: 15px;
     color: #415A77;
 }
 
-.registrarse a{
+.registrarse a {
     color: #C9A84C;
     text-decoration: none;
     font-weight: 600;
     transition: .3s;
 }
 
-.registrarse a:hover{
-    color: #D4AF37;
+.registrarse a:hover {
+    color: #1B263B;
     text-decoration: underline;
 }
 
-@media (max-width: 480px){
 
-    .formulario{
-        width: 92%;
+FORMULARIO
+
+/* =========================================
+   2. DISPOSITIVOS MÓVILES
+   ========================================= */
+
+@media (max-width: 768px) {
+    .formulario {
+        width: 85%;
+    }
+}
+
+@media (max-width: 480px) {
+    .formulario {
+        width: 90%;
         border-radius: 15px;
     }
 
-    .formulario h1{
+    .formulario h1 {
         font-size: 28px;
         padding: 20px 0;
     }
 
-    .formulario form{
+    .formulario form {
         padding: 0 25px;
     }
 
     .username input,
-    .password input{
+    .password input {
         height: 40px;
         font-size: 15px;
     }
 
     .username label,
-    .password label{
+    .password label {
         font-size: 15px;
     }
 
-    input[type="submit"]{
-        height: 45px;
-        font-size: 16px;
+    input[type="submit"] {
+        height: 48px;
+        font-size: 15px;
     }
 
-    .registrarse{
-        margin: 20px;
-        font-size: 14px;
-    }
-
-    .olvidaste_tu_contrasena{
-        font-size: 14px;
-    }
-}
-
-@media (max-width: 768px){
-
-    .formulario{
-        width: 85%;
+    .registrarse, .olvidaste_tu_contrasena {
+        font-size: 13.5px;
     }
 }
