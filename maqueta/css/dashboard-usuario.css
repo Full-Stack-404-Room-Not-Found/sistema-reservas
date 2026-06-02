@@ -9,7 +9,7 @@
 /* ================= SIDEBAR ================= */
 
 .sidebar {
-    width: 260px;
+    width: 263px; /*usar en la proxima REM */
     height: 100vh;
     background-color: var(--midnight-blue);
     color: var(--white);
@@ -111,6 +111,7 @@
 .welcome-text h1 {
     font-size: 2rem;
     margin-bottom: 8px;
+    color: #fff;
 }
 
 .welcome-text p {
