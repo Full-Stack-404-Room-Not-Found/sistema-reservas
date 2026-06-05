@@ -337,15 +337,13 @@ gap: 15px;
   }
 
   .username input,
-  .password input,
-  .form-field input {
+  .password input {
     height: 40px;
     font-size: 15px;
   }
 
   .username label,
-  .password label,
-  .form-field label {
+  .password label {
     font-size: 15px;
   }
 
