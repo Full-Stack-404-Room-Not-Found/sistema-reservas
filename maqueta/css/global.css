@@ -299,7 +299,7 @@ gap: 15px;
 
 /* --- Phablets y Formularios Medios (Hasta 768px) --- */
 @media (max-width: 768px) {
-  .formulario {
+  .form-card {
     width: 85%;
   }
 }
@@ -320,30 +320,30 @@ gap: 15px;
   }
 
   /* Lógica repetida para formularios */
-  .formulario {
+  .form-card {
     width: 90%;
     border-radius: 15px;
   }
 
-  .formulario h1 {
+  .form-card h1 {
     font-size: 28px;
     padding: 20px 0;
   }
 
-  .formulario form {
+  .form-card form {
     padding: 0 25px;
   }
 
   .username input,
   .password input,
-  .campo input {
+  .form-field input {
     height: 40px;
     font-size: 15px;
   }
 
   .username label,
   .password label,
-  .campo label {
+  .form-field label {
     font-size: 15px;
   }
 
@@ -352,9 +352,9 @@ gap: 15px;
     font-size: 15px;
   }
 
-  .registrarse,
-  .olvidaste-tu-contrasena,
-  .ya-tenes-cuenta {
+  .signup-link,
+  .forgot-password,
+  .login-link {
     font-size: 13.5px;
   }
 }

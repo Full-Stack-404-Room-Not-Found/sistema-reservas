@@ -12,7 +12,7 @@
 /* ======================================================================
    1. FORMULARIO DE INICIO DE SESIÓN
    ====================================================================== */
-.formulario {
+.form-card {
     width: 100%;
     max-width: 420px;
     border-radius: 20px;
@@ -23,7 +23,7 @@
     box-sizing: border-box;
 }
 
-.formulario h1 {
+.form-card h1 {
     font-family: 'Playfair Display', serif;
     text-align: center;
     padding: 25px 0;
@@ -33,7 +33,7 @@
     border-bottom: 1px solid #E0E1DD; 
 }
 
-.formulario form {
+.form-card form {
     padding: 0 40px;
     box-sizing: border-box;
 }
@@ -100,14 +100,14 @@ form .password {
 /* ======================================================================
    2. BOTÓN Y ENLACES SECUNDARIOS
    ====================================================================== */
-.olvidaste-tu-contrasena {
+.forgot-password {
     margin: 10px 0 20px 5px;
     color: #415A77;
     cursor: pointer;
     font-size: 14px;
 }
 
-.olvidaste-tu-contrasena:hover {
+.forgot-password:hover {
     text-decoration: underline;
     color: #1B263B;
 }
@@ -133,21 +133,21 @@ input[type="submit"]:hover {
     background: linear-gradient(145deg, #D4AF37, #E5C97B, #D4AF37);
 }
 
-.registrarse {
+.signup-link {
     margin: 30px;
     text-align: center;
     font-size: 15px;
     color: #415A77;
 }
 
-.registrarse a {
+.signup-link a {
     color: #C9A84C;
     text-decoration: none;
     font-weight: 600;
     transition: .3s;
 }
 
-.registrarse a:hover {
+.signup-link a:hover {
     color: #1B263B;
     text-decoration: underline;
 }
