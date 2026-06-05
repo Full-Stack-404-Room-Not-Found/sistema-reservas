@@ -10,7 +10,7 @@
    2. SECCIÓN HORIZONTAL: NUESTRO COMPROMISO 
    ========================================= */
 
-.parrafo-compromiso-h2 {
+.section-title {
   font-size: 32px;
   font-family: "Playfair Display", serif;
   margin: 60px 0 40px 0;
@@ -18,7 +18,7 @@
   color: var(--midnight-blue);
 }
 
-.parrafo-compromiso-h2::after {
+.section-title::after {
   content: '';
   display: block;
   width: 50px;
@@ -27,14 +27,14 @@
   margin: 12px auto 0 auto;
 }
 
-.compromiso-qs {
+.commitment-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   gap: 20px;
   margin-bottom: 40px;
 }
 
-.compromiso-qs-item {
+.commitment-item {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -46,39 +46,38 @@
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
 }
 
-.icono-wrapper {
+.icon-wrapper {
   background-color: transparent; 
   width: auto;
   height: auto;
   margin-bottom: 20px;
 }
 
-.logos {
+.icon-img {
   width: 55px;  
   height: 55px;
   object-fit: contain;
 }
 
-.parrafo-compromiso-h3 {
+.commitment-heading {
   font-size: 20px;
   font-family: "Playfair Display", serif;
   color: var(--midnight-blue);
   margin-bottom: 12px;
 }
 
-.parrafo-h2 {
+.commitment-text {
   font-family: 'Lato', sans-serif;
   color: var(--charcoal-grey);
   font-size: 14px;
   line-height: 1.6;
 }
 
-
 /* =========================================
    3. SECCIÓN CARDS INDIVIDUALES: SOBRE NOSOTROS   
    ========================================= */
 
-.nosotros {
+.team-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr); 
   gap: 30px;
@@ -88,7 +87,7 @@
   margin-top: 20px;
 }
 
-.tarjeta-desarrollador {
+.developer-card {
   display: flex;
   flex-direction: column; 
   align-items: center;
@@ -101,17 +100,17 @@
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.tarjeta-desarrollador:hover {
+.developer-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 8px 25px rgba(201, 168, 76, 0.15); 
 }
 
-.imagen-contenedor {
+.image-container {
   margin-bottom: 20px;
   position: relative;
 }
 
-.imagenes {
+.profile-img {
   width: 120px;
   height: 120px;
   object-fit: cover;
@@ -119,13 +118,13 @@
   border: 3px solid var(--soft-gold-cream);
 }
 
-.info-desarrollador {
+.developer-info {
   display: flex;
   flex-direction: column;
   height: 100%;
 }
 
-.parrafo-imagenes-h3 {
+.developer-name {
   font-family: 'Playfair Display', serif;
   color: var(--midnight-blue);
   font-size: 20px;
@@ -133,7 +132,7 @@
   margin-bottom: 4px;
 }
 
-.rol-desarrollador {
+.developer-role {
   font-family: 'Poppins', sans-serif;
   font-size: 13px;
   color: var(--gold);
@@ -144,7 +143,7 @@
   display: inline-block;
 }
 
-.parrafo-imagenes-p {
+.developer-bio {
   font-family: 'Lato', sans-serif;
   color: var(--charcoal-grey);
   font-size: 14px;
@@ -153,7 +152,7 @@
   flex-grow: 1; 
 }
 
-.meta-desarrollador {
+.developer-meta {
   border-top: 1px solid var(--border-grey);
   padding-top: 15px;
   margin-top: auto; 
@@ -176,7 +175,7 @@
   text-decoration: underline;
 }
 
-.boton-1 {
+.btn-portfolio {
   display: inline-block; 
   background-color: var(--gold);
   color: var(--white-pure);
@@ -191,6 +190,6 @@
   margin: 0 auto;        
 }
 
-.boton-1:hover {
+.btn-portfolio:hover {
   background-color: var(--midnight-blue);
 }
