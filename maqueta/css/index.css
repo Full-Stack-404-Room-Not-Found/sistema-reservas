@@ -87,6 +87,10 @@
   margin-bottom: 10px;
 }
 
+.gallery-header p {
+  margin-top: 15px;
+}
+
 .gallery-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
