@@ -1,6 +1,4 @@
 
-@import url(estilos.css); /* ESTILOS GENERALES */
-
 .login-wrapper-background {
     flex-grow: 1;
     display: flex;
@@ -118,21 +116,21 @@ input[type="submit"]:hover {
     background: linear-gradient(145deg, #d4af37, #e5c97b, #d4af37);
 }
 
-.ya-tenés-cuenta {
+.ya-tenes-cuenta {
     margin: 15px 0 20px; 
     text-align: center;
     font-size: 14px;
     color: #415a77;
 }
 
-.ya-tenés-cuenta a {
+.ya-tenes-cuenta a {
     color: #c9a84c;
     text-decoration: none;
     font-weight: 600;
     transition: 0.3s;
 }
 
-.ya-tenés-cuenta a:hover {
+.ya-tenes-cuenta a:hover {
     color: #1b263b;
     text-decoration: underline;
 }

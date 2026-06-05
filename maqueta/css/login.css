@@ -1,5 +1,3 @@
-@import url(estilos.css); /* ESTILOS GENERALES */
-
 .login-wrapper-background {
     flex-grow: 1; 
     display: flex;
@@ -102,14 +100,14 @@ form .password {
 /* ======================================================================
    2. BOTÓN Y ENLACES SECUNDARIOS
    ====================================================================== */
-.olvidaste_tu_contrasena {
+.olvidaste-tu-contrasena {
     margin: 10px 0 20px 5px;
     color: #415A77;
     cursor: pointer;
     font-size: 14px;
 }
 
-.olvidaste_tu_contrasena:hover {
+.olvidaste-tu-contrasena:hover {
     text-decoration: underline;
     color: #1B263B;
 }
