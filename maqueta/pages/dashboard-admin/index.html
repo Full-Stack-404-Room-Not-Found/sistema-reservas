@@ -10,26 +10,24 @@
 
 <body>
 
-    <div class="contenedor">
+    <div class="container">
         <h1>🏨 SISTEMA DE GESTIÓN HOTELERA - ADMINISTRADOR</h1>
 
-        <!-- Tarjetas resumen de habitaciones -->
-        <div class="resumen">
-            <div class="carta disponible">
-                <div class="numero">12</div>
+        <div class="summary">
+            <div class="card available">
+                <div class="number">12</div>
                 <div>🟢 Habitaciones Disponibles</div>
             </div>
-            <div class="carta ocupada">
-                <div class="numero">8</div>
+            <div class="card occupied">
+                <div class="number">8</div>
                 <div>🔴 Habitaciones Ocupadas</div>
             </div>
-            <div class="carta mantenimiento">
-                <div class="numero">4</div>
+            <div class="card maintenance">
+                <div class="number">4</div>
                 <div>🟡 En Mantenimiento</div>
             </div>
         </div>
 
-        <!-- Tabla de estado de habitaciones -->
         <table>
             <thead>
                 <tr>
@@ -43,31 +41,31 @@
                 <tr>
                     <td>101</td>
                     <td>Standard</td>
-                    <td><span class="estado disponible-texto">🟢 Disponible</span></td>
+                    <td><span class="status status-available">🟢 Disponible</span></td>
                     <td><a href="./detalle-habitacion.html" class="btn-ver">Ver</a> <a href="./detalle-habitacion.html" class="btn-editar">Editar</a></td>
                 </tr>
                 <tr>
                     <td>102</td>
                     <td>Standard</td>
-                    <td><span class="estado disponible-texto">🟢 Disponible</span></td>
+                    <td><span class="status status-available">🟢 Disponible</span></td>
                     <td><a href="./detalle-habitacion.html" class="btn-ver">Ver</a> <a href="./detalle-habitacion.html" class="btn-editar">Editar</a></td>
                 </tr>
                 <tr>
                     <td>103</td>
                     <td>Doble</td>
-                    <td><span class="estado ocupada-texto">🔴 Ocupada</span></td>
+                    <td><span class="status status-occupied">🔴 Ocupada</span></td>
                     <td><a href="./detalle-habitacion.html" class="btn-ver">Ver</a> <a href="./detalle-habitacion.html" class="btn-editar">Editar</a></td>
                 </tr>
                 <tr>
                     <td>104</td>
                     <td>Suite</td>
-                    <td><span class="estado disponible-texto">🟢 Disponible</span></td>
+                    <td><span class="status status-available">🟢 Disponible</span></td>
                     <td><a href="./detalle-habitacion.html" class="btn-ver">Ver</a> <a href="./detalle-habitacion.html" class="btn-editar">Editar</a></td>
                 </tr>
                 <tr>
                     <td>105</td>
                     <td>Familiar</td>
-                    <td><span class="estado mantenimiento-texto">🟡 Mantenimiento</span></td>
+                    <td><span class="status status-maintenance">🟡 Mantenimiento</span></td>
                     <td><a href="./detalle-habitacion.html" class="btn-ver">Ver</a> <a href="./detalle-habitacion.html" class="btn-editar">Editar</a></td>
                 </tr>
             </tbody>

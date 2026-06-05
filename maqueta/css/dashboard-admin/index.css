@@ -4,7 +4,7 @@ body {
     padding: 20px;
 }
 
-.contenedor {
+.container {
     max-width: 1000px;
     margin: auto;
     background-color: #FFFFFF;
@@ -17,39 +17,37 @@ h1 {
     text-align: center;
 }
 
-/* Tarjetas resumen */
-.resumen {
+.summary {
     display: flex;
     justify-content: center;
     gap: 20px;
     margin: 20px 0;
 }
 
-.carta {
+.card {
     background-color: #E0E1DD;
     padding: 15px 25px;
     text-align: center;
     border-radius: 10px;
 }
 
-.carta .numero {
+.card .number {
     font-size: 36px;
     font-weight: bold;
 }
 
-.disponible .numero {
+.available .number {
     color: #27AE60;
 }
 
-.ocupada .numero {
+.occupied .number {
     color: #C0392B;
 }
 
-.mantenimiento .numero {
+.maintenance .number {
     color: #C9A84C;
 }
 
-/* Tabla */
 table {
     width: 100%;
     border-collapse: collapse;
@@ -68,29 +66,27 @@ td {
     border-bottom: 1px solid #DDE1E7;
 }
 
-/* Estados */
-.estado {
+.status {
     padding: 4px 10px;
     border-radius: 20px;
     font-size: 12px;
 }
 
-.disponible-texto {
+.status-available {
     background-color: #E0E1DD;
     color: #27AE60;
 }
 
-.ocupada-texto {
+.status-occupied {
     background-color: #E0E1DD;
     color: #C0392B;
 }
 
-.mantenimiento-texto {
+.status-maintenance {
     background-color: #E0E1DD;
     color: #C9A84C;
 }
 
-/* Botones */
 .btn-ver,
 .btn-editar {
     padding: 5px 10px;
