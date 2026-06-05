@@ -4,16 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inicio de Sesión - Gestión Hotelera Premium</title>
-    <link rel="stylesheet" href="/maqueta/css/login.css">
+    <link rel="stylesheet" href="../css/global.css">
+    <link rel="stylesheet" href="../css/login.css">
 </head>
 <body>
      <header>
         <nav class="navbar">
             <div class="nav-left">
-                <div class="logo-container">
-                    <img src="/maqueta/imagenes/logo.png" alt="404 Logo" class="logo-img">
-                </div>
-                <span class="brand-name">404 Room Not Found</span>
+                <a href="../index.html" class="nav-home">
+                    <div class="logo-container">
+                        <img src="../imagenes/logo.png" alt="404 Logo" class="logo-img">
+                    </div>
+                    <span class="brand-name">404 Room Not Found</span>
+                </a>
             </div>
             <input type="checkbox" id="menu-toggle" class="menu-checkbox">
             <label for="menu-toggle" class="mobile-menu-btn">
@@ -21,10 +24,10 @@
             </label>
             
             <ul class="nav-links">
-                <li><a href="index.html" class="nav-item">Inicio</a></li>
-                <li><a href="quienes-somos.html" class="nav-item">Quiénes Somos</a></li>
-                <li><a href="registro.html" class="nav-item">Registrar</a></li>
-                <li><a href="login.html" class="nav-item">Iniciar Sesión</a></li>
+                <li><a href="../index.html" class="nav-item">Inicio</a></li>
+                <li><a href="./quienes-somos.html" class="nav-item">Quiénes Somos</a></li>
+                <li><a href="./registro.html" class="nav-item">Registrar</a></li>
+                <li><a href="./login.html" class="nav-item">Iniciar Sesión</a></li>
                 <li><a href="#" class="btn-reservation">Reservar Ahora</a></li>
             </ul>
         </nav>
@@ -35,7 +38,7 @@
         
         <div class="formulario">
             <h1>Inicio de Sesión</h1>
-            <form method="get" action="dashboard-usuario.html">
+            <form method="get" action="./dashboard-usuario/index.html">
                 
                 <div class="username">
                     <input type="email" name="email" required>
@@ -56,7 +59,7 @@
                 <div class="olvidaste_tu_contrasena">¿Olvidaste tu Contraseña?</div>
                 
                 <div class="registrarse">
-                    <a href="registro.html">Quiero Registrarme</a>
+                    <a href="./registro.html">Quiero Registrarme</a>
                 </div>
             </form>
         </div>
@@ -67,7 +70,7 @@
         <div class="footer-content">
             <div class="footer-brand">
                 <div class="footer-logo-circle">
-                    <img src="/maqueta/imagenes/logo.png" alt="404 Logo">
+                    <img src="../imagenes/logo.png" alt="404 Logo">
                 </div>
             </div>
             <hr class="footer-line">

@@ -91,11 +91,15 @@ td {
 }
 
 /* Botones */
-button {
+.btn-ver,
+.btn-editar {
     padding: 5px 10px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
 }
 
 .btn-ver {

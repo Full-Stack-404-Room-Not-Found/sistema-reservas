@@ -69,9 +69,16 @@ header {
 }
 
 .nav-left {
-  display: flex;
-  align-items: center;
-  gap: 15px;
+display: flex;
+align-items: center;
+gap: 15px;
+}
+
+.nav-home {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    text-decoration: none;
 }
 
 .logo-container {
