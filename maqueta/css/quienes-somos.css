@@ -3,7 +3,7 @@
    ========================================= */
 .hero {
     background-image: linear-gradient(rgba(27, 38, 59, 0.7), rgba(27, 38, 59, 0.7)), 
-                url(/maqueta/imagenes/desarrolladores/banner.png);
+                url(../imagenes/desarrolladores/banner.png);
 }
 
 /* =========================================
