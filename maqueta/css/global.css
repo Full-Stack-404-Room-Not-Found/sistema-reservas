@@ -1,0 +1,353 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,400&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Poppins:wght@300;400;500;600;700&family=Inter:wght@300;400;600;700&display=swap");
+
+/* ======================================================================
+   1. VARIABLES Y CONFIGURACIÓN BASE
+   ====================================================================== */
+:root {
+  --midnight-blue: #1b263b;
+  --soft-gold: #e0e1dd;
+  --gold-accent: #c5a059;
+  --white-smoke: #f8f9fa;
+  --charcoal-grey: #415a77;
+  --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+  --nav-height: 80px;
+  --gold: #c9a84c;
+  --white: #ffffff;
+  --light-grey: #dde1e7;
+
+  /* Estados del Sistema */
+  --error-red: #c0392b;
+  --success-green: #27ae60;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  height: 100%; /* Fuerza al navegador a medir el total de la pantalla */
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  background-color: var(--white-smoke);
+  color: var(--midnight-blue);
+  line-height: 1.6;
+  overflow-x: hidden;
+
+  /* ESTOS TRES CAMBIOS ASEGURAN QUE EL FOOTER TOQUE EL FINAL */
+  min-height: 100%; /* Ocupa el 100% del html */
+  display: flex;
+  flex-direction: column; /* Alinea los bloques hacia abajo */
+  margin: 0;
+  padding: 0;
+}
+
+/* ======================================================================
+   2. NAVBAR 
+   ====================================================================== */
+header {
+  background-color: var(--midnight-blue);
+  height: var(--nav-height);
+  display: flex;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  padding: 0 5%;
+}
+
+.navbar {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.logo-container {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 2px solid var(--gold-accent);
+  background-color: white;
+  transition: var(--transition);
+}
+
+.logo-container:hover {
+  transform: scale(1.05);
+}
+
+.logo-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.brand-name {
+  color: white;
+  font-weight: 700;
+  font-size: 1.2rem;
+  letter-spacing: -0.5px;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.nav-item {
+  color: rgba(255, 255, 255, 0.85);
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 400;
+  position: relative;
+  padding: 5px 0;
+  transition: var(--transition);
+}
+
+.nav-item::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--gold-accent);
+  transition: var(--transition);
+}
+
+.nav-item:hover {
+  color: var(--gold-accent);
+}
+
+.nav-item:hover::after {
+  width: 100%;
+}
+
+.btn-reservation {
+  background-color: var(--gold-accent);
+  color: white !important;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: var(--transition);
+  border: 1px solid transparent;
+}
+
+.btn-reservation:hover {
+  background-color: transparent;
+  border-color: var(--gold-accent);
+  box-shadow: 0 0 20px rgba(197, 160, 89, 0.3);
+  transform: translateY(-2px);
+}
+
+.menu-checkbox {
+  display: none;
+}
+
+.mobile-menu-btn {
+  display: none;
+  color: white;
+  font-size: 1.5rem;
+  cursor: pointer;
+  z-index: 1001;
+}
+
+.menu-checkbox:checked ~ .mobile-menu-btn {
+  color: gold;
+}
+
+/* ======================================================================
+   3. HERO (Layout compartido)
+   ====================================================================== */
+.hero {
+  height: 70vh;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: white;
+  padding: 0 20px;
+}
+
+.hero-content h1 {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  margin-bottom: 15px;
+  font-weight: 700;
+}
+
+.hero-content p {
+  font-size: clamp(1rem, 2vw, 1.3rem);
+  margin-bottom: 30px;
+  opacity: 0.9;
+}
+
+/* ======================================================================
+   4. FOOTER 
+   ====================================================================== */
+.simple-footer {
+  background-color: var(--midnight-blue);
+  color: var(--white);
+  padding: 40px 20px;
+  text-align: center;
+  width: 100%;
+  margin-top: auto;
+  margin-bottom: 0; /* Bloquea cualquier espacio abajo */
+}
+
+.footer-content {
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.footer-brand {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 25px;
+}
+
+.footer-logo-circle {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  border: 2px solid var(--gold);
+  overflow: hidden;
+  background-color: white;
+}
+
+.footer-logo-circle img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.footer-line {
+  border: 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  margin-bottom: 20px;
+}
+
+.copyright {
+  color: var(--charcoal-grey);
+  font-size: 0.85rem;
+}
+
+/* ======================================================================
+   5. MEDIA QUERIES GLOBALES (Adaptación Responsiva Unificada)
+   ====================================================================== */
+
+/* --- Tablets y Pantallas Medianas (Hasta 992px) --- */
+@media (max-width: 992px) {
+  .mobile-menu-btn {
+    display: block;
+  }
+
+  .nav-links {
+    position: fixed;
+    top: var(--nav-height);
+    left: -100%;
+    flex-direction: column;
+    background-color: var(--midnight-blue);
+    width: 100%;
+    height: calc(100vh - var(--nav-height));
+    padding: 50px 0;
+    transition: var(--transition);
+    gap: 40px;
+  }
+
+  .menu-checkbox:checked ~ .nav-links {
+    left: 0;
+  }
+
+  .menu-checkbox:checked ~ .mobile-menu-btn i::before {
+    content: "\f00d";
+  }
+
+  .nav-item {
+    font-size: 1.3rem;
+  }
+
+  .brand-name {
+    font-size: 1rem;
+  }
+}
+
+/* --- Phablets y Formularios Medios (Hasta 768px) --- */
+@media (max-width: 768px) {
+  .formulario {
+    width: 85%;
+  }
+}
+
+/* --- Móviles Medianos (Hasta 600px) --- */
+@media (max-width: 600px) {
+  .hero {
+    height: 50vh;
+  }
+}
+
+/* --- Móviles Pequeños (Hasta 480px) --- */
+@media (max-width: 480px) {
+  .footer-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  /* Lógica repetida para formularios */
+  .formulario {
+    width: 90%;
+    border-radius: 15px;
+  }
+
+  .formulario h1 {
+    font-size: 28px;
+    padding: 20px 0;
+  }
+
+  .formulario form {
+    padding: 0 25px;
+  }
+
+  .username input,
+  .password input,
+  .campo input {
+    height: 40px;
+    font-size: 15px;
+  }
+
+  .username label,
+  .password label,
+  .campo label {
+    font-size: 15px;
+  }
+
+  input[type="submit"] {
+    height: 48px;
+    font-size: 15px;
+  }
+
+  .registrarse,
+  .olvidaste_tu_contrasena,
+  .ya-tenés-cuenta {
+    font-size: 13.5px;
+  }
+}

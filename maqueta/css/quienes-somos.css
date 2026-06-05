@@ -1,33 +1,9 @@
-@import url(estilos.css); /*ESTILOS GENERALES*/
-
-
 /* =========================================
-   1. SECCIÓN HERO QUIENES SOMOS
+   1. HERO - Imagen de fondo Quiénes Somos
    ========================================= */
-.heroQ {
-    height: 70vh;
-    background: linear-gradient(rgba(27, 38, 59, 0.7), rgba(27, 38, 59, 0.7)), 
+.hero {
+    background-image: linear-gradient(rgba(27, 38, 59, 0.7), rgba(27, 38, 59, 0.7)), 
                 url(/maqueta/imagenes/desarrolladores/banner.png);
-    background-size: cover;
-    background-position: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    color: white;
-    padding: 0 20px;
-}
-
-.heroQ-content h1 {
-    font-size: clamp(2rem, 5vw, 3.5rem);
-    margin-bottom: 15px;
-    font-weight: 700;
-}
-
-.heroQ-content p {
-    font-size: clamp(1rem, 2vw, 1.3rem);
-    margin-bottom: 30px;
-    opacity: 0.9;
 }
 
 /* =========================================
@@ -219,7 +195,3 @@
 .boton_1:hover {
   background-color: var(--midnight-blue);
 }
-
-
-
-
