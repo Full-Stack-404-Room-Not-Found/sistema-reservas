@@ -16,8 +16,7 @@
 /* ================= MAIN CONTENT ================= */
 
 .main-content {
-    flex: 1;
-    margin-left: 260px;
+    flex: 0;
     padding: 30px;
 }
 
@@ -273,6 +272,9 @@ tbody tr {
     font-weight: bold;
 }
 
+li {
+    list-style: none;
+}
 /* ================= RESPONSIVE ================= */
 
 @media (max-width: 1200px) {
@@ -325,9 +327,7 @@ tbody tr {
 }
 
 
-li {
-    list-style: none;
-}
+
 
 /* ================= RESPONSIVE ================= */
 
