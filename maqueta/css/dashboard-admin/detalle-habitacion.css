@@ -112,7 +112,7 @@ td:last-child:hover {
   font-size: 0;
 }
 
-button {
+.btn {
   display: inline-block;
   padding: 10px 22px;
   border: none;
@@ -123,6 +123,7 @@ button {
   cursor: pointer;
   margin-right: 10px;
   vertical-align: top;
+  text-decoration: none;
 }
 
 .btn--blue {

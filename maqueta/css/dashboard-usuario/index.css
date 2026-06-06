@@ -433,13 +433,13 @@ tbody tr {
 
 
 /*------- MENU LATERAL -------------*/
-.item-menu{
+.menu-item{
     text-decoration: none;
     font-weight: 500;
     color: #a0a0a0 !important;
 }
 
-.item-menu:hover{
+.menu-item:hover{
     border-radius: 12px;
     background-color: #e0e1dd1f;
 }
@@ -449,7 +449,7 @@ li {
 }
 
 
-.sidebar-menu-Selected a{
+.sidebar-menu-selected a{
     display: flex;
     align-items: center;
     gap: 10px;

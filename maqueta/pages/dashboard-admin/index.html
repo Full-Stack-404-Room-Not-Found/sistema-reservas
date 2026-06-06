@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Sistema de Gestión Hotelera - Panel Administrador</title>
+    <link rel="stylesheet" href="../../css/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="../../css/global.css">
+    <link rel="stylesheet" href="../../css/dashboard-admin/index.css">
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>🏨 SISTEMA DE GESTIÓN HOTELERA - ADMINISTRADOR</h1>
+
+        <div class="summary">
+            <div class="card available">
+                <div class="number">12</div>
+                <div>🟢 Habitaciones Disponibles</div>
+            </div>
+            <div class="card occupied">
+                <div class="number">8</div>
+                <div>🔴 Habitaciones Ocupadas</div>
+            </div>
+            <div class="card maintenance">
+                <div class="number">4</div>
+                <div>🟡 En Mantenimiento</div>
+            </div>
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>N° Hab.</th>
+                    <th>Tipo</th>
+                    <th>Estado</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>101</td>
+                    <td>Standard</td>
+                    <td><span class="status status-available">🟢 Disponible</span></td>
+                    <td><a href="./detalle-habitacion.html" class="btn-ver">Ver</a> <a href="./detalle-habitacion.html" class="btn-editar">Editar</a></td>
+                </tr>
+                <tr>
+                    <td>102</td>
+                    <td>Standard</td>
+                    <td><span class="status status-available">🟢 Disponible</span></td>
+                    <td><a href="./detalle-habitacion.html" class="btn-ver">Ver</a> <a href="./detalle-habitacion.html" class="btn-editar">Editar</a></td>
+                </tr>
+                <tr>
+                    <td>103</td>
+                    <td>Doble</td>
+                    <td><span class="status status-occupied">🔴 Ocupada</span></td>
+                    <td><a href="./detalle-habitacion.html" class="btn-ver">Ver</a> <a href="./detalle-habitacion.html" class="btn-editar">Editar</a></td>
+                </tr>
+                <tr>
+                    <td>104</td>
+                    <td>Suite</td>
+                    <td><span class="status status-available">🟢 Disponible</span></td>
+                    <td><a href="./detalle-habitacion.html" class="btn-ver">Ver</a> <a href="./detalle-habitacion.html" class="btn-editar">Editar</a></td>
+                </tr>
+                <tr>
+                    <td>105</td>
+                    <td>Familiar</td>
+                    <td><span class="status status-maintenance">🟡 Mantenimiento</span></td>
+                    <td><a href="./detalle-habitacion.html" class="btn-ver">Ver</a> <a href="./detalle-habitacion.html" class="btn-editar">Editar</a></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</body>
+
+</html>
