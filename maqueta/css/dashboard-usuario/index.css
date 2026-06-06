@@ -1,27 +1,8 @@
 /* ================= DASHBOARD LAYOUT ================= */
 
 .dashboard-container {
-    display: flex;
     min-height: 100vh;
     background-color: var(--white-smoke);
-}
-
-/* ================= SIDEBAR ================= */
-
-.sidebar {
-    width: 263px; /*usar en la proxima REM */
-    height: 100vh;
-    background-color: var(--midnight-blue);
-    color: var(--white);
-    padding: 30px 20px;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-
-    position: fixed;
-    left: 0;
-    top: 0;
 }
 
 /* LOGO */
@@ -34,33 +15,7 @@
 
 /* MENU */
 
-.sidebar-menu ul {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
 
-.sidebar-menu a {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-
-    padding: 14px;
-    border-radius: var(--border-radius);
-
-    transition: var(--transition);
-
-    font-size: 1rem;
-    font-weight: 500;
-}
-
-.sidebar-menu a:hover {
-    background-color: var(--charcoal-grey);
-}
-
-.sidebar-menu i {
-    font-size: 1.1rem;
-}
 
 /* LOGOUT */
 
@@ -877,35 +832,54 @@ li {
 
 /* ================= CONTACT INFO ================= */
 
-.profile-contact {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 25px;
+/* CONTACT CARD */
+
+.contact-card{
+    background-color: var(--white);
+    border-radius: 20px;
+    padding: 25px;
 }
 
-/* CONTACT ITEM */
+/* TITULO */
 
-.contact-item {
+.contact-title{
     display: flex;
     align-items: center;
-    gap: 15px;
+    gap: 12px;
+    margin-bottom: 20px;
 }
 
-/* ICON */
+.contact-title h3{
+    margin: 0;
+}
 
-.contact-icon {
-    width: 40px;
-    height: 40px;
+/* LISTA */
 
-    border-radius: 12px;
-
-    background-color: var(--white-smoke);
-
+.settings-list{
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+}
+
+/* ITEMS */
+
+.setting-item{
+    display: flex;
+    justify-content: space-between;
     align-items: center;
 
-    color: var(--charcoal-grey);
+    padding: 18px 0;
+
+    border-bottom: 1px solid var(--light-grey);
+}
+
+.setting-item:last-child{
+    border-bottom: none;
+}
+
+.setting-item span:first-child{
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
 /* ================= SECURITY CARD ================= */
