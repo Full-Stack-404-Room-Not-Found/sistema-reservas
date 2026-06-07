@@ -146,63 +146,39 @@
 }
 
 .rooms-container {
-    display: grid;
+    display: flex;
     grid-template-columns: repeat(2, 1fr);
     gap: 25px;
 }
-
-/* ROOM CARD */
-
-.room-card {
-    background-color: var(--white);
-    border-radius: var(--border-radius);
-    overflow: hidden;
-    box-shadow: var(--shadow-soft);
-}
-
-.room-card img {
-    width: 100%;
-    height: 220px;
-    object-fit: cover;
-}
-
-/* ROOM INFO */
-
-.room-info {
-    padding: 20px 0px 20px 0px;
-}
-
-.room-info h3 {
-    margin-bottom: 10px;
-}
-
-.room-info p {
-    color: var(--charcoal-grey);
-    margin-bottom: 20 px;
-}
-
-/* ROOM DETAILS */
 
 .room-details {
     display: flex;
     justify-content: space-between;
     margin-bottom: 20px;
+    height: 2rem;
 }
 
-/* BUTTON RESERVE */
-
-.btn-reserve {
+.btn-mas-detalles {
     width: 100%;
     padding: 12px;
-    background-color: var(--gold);
     color: var(--white);
     border-radius: var(--border-radius);
     font-weight: 600;
     background-color: var(--midnight-blue);
 }
 
-.btn-reserve:hover {
+.btn-mas-detalles:hover {
+    color: var(--gold);
     background-color: var(--midnight-blue);
+}
+
+.img-card{
+    height: 13.75rem;
+}
+
+.card-limite{
+    height: 80px;
+    overflow: hidden;
 }
 
 /* ================= RESERVACIONES ================= */
