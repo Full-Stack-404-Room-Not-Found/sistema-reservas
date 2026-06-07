@@ -1,19 +1,13 @@
-/* ================= DASHBOARD LAYOUT ================= */
-
 .dashboard-container {
     min-height: 100vh;
     background-color: var(--white-smoke);
 }
-
-/* LOGO */
 
 .logo h2 {
     font-size: 2rem;
     color: var(--white);
     margin-bottom: 40px;
 }
-
-/* ================= MAIN CONTENT ================= */
 
 .main-content {
     flex: 0;
@@ -24,16 +18,12 @@
 
 .topbar {
     background-color: var(--white);
-
     padding: 20px 30px;
     border-radius: var(--border-radius);
-
     display: flex;
     justify-content: space-between;
     align-items: center;
-
     box-shadow: var(--shadow-soft);
-
     margin-bottom: 30px;
 }
 
@@ -165,25 +155,21 @@
 
 .room-card {
     background-color: var(--white);
-
     border-radius: var(--border-radius);
-
     overflow: hidden;
-
     box-shadow: var(--shadow-soft);
 }
 
 .room-card img {
     width: 100%;
     height: 220px;
-
     object-fit: cover;
 }
 
 /* ROOM INFO */
 
 .room-info {
-    padding: 20px;
+    padding: 20px 0px 20px 0px;
 }
 
 .room-info h3 {
@@ -192,7 +178,7 @@
 
 .room-info p {
     color: var(--charcoal-grey);
-    margin-bottom: 20px;
+    margin-bottom: 20 px;
 }
 
 /* ROOM DETAILS */
@@ -200,7 +186,6 @@
 .room-details {
     display: flex;
     justify-content: space-between;
-
     margin-bottom: 20px;
 }
 
@@ -208,14 +193,10 @@
 
 .btn-reserve {
     width: 100%;
-
     padding: 12px;
-
     background-color: var(--gold);
     color: var(--white);
-
     border-radius: var(--border-radius);
-
     font-weight: 600;
     background-color: var(--midnight-blue);
 }
@@ -224,19 +205,16 @@
     background-color: var(--midnight-blue);
 }
 
-/* ================= RESERVATIONS ================= */
+/* ================= RESERVACIONES ================= */
 
 .reservations-section {
     background-color: var(--white);
-
     padding: 30px;
     border-radius: var(--border-radius);
-
     box-shadow: var(--shadow-soft);
 }
 
 /* TABLE */
-
 .table-container {
     overflow-x: auto;
 }
@@ -261,7 +239,6 @@ tbody tr {
 }
 
 /* STATUS */
-
 .status-confirmed {
     color: var(--success-green);
     font-weight: bold;
@@ -275,8 +252,8 @@ tbody tr {
 li {
     list-style: none;
 }
-/* ================= RESPONSIVE ================= */
 
+/* ================= RESPONSIVE ================= */
 @media (max-width: 1200px) {
 
     .summary-cards {
@@ -299,13 +276,6 @@ li {
         flex-direction: column;
     }
 
-    .sidebar {
-        width: 100%;
-        height: auto;
-
-        position: relative;
-    }
-
     .main-content {
         margin-left: 0;
     }
@@ -322,57 +292,6 @@ li {
 
     .search-form {
         grid-template-columns: 1fr;
-    }
-
-}
-
-
-
-
-/* ================= RESPONSIVE ================= */
-
-@media (max-width: 1400px) {
-
-    .services-container {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-}
-
-@media (max-width: 768px) {
-
-    .services-header {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 15px;
-    }
-
-    .services-container {
-        grid-template-columns: 1fr;
-    }
-
-}
-
-/* ================= RESPONSIVE ================= */
-
-@media (max-width: 992px) {
-
-    .profile-contact {
-        grid-template-columns: 1fr;
-    }
-
-}
-
-@media (max-width: 768px) {
-
-    .profile-top {
-        flex-direction: column;
-        gap: 20px;
-    }
-
-    .profile-stats {
-        grid-template-columns: 1fr;
-        gap: 20px;
     }
 
 }
