@@ -1,30 +1,9 @@
-/* ================= DASHBOARD LAYOUT ================= */
-
 .dashboard-container {
-    display: flex;
     min-height: 100vh;
     background-color: var(--white-smoke);
-}
-
-/* ================= SIDEBAR ================= */
-
-.sidebar {
-    width: 263px; /*usar en la proxima REM */
-    height: 100vh;
-    background-color: var(--midnight-blue);
-    color: var(--white);
-    padding: 30px 20px;
-
-    display: flex;
     flex-direction: column;
-    justify-content: space-between;
-
-    position: fixed;
-    left: 0;
-    top: 0;
+    display: flex; 
 }
-
-/* LOGO */
 
 .logo h2 {
     font-size: 2rem;
@@ -32,93 +11,31 @@
     margin-bottom: 40px;
 }
 
-/* MENU */
-
-.sidebar-menu ul {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
-
-.sidebar-menu a {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-
-    padding: 14px;
-    border-radius: var(--border-radius);
-
-    transition: var(--transition);
-
-    font-size: 1rem;
-    font-weight: 500;
-}
-
-.sidebar-menu a:hover {
-    background-color: var(--charcoal-grey);
-}
-
-.sidebar-menu i {
-    font-size: 1.1rem;
-}
-
-/* LOGOUT */
-
-.logout a {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    border-radius: 12px;
-    padding: 14px;
-
-    background-color: rgba(255, 255, 255, 0.08);
-
-    transition: var(--transition);
-}
-.logout:hover a{
-    color: #FF6B6B !important;
-    background-color: #FF6B6B14;
-}
-
-
-/* ================= MAIN CONTENT ================= */
-
 .main-content {
-    flex: 1;
-    margin-left: 260px;
+    flex: 0;
     padding: 30px;
 }
 
-/* ================= TOPBAR ================= */
-
 .topbar {
     background-color: var(--white);
-
     padding: 20px 30px;
     border-radius: var(--border-radius);
-
     display: flex;
     justify-content: space-between;
     align-items: center;
-
     box-shadow: var(--shadow-soft);
-
     margin-bottom: 30px;
 }
-
-/* WELCOME */
 
 .welcome-text h1 {
     font-size: 2rem;
     margin-bottom: 8px;
-    color: #fff;
+    color: var(--midnight-blue);
 }
 
 .welcome-text p {
     color: var(--charcoal-grey);
 }
-
-/* ACTIONS */
 
 .topbar-actions {
     display: flex;
@@ -126,19 +43,14 @@
     gap: 20px;
 }
 
-/* BUTTON NOTIFICATION */
-
 .notification-btn {
     width: 45px;
     height: 45px;
-
     border-radius: 50%;
     background-color: var(--soft-gold);
-
     display: flex;
     justify-content: center;
     align-items: center;
-
     font-size: 1.1rem;
 }
 
@@ -147,55 +59,12 @@
     color: var(--white);
 }
 
-/* PROFILE IMAGE */
-
 .profile-image img {
     width: 50px;
     height: 50px;
-
     border-radius: 50%;
     object-fit: cover;
 }
-
-/* ================= SUMMARY CARDS ================= */
-
-.summary-cards {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 20px;
-
-    margin-bottom: 40px;
-}
-
-.summary-card {
-    background-color: var(--white);
-
-    padding: 25px;
-    border-radius: var(--border-radius);
-
-    box-shadow: var(--shadow-soft);
-
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.summary-card h3 {
-    font-size: 1rem;
-    margin-bottom: 10px;
-}
-
-.summary-card p {
-    font-size: 1.5rem;
-    font-weight: bold;
-}
-
-.summary-card i {
-    font-size: 2rem;
-    color: var(--gold);
-}
-
-/* ================= SECTION TITLE ================= */
 
 .section-title {
     margin-bottom: 20px;
@@ -205,20 +74,13 @@
     font-size: 2rem;
 }
 
-/* ================= SEARCH ROOM ================= */
-
 .search-room {
     background-color: var(--white);
-
     padding: 30px;
     border-radius: var(--border-radius);
-
     box-shadow: var(--shadow-soft);
-
     margin-bottom: 40px;
 }
-
-/* FORM */
 
 .search-form {
     display: grid;
@@ -226,123 +88,114 @@
     gap: 20px;
 }
 
-/* INPUT GROUP */
-
-.input-group {
+.form-group {
     display: flex;
     flex-direction: column;
     gap: 8px;
 }
 
-.input-group label {
+.form-decision {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.form-group label {
     font-weight: 600;
 }
 
-/* BUTTON SEARCH */
-
-.btn-search {
-    background-color: var(--midnight-blue);
-    color: var(--white);
-
-    border-radius: var(--border-radius);
-
-    padding: 12px;
-    margin-top: 28px;
-
-    font-weight: 600;
+.form-group-datos {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
 }
-
-.btn-search:hover {
-    background-color: var(--charcoal-grey);
-}
-
-/* ================= ROOMS ================= */
 
 .rooms-section {
     margin-bottom: 40px;
 }
 
 .rooms-container {
-    display: grid;
+    display: flex;
     grid-template-columns: repeat(2, 1fr);
     gap: 25px;
 }
 
-/* ROOM CARD */
-
-.room-card {
-    background-color: var(--white);
-
-    border-radius: var(--border-radius);
-
-    overflow: hidden;
-
-    box-shadow: var(--shadow-soft);
-}
-
-.room-card img {
-    width: 100%;
-    height: 220px;
-
-    object-fit: cover;
-}
-
-/* ROOM INFO */
-
-.room-info {
-    padding: 20px;
-}
-
-.room-info h3 {
-    margin-bottom: 10px;
-}
-
-.room-info p {
-    color: var(--charcoal-grey);
-    margin-bottom: 20px;
-}
-
-/* ROOM DETAILS */
-
 .room-details {
     display: flex;
     justify-content: space-between;
-
     margin-bottom: 20px;
+    height: 2rem;
 }
 
-/* BUTTON RESERVE */
-
-.btn-reserve {
-    width: 100%;
-
+.btn-mas-detalles {
+    width: 16rem;
     padding: 12px;
-
-    background-color: var(--gold);
     color: var(--white);
-
-    border-radius: var(--border-radius);
-
+    border-radius: 8px;
     font-weight: 600;
     background-color: var(--midnight-blue);
 }
 
-.btn-reserve:hover {
+.btn-search-habitacion {
+    width: 16rem;
+    padding: 12px;
+    color: var(--white-smoke);
+    border-radius: 8px;
+    font-weight: 600;
     background-color: var(--midnight-blue);
 }
 
-/* ================= RESERVATIONS ================= */
+.btn-search-habitacion:hover {
+    background-color: var(--gold);
+    color: var(--midnight-blue);
+}
+
+.btn-confirmar-reserva {
+    width: 16rem;
+    padding: 12px;
+    color: var(--white-smoke);
+    border-radius: 8px;
+    font-weight: 600;
+    background-color: var(--midnight-blue);
+}
+.btn-confirmar-reserva:hover {
+    background-color: var(--gold);
+    color: var(--midnight-blue);
+}
+
+.btn-cancelar-reserva {
+    width: 16rem;
+    padding: 12px;
+    color: var(--white-smoke);
+    border-radius:8px;
+    font-weight: 600;
+    background-color: var(--midnight-blue);
+}
+.btn-cancelar-reserva:hover {
+    background-color: var(--gold);
+    color: var(--midnight-blue);
+}
+
+.btn-mas-detalles:hover {
+    background-color: var(--gold);
+}
+
+.img-card{
+    height: 13.75rem;
+}
+
+.card-limite{
+    height: 80px;
+    overflow: hidden;
+}
 
 .reservations-section {
     background-color: var(--white);
-
     padding: 30px;
-    border-radius: var(--border-radius);
-
+    border-radius: 8px;
     box-shadow: var(--shadow-soft);
 }
-
-/* TABLE */
 
 .table-container {
     overflow-x: auto;
@@ -367,8 +220,6 @@ tbody tr {
     border-bottom: 1px solid var(--light-grey);
 }
 
-/* STATUS */
-
 .status-confirmed {
     color: var(--success-green);
     font-weight: bold;
@@ -379,8 +230,11 @@ tbody tr {
     font-weight: bold;
 }
 
-/* ================= RESPONSIVE ================= */
+li {
+    list-style: none;
+}
 
+/* ================= RESPONSIVE ================= */
 @media (max-width: 1200px) {
 
     .summary-cards {
@@ -403,13 +257,6 @@ tbody tr {
         flex-direction: column;
     }
 
-    .sidebar {
-        width: 100%;
-        height: auto;
-
-        position: relative;
-    }
-
     .main-content {
         margin-left: 0;
     }
@@ -430,563 +277,28 @@ tbody tr {
 
 }
 
-
-
-/*------- MENU LATERAL -------------*/
-.menu-item{
-    text-decoration: none;
-    font-weight: 500;
-    color: #a0a0a0 !important;
+.hero {
+    background-image: linear-gradient(rgba(27, 38, 59, 0.7), rgba(27, 38, 59, 0.7)), 
+                url(../../imagenes/suite.jpg);
 }
-
-.menu-item:hover{
-    border-radius: 12px;
-    background-color: #e0e1dd1f;
-}
-
-li {
-    list-style: none;
-}
-
-
-.sidebar-menu-selected a{
-    display: flex;
-    align-items: center;
-    gap: 10px;
-
-    background-color: #3E4A63;
-
-    padding: 14px 20px;
-
-    border-radius: 14px;
-
-    border-left: 4px solid white;
-
-    color: white;
-}
-
-/*--para servicios---*/
-/* ================= SERVICES SECTION ================= */
-
-.services-section {
-    margin-bottom: 40px;
-}
-
-/* HEADER */
-
-.services-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
-    margin-bottom: 25px;
-}
-
-.services-status {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-
-    background-color: #E8F5EE;
-    color: var(--success-green);
-
-    padding: 10px 16px;
-
-    border-radius: 30px;
-
-    font-size: 0.9rem;
-    font-weight: 600;
-}
-
-.services-status i {
-    font-size: 0.9rem;
-}
-
-/* GRID */
-
-.services-container {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 25px;
-}
-
-/* CARD */
-
-.service-card {
+ 
+.room-card-detail {
     background-color: var(--white);
-
-    border-radius: 20px;
-
-    padding: 22px;
-
+    padding: 2rem;
+    margin-bottom: 2rem;
+    border-radius: var(--border-radius);
     box-shadow: var(--shadow-soft);
-
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-
-    transition: var(--transition);
-
-    min-height: 260px;
-
-    border: 1px solid transparent;
 }
 
-.service-card:hover {
-    transform: translateY(-4px);
-
-    border-color: var(--soft-gold);
-}
-
-/* TOP */
-
-.service-top {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
-    margin-bottom: 20px;
-}
-
-/* ICON */
-
-.service-icon {
-    width: 55px;
-    height: 55px;
-
-    border-radius: 16px;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    font-size: 1.3rem;
-}
-
-/* COLORES ICONOS */
-
-.spa {
-    background-color: #F3E8FF;
-    color: #9333EA;
-}
-
-.gym {
-    background-color: #E8F5EE;
-    color: #27AE60;
-}
-
-.breakfast {
-    background-color: #FFF4E5;
-    color: #E67E22;
-}
-
-.transfer {
-    background-color: #EBF3FF;
-    color: #2980B9;
-}
-
-.roomservice {
-    background-color: #FFECEC;
-    color: #E74C3C;
-}
-
-.wine {
-    background-color: #FDEDEC;
-    color: #922B21;
-}
-
-.laundry {
-    background-color: #EEF4FF;
-    color: #415A77;
-}
-
-.concierge {
-    background-color: #F3F4F6;
-    color: #1B263B;
-}
-
-/* BADGE */
-
-.service-badge {
-    background-color: #E8F5EE;
-    color: var(--success-green);
-
-    padding: 6px 12px;
-
-    border-radius: 20px;
-
-    font-size: 0.75rem;
-    font-weight: 600;
-}
-
-/* INFO */
-
-.service-info h3 {
-    font-size: 1.2rem;
-    margin-bottom: 10px;
-}
-
-.service-info p {
-    color: var(--text-secondary);
-
-    line-height: 1.5;
-
-    margin-bottom: 25px;
-}
-
-/* FOOTER */
-
-.service-footer {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-/* PRICE */
-
-.price {
-    font-weight: 700;
-    font-size: 1rem;
-}
-
-/* BOTONES */
-
-.btn-manage,
-.btn-add {
-    padding: 10px 18px;
-
-    border-radius: 12px;
-
-    font-weight: 600;
-
-    transition: var(--transition);
-}
-
-/* BTN MANAGE */
-
-.btn-manage {
-    background-color: #F2F4F7;
+.room-card-detail h2 {
     color: var(--midnight-blue);
+    margin-bottom: 1rem;
+    border-bottom: 3px solid var(--gold-accent);
+    padding-bottom: 0.5rem;
 }
 
-.btn-manage:hover {
-    background-color: var(--soft-gold);
-}
-
-/* BTN ADD */
-
-.btn-add {
-    background-color: var(--midnight-blue);
-    color: var(--white);
-}
-
-.btn-add:hover {
-    background-color: var(--charcoal-grey);
-}
-
-/* ================= RESPONSIVE ================= */
-
-@media (max-width: 1400px) {
-
-    .services-container {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-}
-
-@media (max-width: 768px) {
-
-    .services-header {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 15px;
-    }
-
-    .services-container {
-        grid-template-columns: 1fr;
-    }
-
-}
-
-/* ================= PROFILE SECTION ================= */
-
-.profile-section {
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
-}
-
-/* ================= PROFILE CARD ================= */
-
-.profile-card {
-    background-color: var(--white);
-
-    border-radius: 24px;
-
-    overflow: hidden;
-
-    box-shadow: var(--shadow-soft);
-}
-
-/* COVER */
-
-.profile-cover {
-    height: 160px;
-
-    background: linear-gradient(
-        90deg,
-        var(--midnight-blue),
-        var(--charcoal-grey)
-    );
-}
-
-/* BODY */
-
-.profile-body {
-    padding: 30px;
-
-    position: relative;
-}
-
-/* AVATAR */
-
-.profile-avatar {
-    width: 90px;
-    height: 90px;
-
-    border-radius: 20px;
-
-    background-color: var(--midnight-blue);
-
-    color: var(--white);
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    font-size: 2rem;
-    font-weight: bold;
-
-    border: 5px solid var(--white);
-
-    position: absolute;
-
-    top: -45px;
-    left: 30px;
-}
-
-/* PROFILE TOP */
-
-.profile-top {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-
-    margin-top: 30px;
-    margin-bottom: 30px;
-}
-
-/* INFO */
-
-.profile-info h2 {
-    font-size: 2rem;
-    margin-bottom: 10px;
-}
-
-.member-info {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-
-    flex-wrap: wrap;
-}
-
-/* BADGE */
-
-.member-badge {
-    background-color: #FFF4E5;
-    color: #D68910;
-
-    padding: 8px 14px;
-
-    border-radius: 20px;
-
-    font-size: 0.9rem;
-    font-weight: 600;
-}
-
-/* MEMBER DATE */
-
-.member-date {
-    color: var(--text-secondary);
-}
-
-/* BTN EDIT */
-
-.btn-edit-profile {
-    padding: 12px 20px;
-
-    border-radius: 14px;
-
-    border: 1px solid var(--light-grey);
-
-    background-color: var(--white);
-
-    display: flex;
-    align-items: center;
-    gap: 10px;
-
-    font-weight: 600;
-
-    transition: var(--transition);
-}
-
-.btn-edit-profile:hover {
-    background-color: var(--soft-gold);
-}
-
-/* ================= STATS ================= */
-
-.profile-stats {
-    background-color: var(--white-smoke);
-
-    border-radius: 20px;
-
-    padding: 25px;
-
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-
-    margin-bottom: 30px;
-}
-
-/* STAT ITEM */
-
-.stat-item {
-    text-align: center;
-}
-
-.stat-item h3 {
-    font-size: 2rem;
-    margin-bottom: 5px;
-}
-
-.stat-item p {
-    color: var(--text-secondary);
-}
-
-/* ================= CONTACT INFO ================= */
-
-.profile-contact {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 25px;
-}
-
-/* CONTACT ITEM */
-
-.contact-item {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-}
-
-/* ICON */
-
-.contact-icon {
-    width: 40px;
-    height: 40px;
-
-    border-radius: 12px;
-
-    background-color: var(--white-smoke);
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
+.room-card-detail p,
+.room-card-detail li {
+    line-height: 1.8;
     color: var(--charcoal-grey);
-}
-
-/* ================= SECURITY CARD ================= */
-
-.security-card {
-    background-color: var(--white);
-
-    border-radius: 24px;
-
-    padding: 30px;
-
-    box-shadow: var(--shadow-soft);
-}
-
-/* TITLE */
-
-.security-title {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-
-    margin-bottom: 25px;
-}
-
-/* SETTINGS LIST */
-
-.settings-list {
-    display: flex;
-    flex-direction: column;
-}
-
-/* SETTING ITEM */
-
-.setting-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
-    padding: 22px 0;
-
-    border-bottom: 1px solid var(--light-grey);
-}
-
-.setting-item:last-child {
-    border-bottom: none;
-}
-
-/* BTN CONFIG */
-
-.btn-config {
-    color: var(--charcoal-grey);
-
-    font-weight: 600;
-
-    transition: var(--transition);
-}
-
-.btn-config:hover {
-    color: var(--midnight-blue);
-}
-
-/* ================= RESPONSIVE ================= */
-
-@media (max-width: 992px) {
-
-    .profile-contact {
-        grid-template-columns: 1fr;
-    }
-
-}
-
-@media (max-width: 768px) {
-
-    .profile-top {
-        flex-direction: column;
-        gap: 20px;
-    }
-
-    .profile-stats {
-        grid-template-columns: 1fr;
-        gap: 20px;
-    }
-
 }
