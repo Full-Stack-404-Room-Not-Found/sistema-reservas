@@ -1,6 +1,8 @@
 .dashboard-container {
     min-height: 100vh;
     background-color: var(--white-smoke);
+    flex-direction: column;
+    display: flex; 
 }
 
 .logo h2 {
@@ -14,8 +16,6 @@
     padding: 30px;
 }
 
-/* ================= TOPBAR ================= */
-
 .topbar {
     background-color: var(--white);
     padding: 20px 30px;
@@ -27,8 +27,6 @@
     margin-bottom: 30px;
 }
 
-/* WELCOME */
-
 .welcome-text h1 {
     font-size: 2rem;
     margin-bottom: 8px;
@@ -39,27 +37,20 @@
     color: var(--charcoal-grey);
 }
 
-/* ACTIONS */
-
 .topbar-actions {
     display: flex;
     align-items: center;
     gap: 20px;
 }
 
-/* BUTTON NOTIFICATION */
-
 .notification-btn {
     width: 45px;
     height: 45px;
-
     border-radius: 50%;
     background-color: var(--soft-gold);
-
     display: flex;
     justify-content: center;
     align-items: center;
-
     font-size: 1.1rem;
 }
 
@@ -68,17 +59,12 @@
     color: var(--white);
 }
 
-/* PROFILE IMAGE */
-
 .profile-image img {
     width: 50px;
     height: 50px;
-
     border-radius: 50%;
     object-fit: cover;
 }
-
-/* ================= SECTION TITLE ================= */
 
 .section-title {
     margin-bottom: 20px;
@@ -88,20 +74,13 @@
     font-size: 2rem;
 }
 
-/* ================= SEARCH ROOM ================= */
-
 .search-room {
     background-color: var(--white);
-
     padding: 30px;
     border-radius: var(--border-radius);
-
     box-shadow: var(--shadow-soft);
-
     margin-bottom: 40px;
 }
-
-/* FORM */
 
 .search-form {
     display: grid;
@@ -109,37 +88,28 @@
     gap: 20px;
 }
 
-/* FORM GROUP */
-
 .form-group {
     display: flex;
     flex-direction: column;
     gap: 8px;
 }
 
+.form-decision {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 20px;
+}
+
 .form-group label {
     font-weight: 600;
 }
 
-/* BUTTON SEARCH */
-
-.btn-search {
-    background-color: var(--midnight-blue);
-    color: var(--white);
-
-    border-radius: var(--border-radius);
-
-    padding: 12px;
-    margin-top: 28px;
-
-    font-weight: 600;
+.form-group-datos {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
 }
-
-.btn-search:hover {
-    background-color: var(--charcoal-grey);
-}
-
-/* ================= ROOMS ================= */
 
 .rooms-section {
     margin-bottom: 40px;
@@ -159,17 +129,56 @@
 }
 
 .btn-mas-detalles {
-    width: 100%;
+    width: 16rem;
     padding: 12px;
     color: var(--white);
-    border-radius: var(--border-radius);
+    border-radius: 8px;
     font-weight: 600;
     background-color: var(--midnight-blue);
 }
 
-.btn-mas-detalles:hover {
-    color: var(--gold);
+.btn-search-habitacion {
+    width: 16rem;
+    padding: 12px;
+    color: var(--white-smoke);
+    border-radius: 8px;
+    font-weight: 600;
     background-color: var(--midnight-blue);
+}
+
+.btn-search-habitacion:hover {
+    background-color: var(--gold);
+    color: var(--midnight-blue);
+}
+
+.btn-confirmar-reserva {
+    width: 16rem;
+    padding: 12px;
+    color: var(--white-smoke);
+    border-radius: 8px;
+    font-weight: 600;
+    background-color: var(--midnight-blue);
+}
+.btn-confirmar-reserva:hover {
+    background-color: var(--gold);
+    color: var(--midnight-blue);
+}
+
+.btn-cancelar-reserva {
+    width: 16rem;
+    padding: 12px;
+    color: var(--white-smoke);
+    border-radius:8px;
+    font-weight: 600;
+    background-color: var(--midnight-blue);
+}
+.btn-cancelar-reserva:hover {
+    background-color: var(--gold);
+    color: var(--midnight-blue);
+}
+
+.btn-mas-detalles:hover {
+    background-color: var(--gold);
 }
 
 .img-card{
@@ -181,16 +190,13 @@
     overflow: hidden;
 }
 
-/* ================= RESERVACIONES ================= */
-
 .reservations-section {
     background-color: var(--white);
     padding: 30px;
-    border-radius: var(--border-radius);
+    border-radius: 8px;
     box-shadow: var(--shadow-soft);
 }
 
-/* TABLE */
 .table-container {
     overflow-x: auto;
 }
@@ -214,7 +220,6 @@ tbody tr {
     border-bottom: 1px solid var(--light-grey);
 }
 
-/* STATUS */
 .status-confirmed {
     color: var(--success-green);
     font-weight: bold;
@@ -270,4 +275,30 @@ li {
         grid-template-columns: 1fr;
     }
 
+}
+
+.hero {
+    background-image: linear-gradient(rgba(27, 38, 59, 0.7), rgba(27, 38, 59, 0.7)), 
+                url(../../imagenes/suite.jpg);
+}
+ 
+.room-card-detail {
+    background-color: var(--white);
+    padding: 2rem;
+    margin-bottom: 2rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-soft);
+}
+
+.room-card-detail h2 {
+    color: var(--midnight-blue);
+    margin-bottom: 1rem;
+    border-bottom: 3px solid var(--gold-accent);
+    padding-bottom: 0.5rem;
+}
+
+.room-card-detail p,
+.room-card-detail li {
+    line-height: 1.8;
+    color: var(--charcoal-grey);
 }
