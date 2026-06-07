@@ -112,7 +112,7 @@ form .password {
     color: #1B263B;
 }
 
-input[type="submit"] {
+.login-btn[type="submit"] {
     width: 100%;
     height: 52px;
     border: none;
@@ -127,7 +127,7 @@ input[type="submit"] {
     margin-top: 10px;
 }
 
-input[type="submit"]:hover {
+.login-btn[type="submit"]:hover {
     transform: translateY(-2px);
     box-shadow: 0 8px 20px rgba(201, 168, 76, 0.35);
     background: linear-gradient(145deg, #D4AF37, #E5C97B, #D4AF37);
