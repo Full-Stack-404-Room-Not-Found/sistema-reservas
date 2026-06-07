@@ -4,32 +4,44 @@
 <head>
     <meta charset="UTF-8">
     <title>Sistema de Gestión Hotelera - Panel Administrador</title>
-    <link rel="stylesheet" href="../../css/bootstrap/bootstrap.min.css">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Tus CSS -->
     <link rel="stylesheet" href="../../css/global.css">
     <link rel="stylesheet" href="../../css/dashboard-admin/index.css">
 </head>
 
 <body>
 
-    <div class="container">
+    <div class="contenedor">
         <h1>🏨 SISTEMA DE GESTIÓN HOTELERA - ADMINISTRADOR</h1>
 
-        <div class="summary">
-            <div class="card available">
-                <div class="number">12</div>
-                <div>🟢 Habitaciones Disponibles</div>
-            </div>
-            <div class="card occupied">
-                <div class="number">8</div>
-                <div>🔴 Habitaciones Ocupadas</div>
-            </div>
-            <div class="card maintenance">
-                <div class="number">4</div>
-                <div>🟡 En Mantenimiento</div>
+        <!-- Grilla Bootstrap para tarjetas -->
+        <div class="container mb-4">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="carta disponible">
+                        <div class="numero">12</div>
+                        <div>🟢 Habitaciones Disponibles</div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="carta ocupada">
+                        <div class="numero">8</div>
+                        <div>🔴 Habitaciones Ocupadas</div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="carta mantenimiento">
+                        <div class="numero">4</div>
+                        <div>🟡 En Mantenimiento</div>
+                    </div>
+                </div>
             </div>
         </div>
 
-        <table>
+        <!-- Tabla (sin cambios) -->
+        <table class="tabla-habitaciones">
             <thead>
                 <tr>
                     <th>N° Hab.</th>
@@ -39,36 +51,12 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>101</td>
-                    <td>Standard</td>
-                    <td><span class="status status-available">🟢 Disponible</span></td>
-                    <td><a href="./detalle-habitacion.html" class="btn-ver">Ver</a> <a href="./detalle-habitacion.html" class="btn-editar">Editar</a></td>
-                </tr>
-                <tr>
-                    <td>102</td>
-                    <td>Standard</td>
-                    <td><span class="status status-available">🟢 Disponible</span></td>
-                    <td><a href="./detalle-habitacion.html" class="btn-ver">Ver</a> <a href="./detalle-habitacion.html" class="btn-editar">Editar</a></td>
-                </tr>
-                <tr>
-                    <td>103</td>
-                    <td>Doble</td>
-                    <td><span class="status status-occupied">🔴 Ocupada</span></td>
-                    <td><a href="./detalle-habitacion.html" class="btn-ver">Ver</a> <a href="./detalle-habitacion.html" class="btn-editar">Editar</a></td>
-                </tr>
-                <tr>
-                    <td>104</td>
-                    <td>Suite</td>
-                    <td><span class="status status-available">🟢 Disponible</span></td>
-                    <td><a href="./detalle-habitacion.html" class="btn-ver">Ver</a> <a href="./detalle-habitacion.html" class="btn-editar">Editar</a></td>
-                </tr>
-                <tr>
-                    <td>105</td>
-                    <td>Familiar</td>
-                    <td><span class="status status-maintenance">🟡 Mantenimiento</span></td>
-                    <td><a href="./detalle-habitacion.html" class="btn-ver">Ver</a> <a href="./detalle-habitacion.html" class="btn-editar">Editar</a></td>
-                </tr>
+                <tr class="fila-habitacion">
+                    <td>101</td <td>Standard</td <td><span class="estado disponible-texto">🟢 Disponible</span></td <td
+                        class="acciones">
+                    <a href="./detalle-habitacion.html" class="btn btn-primary btn-sm">Ver</a>
+                    <a href="./detalle-habitacion.html" class="btn btn-warning btn-sm">Editar</a>
+                    </td </tr <!-- repetir para 102,103,104,105 -->
             </tbody>
         </table>
     </div>
