@@ -5,23 +5,97 @@
     url("https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1350&q=80");
 }
 
-/* --- Botón Principal --- */
-.btn-primary {
-  background-color: var(--gold-accent);
-  color: white;
-  padding: 15px 35px;
-  text-decoration: none;
-  border-radius: 8px;
-  font-weight: 600;
-  font-size: 1.1rem;
-  transition: var(--transition);
-  display: inline-block;
+
+
+/* --- buscador --- */
+
+.buscador-hero-container {
+    background: rgba(255, 255, 255, 0.25); /* Capa translúcida externa */
+    backdrop-filter: blur(5px);
+    padding: 15px;
+    border-radius: 4px; /* Bordes rectos sutiles como en tu captura */
+    max-width: 1000px;
+    width: 100%;
+    margin: 20px auto 0;
+    box-sizing: border-box;
 }
 
-.btn-primary:hover {
-  filter: brightness(1.1);
-  transform: scale(1.05);
+.buscador-hero-form {
+    background: #FFFFFF;
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.2);
 }
+
+/* Cajas internas de los campos */
+.buscador-col {
+    border-right: 1px solid #DDE1E7; /* Línea divisoria gris entre columnas */
+}
+
+.input-group-custom {
+    display: flex;
+    align-items: center;
+    padding: 0 15px;
+    height: 60px; /* Altura ideal de la barra */
+    background-color: #F8F9FA;
+}
+
+.icon-buscador {
+    color: #415A77; /* Tu Charcoal Grey para consistencia */
+    font-size: 1.1rem;
+    margin-right: 12px;
+}
+
+/* Estilos de Select e Inputs limpios sin bordes nativos */
+.select-buscador, 
+.input-buscador {
+    width: 100%;
+    height: 100%;
+    border: none;
+    background: transparent;
+    outline: none;
+    font-size: 0.95rem;
+    color: #1B263B;
+    font-family: 'Inter', sans-serif;
+    cursor: pointer;
+}
+
+/* El botón naranja llamativo de tu mockup */
+.btn-buscar-hero {
+    width: 100%;
+    height: 60px;
+    border: none;
+    background-color: var(--gold-accent); 
+    color: #FFFFFF;
+    font-weight: 700;
+    font-size: 1rem;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-buscar-hero:hover {
+    background-color:#415a77;; 
+}
+
+/* --- Ajuste Responsive para Celulares --- */
+@media (max-width: 768px) {
+    .hero {
+        height: auto;
+        padding: 120px 20px 60px;
+    }
+
+    .buscador-col {
+        border-right: none;
+        border-bottom: 1px solid #DDE1E7; 
+    }
+    
+    .input-group-custom, 
+    .btn-buscar-hero {
+        height: 50px; 
+    }
+}
+
 
 /* --- Stats --- */
 .stats-container {
