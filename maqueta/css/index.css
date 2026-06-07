@@ -60,13 +60,12 @@
     cursor: pointer;
 }
 
-/* El botón naranja llamativo de tu mockup */
 .btn-buscar-hero {
     width: 100%;
     height: 60px;
     border: none;
-    background-color: var(--gold-accent); 
-    color: #FFFFFF;
+    background-color:#c5a059 ; 
+    color: #1B263B;
     font-weight: 700;
     font-size: 1rem;
     letter-spacing: 1px;
