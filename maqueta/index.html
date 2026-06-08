@@ -4,7 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gestión Hotelera Premium</title>
-    <link rel="stylesheet" href="/maqueta/css/estilos.css">
+    <link rel="stylesheet" href="./css/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/global.css">
+    <link rel="stylesheet" href="./css/index.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
@@ -13,10 +15,12 @@
     <header>
         <nav class="navbar">
             <div class="nav-left">
-                <div class="logo-container">
-                    <img src="/maqueta/imagenes/logo.png" alt="404 Logo" class="logo-img">
-                </div>
-                <span class="brand-name">404 Room Not Found</span>
+                <a href="./index.html" class="nav-home">
+                    <div class="logo-container">
+                        <img src="./imagenes/logo.png" alt="404 Logo" class="logo-img">
+                    </div>
+                    <span class="brand-name">404 Room Not Found</span>
+                </a>
             </div>
             <input type="checkbox" id="menu-toggle" class="menu-checkbox">
             <label for="menu-toggle" class="mobile-menu-btn">
@@ -24,78 +28,151 @@
             </label>
             
             <ul class="nav-links">
-                <li><a href="index.html" class="nav-item">Inicio</a></li>
-                <li><a href="../maqueta/pages/quienes-somos.html" class="nav-item">Quiénes Somos</a></li>
-                <li><a href="../maqueta/pages/registro.html" class="nav-item">Registrar</a></li>
-                <li><a href="../maqueta/pages/login.html" class="nav-item">Iniciar Sesión</a></li>
-                <li><a href="../maqueta/pages/dashboard-usuario-Buscar-habitacion.html" class="btn-reservation">Reservar Ahora</a></li>
+                <li><a href="./index.html" class="nav-item">Inicio</a></li>
+                <li><a href="./pages/quienes-somos.html" class="nav-item">Quiénes Somos</a></li>
+                <li><a href="./pages/registro.html" class="nav-item">Registrar</a></li>
+                <li><a href="./pages/login.html" class="nav-item">Iniciar Sesión</a></li>
+                <li><a href="./pages/dashboard-usuario/index.html" class="btn-reservation">Reservar Ahora</a></li>
             </ul>
         </nav>
     </header>
 
-    <section class="hero">
-        <div class="hero-content">
-            <h1>Gestión Hotelera Premium</h1>
-            <p>Maximiza tu Ocupación y Servicios con Elegancia</p>
-            <a href="#" class="btn-primary">Empieza Gratis</a>
-        </div>
-    </section>
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Gestión Hotelera Premium</h1>
+                <p>El confort de tu hogar, la magia de la ciudad</p>
 
-    <section class="stats-container">
-        <div class="card">
-            <h3>Ocupación diaria</h3>
-            <div class="chart-placeholder">[Gráfico de Línea]</div>
-        </div>
-        <div class="card">
-            <h3>Servicios populares</h3>
-           <div class="chart-placeholder">[Lista de Servicios]</div>
-        </div>
-        <div class="card">
-            <h3>Servicios populares</h3>
-            <div class="chart-placeholder">[Lista de Servicios]</div>
-        </div>
-    </section>
-    
-    <section class="gallery-section">
-        <div class="gallery-header">
-            <h2>Experiencia 404</h2>
-            <p>Habitaciones diseñadas para el descanso absoluto.</p>
-        </div>
-        
-        <div class="gallery-grid">
-            <div class="gallery-item large">
-                <img src="/maqueta/imagenes/suite.jpg" alt="Suite Lujo">
-                <div class="overlay"><span>Master Suite</span></div>
+                <div class="search-hero-container">
+                    <form action="#" method="GET" class="row g-0 align-items-center search-hero-form">
+                        
+                        <div class="col-12 col-md-4 search-col">
+                            <div class="input-group-custom">
+                                <i class="fas fa-map-marker-alt search-icon"></i>
+                                <select name="hotel" class="search-select" aria-label="Seleccionar sucursal del hotel">
+                                    <option value="Cordoba">404 Room Not Found - Cordoba</option>
+                                    <option value="Buenos Aires">404 Room Not Found - Buenos Aires</option>
+                                    <option value="Rosario">404 Room Not Found - Rosario</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-md-3 search-col">
+                            <div class="input-group-custom">
+                                <i class="fas fa-calendar-alt search-icon"></i>
+                                <input type="text" placeholder="Check-in" onfocus="(this.type='date')" class="search-input">
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-md-3 search-col">
+                            <div class="input-group-custom">
+                                <i class="fas fa-calendar-alt search-icon"></i>
+                                <input type="text" placeholder="Check-out" onfocus="(this.type='date')" class="search-input">
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-md-2">
+                            <a href="./pages/dashboard-usuario/index.html" class="btn-search-hero">BUSCAR</a>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <section class="container" style="margin-top: -60px; position: relative; z-index: 10;">
+            <div class="row g-4 justify-content-center">
+                
+                <div class="col-12 col-md-4">
+                    <div class="card h-100 shadow-sm border-0" style="border-radius: 15px; padding: 10px;">
+                        <div class="card-body">
+                            <h2 class="card-title" style="font-size: 1.1rem; color: var(--charcoal-grey); border-left: 4px solid var(--gold-accent); padding-left: 10px; margin-bottom: 15px;">
+                                Ocupación diaria
+                            </h2>
+                            <div class="chart-placeholder">
+                                <img src="/maqueta/imagenes/card1.jpeg" alt="Gráfico de Ocupación" class="img-dashboard-stats">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-12 col-md-4">
+                    <div class="card h-100 shadow-sm border-0" style="border-radius: 15px; padding: 10px;">
+                        <div class="card-body">
+                            <h2 class="card-title" style="font-size: 1.1rem; color: var(--charcoal-grey); border-left: 4px solid var(--gold-accent); padding-left: 10px; margin-bottom: 15px;">
+                                Servicios populares
+                            </h2>
+                            <div class="chart-placeholder">
+                                <img src="/maqueta/imagenes/card2.jpeg" alt="Lista de Servicios" class="img-dashboard-stats">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-12 col-md-4">
+                    <div class="card h-100 shadow-sm border-0" style="border-radius: 15px; padding: 10px;">
+                        <div class="card-body">
+                            <h2 class="card-title" style="font-size: 1.1rem; color: var(--charcoal-grey); border-left: 4px solid var(--gold-accent); padding-left: 10px; margin-bottom: 15px;">
+                                Servicios populares
+                            </h2>
+                            <div class="chart-placeholder">
+                                <img src="/maqueta/imagenes/card3.jpeg" alt="Métricas del Hotel" class="img-dashboard-stats">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="gallery-section">
+            <div class="gallery-header">
+                <h2>Experiencia 404</h2>
+                <p>Habitaciones diseñadas para el descanso absoluto. Nuestro sistema permite a los hoteles gestionar reservas, habitaciones y servicios desde una sola plataforma, optimizando la ocupación en tiempo real y brindando a cada huésped una experiencia personalizada desde el check-in hasta el check-out.</p>
             </div>
             
-            <div class="gallery-item">
-                <img src="/maqueta/imagenes/baño.jpg" alt="Baño Premium">
-                <div class="overlay"><span>Spa & Relax</span></div>
+            <div class="gallery-grid">
+                <div class="gallery-item large">
+                    <img src="./imagenes/suite.jpg" alt="Suite Lujo">
+                    <div class="overlay"><span>Master Suite</span></div>
+                </div>   
+                <div class="gallery-item">
+                    <img src="./imagenes/baño.jpg" alt="Baño Premium">
+                    <div class="overlay"><span>Spa & Relax</span></div>
+                </div>
+                <div class="gallery-item">
+                    <img src="./imagenes/suite2.jpg" alt="Detalle Habitación">
+                    <div class="overlay"><span>Detalles Modernos</span></div>
+                </div>
+                <div class="gallery-item tall">
+                    <img src="./imagenes/suite3.jpg" alt="Ducha de Lujo">
+                    <div class="overlay"><span>Confort</span></div>
+                </div>
+                <div class="gallery-item tall">
+                    <img src="./imagenes/suite3.jpg" alt="Ducha de Lujo">
+                    <div class="overlay"><span>Confort</span></div>
+                </div>
+                <div class="gallery-item">
+                    <img src="./imagenes/baño.jpg" alt="Baño Premium">
+                    <div class="overlay"><span>Spa & Relax</span></div>
+                </div>
+                <div class="gallery-item">
+                    <img src="./imagenes/suite2.jpg" alt="Detalle Habitación">
+                    <div class="overlay"><span>Detalles Modernos</span></div>
+                </div>
             </div>
-            
-            <div class="gallery-item">
-                <img src="/maqueta/imagenes/suite2.jpg" alt="Detalle Habitación">
-                <div class="overlay"><span>Detalles Modernos</span></div>
+        </section>
+    </main>
+    <footer class="simple-footer">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <div class="footer-logo-circle">
+                    <img src="./imagenes/logo.png" alt="404 Logo">
+                </div>
             </div>
-            
-            <div class="gallery-item tall">
-                <img src="/maqueta/imagenes/suite3.jpg" alt="Ducha de Lujo">
-                <div class="overlay"><span>Confort</span></div>
-            </div>
+            <hr class="footer-line">
+            <p class="copyright">&copy; 2026 404 Room Not Found. Todos los derechos reservados.</p>
         </div>
-    </section>
+    </footer>
 
 </body>
-<footer class="simple-footer">
-    <div class="footer-content">
-        <div class="footer-brand">
-            <div class="footer-logo-circle">
-                <img src="/maqueta/imagenes/logo.png" alt="404 Logo">
-            </div>
-        </div>
 
-        <hr class="footer-line">
-        <p class="copyright">&copy; 2026 404 Room Not Found. Todos los derechos reservados.</p>
-    </div>
-</footer>
 </html>

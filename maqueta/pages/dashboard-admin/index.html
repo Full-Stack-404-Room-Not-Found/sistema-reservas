@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Sistema de Gestión Hotelera - Panel Administrador</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Tus CSS -->
+    <link rel="stylesheet" href="../../css/global.css">
+    <link rel="stylesheet" href="../../css/dashboard-admin/index.css">
+</head>
+
+<body>
+
+    <div class="contenedor">
+        <h1>SISTEMA DE GESTIÓN HOTELERA - ADMINISTRADOR</h1>
+
+        <!-- Tarjetas resumen -->
+        <div class="summary-cards">
+            <div class="card available">
+                <div class="number">12</div>
+                <div>🟢 Habitaciones Disponibles</div>
+            </div>
+            <div class="card occupied">
+                <div class="number">8</div>
+                <div>🔴 Habitaciones Ocupadas</div>
+            </div>
+            <div class="card maintenance">
+                <div class="number">4</div>
+                <div>🟡 En Mantenimiento</div>
+            </div>
+        </div>
+
+        <!-- Tabla de habitaciones -->
+        <table class="rooms-table">
+            <thead>
+                <tr>
+                    <th>N° Hab.</th>
+                    <th>Tipo</th>
+                    <th>Estado</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Fila 101 -->
+                <tr class="room-row">
+                    <td class="text-center fw-bold">101</td>
+                    <td>Standard</td>
+                    <td><span class="status available-text">🟢 Disponible</span></td>
+                    <td class="actions">
+                        <a href="./detalle-habitacion.html" class="btn btn-primary btn-sm">Ver</a>
+                        <a href="./detalle-habitacion.html" class="btn btn-warning btn-sm">Editar</a>
+                    </td>
+                </tr>
+                <!-- Fila 102 -->
+                <tr class="room-row">
+                    <td class="text-center fw-bold">102</td>
+                    <td>Standard</td>
+                    <td><span class="status available-text">🟢 Disponible</span></td>
+                    <td class="actions">
+                        <a href="./detalle-habitacion.html" class="btn btn-primary btn-sm">Ver</a>
+                        <a href="./detalle-habitacion.html" class="btn btn-warning btn-sm">Editar</a>
+                    </td>
+                </tr>
+                <!-- Fila 103 -->
+                <tr class="room-row">
+                    <td class="text-center fw-bold">103</td>
+                    <td>Doble</td>
+                    <td><span class="status occupied-text">🔴 Ocupada</span></td>
+                    <td class="actions">
+                        <a href="./detalle-habitacion.html" class="btn btn-primary btn-sm">Ver</a>
+                        <a href="./detalle-habitacion.html" class="btn btn-warning btn-sm">Editar</a>
+                    </td>
+                </tr>
+                <!-- Fila 104 -->
+                <tr class="room-row">
+                    <td class="text-center fw-bold">104</td>
+                    <td>Suite</td>
+                    <td><span class="status available-text">🟢 Disponible</span></td>
+                    <td class="actions">
+                        <a href="./detalle-habitacion.html" class="btn btn-primary btn-sm">Ver</a>
+                        <a href="./detalle-habitacion.html" class="btn btn-warning btn-sm">Editar</a>
+                    </td>
+                </tr>
+                <!-- Fila 105 -->
+                <tr class="room-row">
+                    <td class="text-center fw-bold">105</td>
+                    <td>Familiar</td>
+                    <td><span class="status maintenance-text">🟡 Mantenimiento</span></td>
+                    <td class="actions">
+                        <a href="./detalle-habitacion.html" class="btn btn-primary btn-sm">Ver</a>
+                        <a href="./detalle-habitacion.html" class="btn btn-warning btn-sm">Editar</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</body>
+
+</html>

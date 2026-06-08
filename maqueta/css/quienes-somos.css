@@ -1,0 +1,190 @@
+/* =========================================
+   1. HERO - Imagen de fondo Quiénes Somos
+   ========================================= */
+.hero {
+    background-image: linear-gradient(rgba(27, 38, 59, 0.7), rgba(27, 38, 59, 0.7)), 
+                url(../imagenes/desarrolladores/banner.webp);
+}
+
+/* =========================================
+   2. SECCIÓN HORIZONTAL: NUESTRO COMPROMISO 
+   ========================================= */
+
+.section-title {
+  font-size: 32px;
+  font-family: "Playfair Display", serif;
+  margin: 60px 0 40px 0;
+  text-align: center; 
+  color: var(--midnight-blue);
+}
+
+.section-title::after {
+  content: '';
+  display: block;
+  width: 50px;
+  height: 2px;
+  background-color: var(--gold);
+  margin: 12px auto 0 auto;
+}
+
+.commitment-grid {
+ 
+  margin-bottom: 40px;
+}
+
+.commitment-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--white-pure);
+  border-radius: 12px;
+  padding: 35px 25px;
+  border: 2px solid #d4af37; /* dorado */
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+  transition: all 0.2s ease-in;
+}
+.commitment-item:hover{
+  background-color: #F0F2F5;
+  color: white;
+  transform: translateY(-5px);
+}
+
+
+.icon-wrapper {
+  background-color: transparent; 
+  width: auto;
+  height: auto;
+  margin-bottom: 20px;
+}
+
+.icon-img {
+  width: 55px;  
+  height: 55px;
+  object-fit: contain;
+  border-radius: 50%;
+}
+
+.commitment-heading {
+  font-size: 20px;
+  font-family: "Playfair Display", serif;
+  color: var(--midnight-blue);
+  margin-bottom: 12px;
+}
+
+.commitment-text {
+  font-family: 'Lato', sans-serif;
+  color: var(--charcoal-grey);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+
+
+/* =========================================
+   3. SECCIÓN CARDS INDIVIDUALES: SOBRE NOSOTROS   
+   ========================================= */
+
+.team-grid {
+  padding: 30px 20px 80px 20px;          
+  margin-top: 20px;
+  
+}
+
+.developer-card {
+  display: flex;
+  flex-direction: column; 
+  align-items: center;
+  background-color: #f8f8f8;
+  border-radius: 14px;
+  border: 2px solid #d4af37; /* dorado */
+  box-shadow: 0 4px 20px rgba(27, 38, 59, 0.05); 
+  padding: 35px 25px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  width: 100%;
+  height: 100%;
+}
+
+.developer-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(201, 168, 76, 0.15); 
+  background-color: #F0F2F5;
+  
+  
+  
+}
+
+.image-container {
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.profile-img {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 3px solid var(--soft-gold-cream);
+}
+
+.developer-info {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.developer-name {
+  font-family: 'Playfair Display', serif;
+  color: var(--midnight-blue);
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.developer-role {
+  font-family: 'Poppins', sans-serif;
+  font-size: 13px;
+  color: var(--gold);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 16px;
+  display: inline-block;
+}
+
+.developer-bio {
+  font-family: 'Lato', sans-serif;
+  color: var(--charcoal-grey);
+  font-size: 14px;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  flex-grow: 1; 
+}
+
+.developer-meta {
+  border-top: 1px solid var(--border-grey);
+  padding-top: 15px;
+  margin-top: auto; 
+}
+
+
+
+
+.developer-social{
+    display:flex;
+    justify-content:center;
+    gap:25px;
+    margin-top:20px;
+}
+
+.developer-social a{
+    font-size:2rem;
+    color:#1c1c1c;
+    text-decoration:none;
+    transition:0.3s;
+}
+
+.developer-social a:hover{
+    transform:scale(1.2);
+}
