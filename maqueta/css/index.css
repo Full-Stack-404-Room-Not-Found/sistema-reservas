@@ -9,7 +9,7 @@
 
 /* --- buscador --- */
 
-.buscador-hero-container {
+.search-hero-container {
     background: rgba(255, 255, 255, 0.25); /* Capa translúcida externa */
     backdrop-filter: blur(5px);
     padding: 15px;
@@ -20,7 +20,7 @@
     box-sizing: border-box;
 }
 
-.buscador-hero-form {
+.search-hero-form {
     background: #FFFFFF;
     border-radius: 4px;
     overflow: hidden;
@@ -28,7 +28,7 @@
 }
 
 /* Cajas internas de los campos */
-.buscador-col {
+.search-col {
     border-right: 1px solid #DDE1E7; /* Línea divisoria gris entre columnas */
 }
 
@@ -40,15 +40,15 @@
     background-color: #F8F9FA;
 }
 
-.icon-buscador {
+.search-icon {
     color: #415A77; /* Tu Charcoal Grey para consistencia */
     font-size: 1.1rem;
     margin-right: 12px;
 }
 
 /* Estilos de Select e Inputs limpios sin bordes nativos */
-.select-buscador, 
-.input-buscador {
+.search-select, 
+.search-input {
     width: 100%;
     height: 100%;
     border: none;
@@ -60,20 +60,24 @@
     cursor: pointer;
 }
 
-.btn-buscar-hero {
+.btn-search-hero {
     width: 100%;
     height: 60px;
     border: none;
-    background-color:#c5a059 ; 
+    background-color:#c5a059;
     color: #1B263B;
     font-weight: 700;
     font-size: 1rem;
     letter-spacing: 1px;
     cursor: pointer;
     transition: all 0.3s ease;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.btn-buscar-hero:hover {
+.btn-search-hero:hover {
     background-color:#415a77;; 
 }
 
@@ -84,13 +88,13 @@
         padding: 120px 20px 60px;
     }
 
-    .buscador-col {
+    .search-col {
         border-right: none;
         border-bottom: 1px solid #DDE1E7; 
     }
     
     .input-group-custom, 
-    .btn-buscar-hero {
+    .btn-search-hero {
         height: 50px; 
     }
 }
