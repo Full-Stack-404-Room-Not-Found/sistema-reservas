@@ -105,7 +105,7 @@
     font-weight: 600;
 }
 
-.form-group-datos {
+.form-group-data {
     display: flex;
     flex-direction: column;
     gap: 8px;
@@ -128,7 +128,7 @@
     height: 2rem;
 }
 
-.btn-mas-detalles {
+.btn-more-details {
     width: 16rem;
     padding: 12px;
     color: var(--white);
@@ -137,7 +137,7 @@
     background-color: var(--midnight-blue);
 }
 
-.btn-search-habitacion {
+.btn-search-room {
     width: 16rem;
     padding: 12px;
     color: var(--white-smoke);
@@ -146,12 +146,12 @@
     background-color: var(--midnight-blue);
 }
 
-.btn-search-habitacion:hover {
+.btn-search-room:hover {
     background-color: var(--gold);
     color: var(--midnight-blue);
 }
 
-.btn-confirmar-reserva {
+.btn-confirm-booking {
     width: 16rem;
     padding: 12px;
     color: var(--white-smoke);
@@ -159,12 +159,12 @@
     font-weight: 600;
     background-color: var(--midnight-blue);
 }
-.btn-confirmar-reserva:hover {
+.btn-confirm-booking:hover {
     background-color: var(--gold);
     color: var(--midnight-blue);
 }
 
-.btn-cancelar-reserva {
+.btn-cancel-booking {
     width: 16rem;
     padding: 12px;
     color: var(--white-smoke);
@@ -172,12 +172,12 @@
     font-weight: 600;
     background-color: var(--midnight-blue);
 }
-.btn-cancelar-reserva:hover {
+.btn-cancel-booking:hover {
     background-color: var(--gold);
     color: var(--midnight-blue);
 }
 
-.btn-mas-detalles:hover {
+.btn-more-details:hover {
     background-color: var(--gold);
 }
 
