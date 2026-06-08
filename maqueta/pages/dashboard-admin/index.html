@@ -14,34 +14,26 @@
 <body>
 
     <div class="contenedor">
-        <h1>🏨 SISTEMA DE GESTIÓN HOTELERA - ADMINISTRADOR</h1>
+        <h1>SISTEMA DE GESTIÓN HOTELERA - ADMINISTRADOR</h1>
 
         <!-- Tarjetas resumen -->
-        <div class="container mb-4">
-            <div class="row">
-                <div class="col-md-4">
-                    <div class="carta disponible">
-                        <div class="numero">12</div>
-                        <div>🟢 Habitaciones Disponibles</div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="carta ocupada">
-                        <div class="numero">8</div>
-                        <div>🔴 Habitaciones Ocupadas</div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="carta mantenimiento">
-                        <div class="numero">4</div>
-                        <div>🟡 En Mantenimiento</div>
-                    </div>
-                </div>
+        <div class="summary-cards">
+            <div class="card available">
+                <div class="number">12</div>
+                <div>🟢 Habitaciones Disponibles</div>
+            </div>
+            <div class="card occupied">
+                <div class="number">8</div>
+                <div>🔴 Habitaciones Ocupadas</div>
+            </div>
+            <div class="card maintenance">
+                <div class="number">4</div>
+                <div>🟡 En Mantenimiento</div>
             </div>
         </div>
 
         <!-- Tabla de habitaciones -->
-        <table class="tabla-habitaciones">
+        <table class="rooms-table">
             <thead>
                 <tr>
                     <th>N° Hab.</th>
@@ -52,51 +44,51 @@
             </thead>
             <tbody>
                 <!-- Fila 101 -->
-                <tr class="fila-habitacion">
+                <tr class="room-row">
                     <td class="text-center fw-bold">101</td>
                     <td>Standard</td>
-                    <td><span class="estado disponible-texto">🟢 Disponible</span></td>
-                    <td class="acciones">
+                    <td><span class="status available-text">🟢 Disponible</span></td>
+                    <td class="actions">
                         <a href="./detalle-habitacion.html" class="btn btn-primary btn-sm">Ver</a>
                         <a href="./detalle-habitacion.html" class="btn btn-warning btn-sm">Editar</a>
                     </td>
                 </tr>
                 <!-- Fila 102 -->
-                <tr class="fila-habitacion">
+                <tr class="room-row">
                     <td class="text-center fw-bold">102</td>
                     <td>Standard</td>
-                    <td><span class="estado disponible-texto">🟢 Disponible</span></td>
-                    <td class="acciones">
+                    <td><span class="status available-text">🟢 Disponible</span></td>
+                    <td class="actions">
                         <a href="./detalle-habitacion.html" class="btn btn-primary btn-sm">Ver</a>
                         <a href="./detalle-habitacion.html" class="btn btn-warning btn-sm">Editar</a>
                     </td>
                 </tr>
                 <!-- Fila 103 -->
-                <tr class="fila-habitacion">
+                <tr class="room-row">
                     <td class="text-center fw-bold">103</td>
                     <td>Doble</td>
-                    <td><span class="estado ocupada-texto">🔴 Ocupada</span></td>
-                    <td class="acciones">
+                    <td><span class="status occupied-text">🔴 Ocupada</span></td>
+                    <td class="actions">
                         <a href="./detalle-habitacion.html" class="btn btn-primary btn-sm">Ver</a>
                         <a href="./detalle-habitacion.html" class="btn btn-warning btn-sm">Editar</a>
                     </td>
                 </tr>
                 <!-- Fila 104 -->
-                <tr class="fila-habitacion">
+                <tr class="room-row">
                     <td class="text-center fw-bold">104</td>
                     <td>Suite</td>
-                    <td><span class="estado disponible-texto">🟢 Disponible</span></td>
-                    <td class="acciones">
+                    <td><span class="status available-text">🟢 Disponible</span></td>
+                    <td class="actions">
                         <a href="./detalle-habitacion.html" class="btn btn-primary btn-sm">Ver</a>
                         <a href="./detalle-habitacion.html" class="btn btn-warning btn-sm">Editar</a>
                     </td>
                 </tr>
                 <!-- Fila 105 -->
-                <tr class="fila-habitacion">
+                <tr class="room-row">
                     <td class="text-center fw-bold">105</td>
                     <td>Familiar</td>
-                    <td><span class="estado mantenimiento-texto">🟡 Mantenimiento</span></td>
-                    <td class="acciones">
+                    <td><span class="status maintenance-text">🟡 Mantenimiento</span></td>
+                    <td class="actions">
                         <a href="./detalle-habitacion.html" class="btn btn-primary btn-sm">Ver</a>
                         <a href="./detalle-habitacion.html" class="btn btn-warning btn-sm">Editar</a>
                     </td>
