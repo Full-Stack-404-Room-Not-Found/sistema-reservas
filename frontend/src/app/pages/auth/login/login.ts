@@ -24,7 +24,7 @@ export class Login {
     }
     else
     {
-      alert("Los datos ingresados no son validos.")
+      this.LoginForm.markAllAsTouched();
     }
   }
 
