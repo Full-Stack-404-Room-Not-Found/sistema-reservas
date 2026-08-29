@@ -1,1 +1,33 @@
-<p>layout works!</p>
+<div class="dashboard-container">
+    <aside class="sidebar">
+        <h3>🏨 Hotel Admin</h3>
+        <nav>
+            <ul>
+                <li>
+                    <a routerLink="/dashboard-admin/inicio" routerLinkActive="active">
+                        📊 Inicio
+                    </a>
+                </li>
+                <li>
+                    <a routerLink="/dashboard-admin/habitaciones" routerLinkActive="active">
+                        🛏️ Habitaciones
+                    </a>
+                </li>
+                <li>
+                    <a routerLink="/dashboard-admin/reservas" routerLinkActive="active">
+                        📅 Reservas
+                    </a>
+                </li>
+                <li>
+                    <a routerLink="/dashboard-admin/usuarios" routerLinkActive="active">
+                        👥 Usuarios
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </aside>
+
+    <main class="main-content">
+        <router-outlet></router-outlet>
+    </main>
+</div>

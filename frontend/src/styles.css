@@ -1,1 +1,503 @@
-/* You can add global styles to this file, and also import other style files */
+
+@import url(https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,400&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Poppins:wght@300;400;500;600;700&family=Inter:wght@300;400;600;700&display=swap);
+@import url('https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css');
+:root {
+  --midnight-blue: #1b263b;
+  --soft-gold: #e0e1dd;
+  --gold-accent: #c5a059;
+  --white-smoke: #f8f9fa;
+  --charcoal-grey: #415a77;
+  --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+  --nav-height: 80px;
+  --gold: #c9a84c;
+  --white: #ffffff;
+  --light-grey: #dde1e7;
+  --error-red: #c0392b;
+  --success-green: #27ae60;
+  /* Agregados: usados por los estilos del dashboard de usuario en la
+     maqueta original (maqueta/css/dashboard-usuario/index.css) pero nunca
+     definidos ahí — se completan acá para que topbar/cards/tabla se vean
+     como en la maqueta. */
+  --border-radius: 12px;
+  --shadow-soft: 0 8px 25px rgba(27, 38, 59, 0.08);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  font-family: Inter, sans-serif;
+  background-color: var(--white-smoke);
+  color: var(--midnight-blue);
+  line-height: 1.6;
+  overflow-x: hidden;
+  min-height: 100%;
+}
+
+.nav-home,
+.nav-item,
+.btn-reservation {
+  text-decoration: none;
+}
+
+/* --- Header / Navbar --- */
+header {
+  display: flex;
+  background-color: var(--midnight-blue);
+  height: var(--nav-height);
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  padding: 0 5%;
+}
+
+.navbar {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-home,
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.logo-container {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 2px solid var(--gold-accent);
+  background-color: #fff;
+  transition: var(--transition);
+}
+
+.logo-container:hover {
+  transform: scale(1.05);
+}
+
+.logo-img,
+.footer-logo-circle img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.brand-name {
+  color: #fff;
+  font-weight: 700;
+  font-size: 1.2rem;
+  letter-spacing: -0.5px;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.nav-item {
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 0.95rem;
+  font-weight: 400;
+  position: relative;
+  padding: 5px 0;
+  transition: var(--transition);
+}
+
+.nav-item::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--gold-accent);
+  transition: var(--transition);
+}
+
+.nav-item:hover,
+.nav-item.active {
+  color: var(--gold-accent);
+}
+
+.nav-item:hover::after,
+.nav-item.active::after {
+  width: 100%;
+}
+
+.btn-reservation {
+  background-color: var(--gold-accent);
+  color: #fff !important;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-weight: 600;
+  border: 1px solid transparent;
+  transition: var(--transition);
+}
+
+.btn-reservation:hover {
+  background-color: transparent;
+  border-color: var(--gold-accent);
+  box-shadow: 0 0 20px rgba(197, 160, 89, 0.3);
+  transform: translateY(-2px);
+}
+
+.menu-checkbox {
+  display: none;
+}
+
+.mobile-menu-btn {
+  display: none;
+  color: #fff;
+  font-size: 1.5rem;
+  cursor: pointer;
+  z-index: 1001;
+}
+
+.menu-checkbox:checked ~ .mobile-menu-btn {
+  color: gold;
+}
+
+/* --- Hero base (cada página define su propio background-image) --- */
+.hero {
+  height: 70vh;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: #fff;
+  padding: 0 20px;
+}
+
+.hero-content h1 {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  margin-bottom: 15px;
+  font-weight: 700;
+}
+
+.hero-content p {
+  font-size: clamp(1rem, 2vw, 1.3rem);
+  margin-bottom: 30px;
+  opacity: 0.9;
+}
+
+/* --- Footer --- */
+.simple-footer {
+  background-color: var(--midnight-blue);
+  color: var(--white);
+  padding: 40px 20px;
+  text-align: center;
+  width: 100%;
+  margin-top: auto;
+  margin-bottom: 0;
+}
+
+.footer-content {
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.footer-brand {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 25px;
+}
+
+.footer-logo-circle {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  border: 2px solid var(--gold);
+  overflow: hidden;
+  background-color: #fff;
+}
+
+.footer-line {
+  border: 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  margin-bottom: 20px;
+}
+
+.copyright {
+  color: #e0e1dd;
+  font-size: 0.85rem;
+}
+
+/* --- Responsive: menú mobile --- */
+@media (max-width: 992px) {
+  .mobile-menu-btn {
+    display: block;
+  }
+
+  .nav-links {
+    position: fixed;
+    top: var(--nav-height);
+    left: -100%;
+    flex-direction: column;
+    background-color: var(--midnight-blue);
+    width: 100%;
+    height: calc(100vh - var(--nav-height));
+    padding: 50px 0;
+    transition: var(--transition);
+    gap: 40px;
+  }
+
+  .menu-checkbox:checked ~ .nav-links {
+    left: 0;
+  }
+
+  .menu-checkbox:checked ~ .mobile-menu-btn i::before {
+    content: "\f00d";
+  }
+
+  .nav-item {
+    font-size: 1.3rem;
+  }
+
+  .brand-name {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .hero {
+    height: 50vh;
+  }
+}
+
+/* =========================================================
+   Dashboard de usuario — migrado de
+   maqueta/css/dashboard-usuario/index.css. 
+   ========================================================= */
+.dashboard-container {
+  min-height: 100vh;
+  background-color: var(--white-smoke);
+  flex-direction: column;
+  display: flex;
+}
+
+.main-content {
+  flex: 0;
+  padding: 30px;
+}
+
+.topbar {
+  background-color: var(--white);
+  padding: 20px 30px;
+  border-radius: var(--border-radius);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: var(--shadow-soft);
+  margin-bottom: 30px;
+}
+
+.welcome-text h1 {
+  font-size: 2rem;
+  margin-bottom: 8px;
+  color: var(--midnight-blue);
+}
+
+.welcome-text p {
+  color: var(--charcoal-grey);
+}
+
+.section-title {
+  margin-bottom: 20px;
+}
+
+.section-title h2 {
+  font-size: 2rem;
+}
+
+.search-room {
+  background-color: var(--white);
+  padding: 30px;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-soft);
+  margin-bottom: 40px;
+}
+
+.search-form {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-group label {
+  font-weight: 600;
+}
+
+.form-group-data {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-decision {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.rooms-section {
+  margin-bottom: 40px;
+}
+
+.room-details {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  height: 2rem;
+}
+
+.btn-more-details,
+.btn-search-room,
+.btn-confirm-booking,
+.btn-cancel-booking {
+  width: 16rem;
+  padding: 12px;
+  color: var(--white-smoke);
+  border-radius: 8px;
+  font-weight: 600;
+  background-color: var(--midnight-blue);
+  text-align: center;
+  text-decoration: none;
+  border: none;
+}
+
+.btn-more-details:hover,
+.btn-search-room:hover,
+.btn-confirm-booking:hover,
+.btn-cancel-booking:hover {
+  background-color: var(--gold);
+  color: var(--midnight-blue);
+}
+
+.img-card {
+  height: 13.75rem;
+  object-fit: cover;
+}
+
+.card-limite {
+  height: 80px;
+  overflow: hidden;
+}
+
+.reservations-section {
+  background-color: var(--white);
+  padding: 30px;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-soft);
+}
+
+.table-container {
+  overflow-x: auto;
+}
+
+.table-container table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table-container thead {
+  background-color: var(--soft-gold);
+}
+
+.table-container th,
+.table-container td {
+  padding: 16px;
+  text-align: left;
+}
+
+.table-container tbody tr {
+  border-bottom: 1px solid var(--light-grey);
+}
+
+.status-confirmed {
+  color: var(--success-green);
+  font-weight: bold;
+}
+
+.status-pending {
+  color: var(--gold);
+  font-weight: bold;
+}
+
+.room-card-detail {
+  background-color: var(--white);
+  padding: 2rem;
+  margin-bottom: 2rem;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-soft);
+}
+
+.room-card-detail h2 {
+  color: var(--midnight-blue);
+  margin-bottom: 1rem;
+  border-bottom: 3px solid var(--gold-accent);
+  padding-bottom: 0.5rem;
+}
+
+.room-card-detail p,
+.room-card-detail li {
+  line-height: 1.8;
+  color: var(--charcoal-grey);
+}
+
+@media (max-width: 1200px) {
+  .search-form {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .dashboard-container {
+    flex-direction: column;
+  }
+
+  .main-content {
+    margin-left: 0;
+  }
+
+  .topbar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
+
+  .search-form {
+    grid-template-columns: 1fr;
+  }
+}
