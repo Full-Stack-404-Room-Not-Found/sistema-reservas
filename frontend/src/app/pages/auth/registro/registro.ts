@@ -6,7 +6,7 @@ import {
   ValidationErrors,
   Validators,
 } from '@angular/forms';
-import { Router, RouterLink } from '@angular/router';
+import { Router } from '@angular/router';
 
 function passwordsMatchValidator(group: AbstractControl): ValidationErrors | null {
   const passwordControl = group.get('password');
@@ -24,7 +24,7 @@ function passwordsMatchValidator(group: AbstractControl): ValidationErrors | nul
 }
 
 @Component({
-  imports: [],
+  imports: [ReactiveFormsModule],
   selector: 'app-registro',
   styleUrl: './registro.css',
   templateUrl: './registro.html',
