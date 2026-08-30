@@ -1,0 +1,87 @@
+.contenedor {
+    padding: 20px;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.contenedor h2 {
+    color: #1b263b;
+    font-family: 'Inter', sans-serif;
+    margin-bottom: 20px;
+}
+
+.form-card {
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 600;
+    color: #1b263b;
+    font-family: 'Inter', sans-serif;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #dde1e7;
+    border-radius: 6px;
+    font-size: 14px;
+    font-family: 'Inter', sans-serif;
+    box-sizing: border-box;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: 2px solid #c9a84c;
+    border-color: transparent;
+}
+
+.actions {
+    margin-top: 20px;
+    display: flex;
+    gap: 10px;
+}
+
+.btn-primary {
+    background: #27ae60;
+    color: white;
+    padding: 10px 25px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    font-family: 'Inter', sans-serif;
+}
+
+.btn-primary:hover {
+    background: #219a52;
+}
+
+.btn-secondary {
+    background: #415a77;
+    color: white;
+    padding: 10px 25px;
+    border-radius: 6px;
+    text-decoration: none;
+    text-align: center;
+    font-size: 14px;
+    font-family: 'Inter', sans-serif;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-secondary:hover {
+    background: #1b263b;
+}
