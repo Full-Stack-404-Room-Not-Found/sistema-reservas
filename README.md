@@ -33,9 +33,20 @@ Desarrollar una aplicación web para la administración hotelera que permita org
 
 ---
 
+## 🛠️ Información General
+
+Sistema de reservas hoteleras desarrollado con Angular. 
+El proyecto permite gestionar la navegación entre las diferentes secciones de la aplicación y cuenta con páginas de inicio, autenticación, información 
+institucional y dashboard administrativo.
+
+La aplicación está desarrollada utilizando una arquitectura basada en 
+componentes y rutas de Angular.
+
+---
+
 ## 🛠️ Tecnologías
 
-- Frontend: Angular (HTML, CSS, TypeScript)
+- Frontend: Angular (HTML5, CSS, TypeScript, Bootstrap, Node.js, npm)
 - Control de versiones: Git y GitHub
 - Backend: (Python)
 - Base de datos: MYSQL
@@ -46,19 +57,39 @@ Desarrollar una aplicación web para la administración hotelera que permita org
 
 - `/backend`
 - `/frontend`
+    - src/app/ →incluye componentes y configuraciones de las rutas
+    - src/app/pages/ →incluye las páginas principales de la aplicación
+    - src/app/pages/auth/ →incluye páginas relacionadas con el login y registro
+    - src/app/pages/not-found →página de error 404
+    - src/app/app.routes.ts  →configuración de las páginas
+    - src/app/app.html →plantilla principal de la aplicación
+    - public/ imágenes →utilizadas en la aplicación
+
+    Rutas principales de la aplicación
+
+    - / http://localhost:<puerto>/ →Página de inicio
+    - / http://localhost:<puerto>/quienes-somos →Página de Quienes Somos
+    - / http://localhost:<puerto>/registro →Página de registro de cuentas
+    - / http://localhost:<puerto>/login →Página de inicio de sesión
+
 - `/maqueta`
 
 ---
 
 ## ▶️ Instalación y ejecución del programa
-- Requisitos:
-    - Tener instalado un navegador web
-    - Opcional: Visual Studio Code con la extensión Live Server.
+- Requisitos Antes de ejecutar el proyecto:
+    - Tener instalado Node.js
+    - npm
+    - Un navegador web
+    - Opcional: Visual Studio Code para trabajar con el código
 -  Pasos:
-    - Clonar el repositorio
+    - Clonar el repositorio. git clone https://github.com/Full-Stack-404-Room-Not-Found/sistema-reservas.git
     - Acceder a la carpeta del proyecto (sistema-reservas)
-    - Ingresar a la carpeta maqueta
-    - Abrir el archivo index.html en el navegador o en Visual Studio code
+    - Ingresar a la carpeta frontend
+    - Instalar las dependencias: npm intall
+    - Iniciar la aplicación en modo desarrollo: npm start o ng serve
+    - Iniciado el servidor abrir en el navegador con el puerto indicado.
+    - Cualquier cambio generado en el código se actualizará la aplicación automáticamente
 
 ## 🚀 Estado del proyecto
 
