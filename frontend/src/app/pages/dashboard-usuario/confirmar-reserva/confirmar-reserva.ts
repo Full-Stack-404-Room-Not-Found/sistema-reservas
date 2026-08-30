@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-
+import { RouterLink } from '@angular/router';
 @Component({
-  imports: [],
+  imports: [RouterLink],
   selector: 'app-confirmar-reserva',
   styleUrl: './confirmar-reserva.css',
   templateUrl: './confirmar-reserva.html',
