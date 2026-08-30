@@ -1,1 +1,132 @@
-<p>inicio works!</p>
+<main class="main-content">
+
+    <section class="search-room">
+
+        <div class="section-title">
+            <h1>Buscar Habitaciones</h1>
+        </div>
+
+        <form class="search-form">
+
+            <div class="form-group">
+                <label for="checkin">Check-in</label>
+                <input type="date" id="checkin">
+            </div>
+
+            <div class="form-group">
+                <label for="checkout">Check-out</label>
+                <input type="date" id="checkout">
+            </div>
+
+            <div class="form-group">
+
+                <label for="huespedes">Huéspedes</label>
+                <select id="huespedes">
+                    <option>1 Persona</option>
+                    <option>2 Personas</option>
+                    <option>3 Personas</option>
+                    <option>4 Personas</option>
+                    <option>5 Personas</option>
+                </select>
+
+            </div>
+
+            <div class="form-group">
+
+                <label for="room-type">Tipo Habitación</label>
+                <select id="room-type">
+                    <option>Suite</option>
+                    <option>Doble</option>
+                    <option>Premium</option>
+                    <option>Familiar</option>
+                </select>
+
+            </div>
+
+            <button type="submit" class="btn btn-search-room">
+                Buscar Habitaciones
+            </button>
+
+        </form>
+
+    </section>
+
+    <section class="rooms-section">
+
+        <div class="section-title">
+            <h2>Habitaciones Disponibles</h2>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <div class="card" style="width: 18rem;">
+                        <img src="/imagenes-habitaciones/suite-1-adapt.jpg" class="card-img-top img-card"
+                            alt="Suite Junior">
+                        <div class="card-body">
+                            <h3 class="card-title">Suite Junior</h3>
+                            <p class="card-text card-limite">Habitación amplia y elegante con todas las
+                                comodidades
+                                necesarias para
+                                una estadía confortable.</p>
+                            <div class="room-details">
+                                <span>
+                                    2 Personas
+                                </span>
+                                <span>
+                                    $120.000 / noche
+                                </span>
+                            </div>
+                            <a routerLink="/reservar-habitacion" class="btn btn-more-details">Más Detalles</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card" style="width: 18rem;">
+                        <img src="/imagenes-habitaciones/suite-2-adapt.jpg" class="card-img-top img-card"
+                            alt="Suite Deluxe">
+                        <div class="card-body">
+                            <h3 class="card-title">Suite Deluxe</h3>
+                            <p class="card-text">Disfruta de una experiencia superior con espacios modernos,
+                                WiFi y
+                                servicios exclusivos.</p>
+                            <div class="room-details">
+                                <span>
+                                    4 Personas
+                                </span>
+                                <span>
+                                    $250.000 / noche
+                                </span>
+                            </div>
+                            <a routerLink="/reservar-habitacion" class="btn btn-more-details">Más Detalles</a>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col">
+                    <div class="card" style="width: 18rem;">
+                        <img src="/imagenes-habitaciones/suite-1-adapt.jpg" class="card-img-top img-card"
+                            alt="Suite Ejecutiva">
+                        <div class="card-body">
+                            <h3 class="card-title">Suite Ejecutiva</h3>
+                            <p class="card-text">Disfruta de una experiencia superior con espacios modernos,
+                                WiFi y
+                                servicios exclusivos.</p>
+                            <div class="room-details">
+                                <span>
+                                    1 Personas
+                                </span>
+                                <span>
+                                    $150.000 / noche
+                                </span>
+                            </div>
+                            <a routerLink="/reservar-habitacion" class="btn btn-more-details">Más Detalles</a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+</main>
