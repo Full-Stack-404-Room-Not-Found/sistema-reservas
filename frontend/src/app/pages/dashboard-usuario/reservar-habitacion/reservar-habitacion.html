@@ -1,1 +1,69 @@
-<p>reservar-habitacion works!</p>
+<main class="about-container">
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Suite Junior</h1>
+        </div>
+    </section>
+    <section class="room-card-detail">
+        <h2>Detalles de la Habitación</h2>
+        <p>Nuestra Suite Junior combina elegancia y confort en un espacio amplio y moderno, diseñado para
+            brindar una experiencia de descanso superior. Cuenta con una cómoda cama matrimonial, área de estar
+            y todas las comodidades necesarias para una estadía placentera, ya sea por negocios o por
+            vacaciones.</p>
+    </section>
+
+    <section class="room-card-detail">
+        <h2>Capacidad</h2>
+        <p>Capacidad máxima: 2 personas</p>
+    </section>
+
+    <section class="room-card-detail">
+        <h2>Servicios</h2>
+        <ul>
+            <li>Wi-Fi gratuito</li>
+            <li>Aire acondicionado</li>
+            <li>Minibar</li>
+            <li>Baño privado con artículos de aseo gratuitos</li>
+            <li>Smart TV</li>
+            <li>Caja de seguridad</li>
+            <li>Servicio de limpieza diario</li>
+            <li>Desayuno incluido</li>
+            <li>Atención las 24 horas</li>
+        </ul>
+    </section>
+
+    <section class="room-card-detail">
+        <h2>Precio</h2>
+        <p>120.000 / noche</p>
+    </section>
+
+    <section class="room-card-detail">
+        <h2>Reservar</h2>
+        <p>Para realizar una reserva, por favor completa el formulario de reserva con los datos solicitados.</p>
+        <form action="../dashboard-usuario/confirmacion-de-reserva.html" method="get">
+            <!--se cambio el post por get para poder seguir el flujo-->
+            <div class="form-group-data">
+                <label for="nombre-apellido">Nombre y apellido:</label>
+                <input type="text" id="nombre-apellido" name="nombre-apellido">
+            </div>
+            <div class="form-group-data">
+                <label for="telefono">Teléfono:</label>
+                <input type="text" id="telefono" name="telefono">
+            </div>
+            <div class="form-group-data">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email">
+            </div>
+            <div class="form-decision">
+                <button type="submit" class="btn btn-confirm-booking">
+                    Confirmar Reserva
+                </button>
+                <a href="../dashboard-usuario/index.html" class="btn btn-cancel-booking">
+                    Cancelar Reserva
+                </a>
+            </div>
+
+        </form>
+    </section>
+</main>

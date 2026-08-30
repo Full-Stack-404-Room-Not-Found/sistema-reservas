@@ -1,1 +1,184 @@
-<p>inicio works!</p>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Usuario | Sistema de Gestión</title>
+</head>
+
+<body>
+    <div class="dashboard-container">
+        <header>
+            <nav class="navbar">
+                <div class="nav-left">
+                    <a href="../../index.html" class="nav-home">
+                        <div class="logo-container">
+                            <img src="../../imagenes/logo.png" alt="404 Logo" class="logo-img">
+                        </div>
+                        <span class="brand-name">404 Room Not Found</span>
+                    </a>
+                </div>
+                <input type="checkbox" id="menu-toggle" class="menu-checkbox">
+                <label for="menu-toggle" class="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </label>
+
+                <ul class="nav-links">
+                    <li><a href="../../index.html" class="nav-item">Inicio</a></li>
+                    <li><a href="../quienes-somos.html" class="nav-item">Quiénes Somos</a></li>
+                    <li><a href="./index.html" class="btn-reservation">Reservar Ahora</a></li>
+                    <li><a href="./historial-reservas.html" class="btn-reservation">Mis Reservas</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main class="main-content">
+
+            <section class="search-room">
+
+                <div class="section-title">
+                    <h1>Buscar Habitaciones</h1>
+                </div>
+
+                <form class="search-form">
+
+                    <div class="form-group">
+                        <label for="checkin">Check-in</label>
+                        <input type="date" id="checkin">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="checkout">Check-out</label>
+                        <input type="date" id="checkout">
+                    </div>
+
+                    <div class="form-group">
+
+                        <label for="huespedes">Huéspedes</label>
+                        <select id="huespedes">
+                            <option>1 Persona</option>
+                            <option>2 Personas</option>
+                            <option>3 Personas</option>
+                            <option>4 Personas</option>
+                            <option>5 Personas</option>
+                        </select>
+
+                    </div>
+
+                    <div class="form-group">
+
+                        <label for="room-type">Tipo Habitación</label>
+                        <select id="room-type">
+                            <option>Suite</option>
+                            <option>Doble</option>
+                            <option>Premium</option>
+                            <option>Familiar</option>
+                        </select>
+
+                    </div>
+
+                    <button type="submit" class="btn btn-search-room">
+                        Buscar Habitaciones
+                    </button>
+
+                </form>
+
+            </section>
+
+            <section class="rooms-section">
+
+                <div class="section-title">
+                    <h2>Habitaciones Disponibles</h2>
+                </div>
+
+                <div class="container">
+                    <div class="row">
+                        <div class="col">
+                            <div class="card" style="width: 18rem;">
+                                <img src="../../imagenes/suite-1-adapt.jpg" class="card-img-top img-card"
+                                    alt="Suite Junior">
+                                <div class="card-body">
+                                    <h3 class="card-title">Suite Junior</h3>
+                                    <p class="card-text card-limite">Habitación amplia y elegante con todas las
+                                        comodidades
+                                        necesarias para
+                                        una estadía confortable.</p>
+                                    <div class="room-details">
+                                        <span>
+                                            2 Personas
+                                        </span>
+                                        <span>
+                                            $120.000 / noche
+                                        </span>
+                                    </div>
+                                    <a href="./reservar-habitacion.html" class="btn btn-more-details">Más Detalles</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card" style="width: 18rem;">
+                                <img src="../../imagenes/suite-2-adapt.jpg" class="card-img-top img-card"
+                                    alt="Suite Deluxe">
+                                <div class="card-body">
+                                    <h3 class="card-title">Suite Deluxe</h3>
+                                    <p class="card-text">Disfruta de una experiencia superior con espacios modernos,
+                                        WiFi y
+                                        servicios exclusivos.</p>
+                                    <div class="room-details">
+                                        <span>
+                                            4 Personas
+                                        </span>
+                                        <span>
+                                            $250.000 / noche
+                                        </span>
+                                    </div>
+                                    <a href="./reservar-habitacion.html" class="btn btn-more-details">Más Detalles</a>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="col">
+                            <div class="card" style="width: 18rem;">
+                                <img src="../../imagenes/suite-1-adapt.jpg" class="card-img-top img-card"
+                                    alt="Suite Ejecutiva">
+                                <div class="card-body">
+                                    <h3 class="card-title">Suite Ejecutiva</h3>
+                                    <p class="card-text">Disfruta de una experiencia superior con espacios modernos,
+                                        WiFi y
+                                        servicios exclusivos.</p>
+                                    <div class="room-details">
+                                        <span>
+                                            1 Personas
+                                        </span>
+                                        <span>
+                                            $150.000 / noche
+                                        </span>
+                                    </div>
+                                    <a href="./reservar-habitacion.html" class="btn btn-more-details">Más Detalles</a>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+
+        </main>
+
+        <footer class="simple-footer">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="footer-logo-circle">
+                        <img src="../../imagenes/logo.png" alt="404 Logo">
+                    </div>
+                </div>
+                <hr class="footer-line">
+                <p class="copyright">&copy; 2026 404 Room Not Found. Todos los derechos reservados.</p>
+            </div>
+        </footer>
+
+    </div>
+</body>
+
+</html>
