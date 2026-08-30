@@ -5,7 +5,12 @@
         <form [formGroup]="LoginForm" (ngSubmit)="enviar()">
 
             <div class="username">
-                <input id="correo" type="email" formControlName="email" placeholder=" " autocomplete = "email" required>
+                <input id="correo" 
+                type="email" 
+                formControlName="email" 
+                placeholder=" " 
+                autocomplete = "email" 
+                required>
                 <span></span>
                 <label for="correo"> Correo Electrónico</label>
             </div>
@@ -23,7 +28,12 @@
             }
 
             <div class="password">
-                <input id="password" type="password" formControlName="password" placeholder=" " autocomplete= "" required>
+                <input id="password" 
+                type="password" 
+                formControlName="password" 
+                placeholder=" " 
+                autocomplete= "current-password" 
+                required>
                 <span></span>
                 <label for="password">Contraseña</label>
             </div>
