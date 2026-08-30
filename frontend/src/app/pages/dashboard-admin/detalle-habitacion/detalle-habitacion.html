@@ -1,1 +1,37 @@
-<p>detalle-habitacion works!</p>
+<div class="contenedor">
+    <h2>🛏️ Detalle de Habitación #{{ id }}</h2>
+
+    <div class="detalle-card">
+        <div class="detalle-item">
+            <span class="label">Número:</span>
+            <span class="value">{{ id }}</span>
+        </div>
+        <div class="detalle-item">
+            <span class="label">Tipo:</span>
+            <span class="value">Standard</span>
+        </div>
+        <div class="detalle-item">
+            <span class="label">Estado:</span>
+            <span class="badge available">🟢 Disponible</span>
+        </div>
+        <div class="detalle-item">
+            <span class="label">Precio por noche:</span>
+            <span class="value">$40</span>
+        </div>
+        <div class="detalle-item">
+            <span class="label">Capacidad:</span>
+            <span class="value">4 personas</span>
+        </div>
+        <div class="detalle-item">
+            <span class="label">Descripción:</span>
+            <span class="value">habitacion en suite con capacidad para 4 personas.cuenta con 1 cama matrimonial y dos
+                camas individuales,baño privado completo, aire acondicionado,tv led, wifi,minibar y balcon con vista al
+                jardin .incluye servicio de limpieza diario y desayuno</span>
+        </div>
+
+        <div class="actions">
+            <a [routerLink]="['/dashboard-admin/crear-habitacion', id]" class="btn-warning">✏️ Editar</a>
+            <a routerLink="/dashboard-admin/inicio" class="btn-secondary">⬅ Volver</a>
+        </div>
+    </div>
+</div>
