@@ -43,6 +43,3 @@ export const routes: Routes = [
   // ========== RUTA 404 ==========
   { path: '**', redirectTo: 'dashboard-admin/inicio' }
 ];
-
-
-
