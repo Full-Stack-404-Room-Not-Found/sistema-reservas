@@ -1,0 +1,75 @@
+.dashboard-container {
+    min-height: 100vh;
+    background-color: var(--white-smoke);
+    flex-direction: column;
+    display: flex; 
+}
+
+.form-decision {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.form-group-data {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.btn-confirm-booking {
+    width: 16rem;
+    padding: 12px;
+    color: var(--white-smoke);
+    border-radius: 8px;
+    font-weight: 600;
+    background-color: var(--midnight-blue);
+}
+.btn-confirm-booking:hover {
+    background-color: var(--gold);
+    color: var(--midnight-blue);
+}
+
+.btn-cancel-booking {
+    width: 16rem;
+    padding: 12px;
+    color: var(--white-smoke);
+    border-radius:8px;
+    font-weight: 600;
+    background-color: var(--midnight-blue);
+}
+.btn-cancel-booking:hover {
+    background-color: var(--gold);
+    color: var(--midnight-blue);
+}
+
+li {
+    list-style: none;
+}
+
+.hero {
+    background-image: linear-gradient(rgba(27, 38, 59, 0.7), rgba(27, 38, 59, 0.7)), 
+                url(../../../../../../maqueta/imagenes/suite.jpg);
+}
+
+.room-card-detail {
+    background-color: var(--white);
+    padding: 2rem;
+    margin-bottom: 2rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-soft);
+}
+
+.room-card-detail h2 {
+    color: var(--midnight-blue);
+    margin-bottom: 1rem;
+    border-bottom: 3px solid var(--gold-accent);
+    padding-bottom: 0.5rem;
+}
+
+.room-card-detail p,
+.room-card-detail li {
+    line-height: 1.8;
+    color: var(--charcoal-grey);
+}
