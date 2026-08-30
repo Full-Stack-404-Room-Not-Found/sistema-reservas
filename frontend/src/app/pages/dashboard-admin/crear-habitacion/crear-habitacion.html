@@ -1,1 +1,51 @@
-<p>crear-habitacion works!</p>
+<div class="contenedor">
+    <h2>✏️ {{ habitacion.numero ? 'Editar' : 'Nueva' }} Habitación</h2>
+
+    <div class="form-card">
+        <form (ngSubmit)="guardar()">
+            <div class="form-group">
+                <label>Número:</label>
+                <input type="number" [(ngModel)]="habitacion.numero" name="numero">
+            </div>
+
+            <div class="form-group">
+                <label>Tipo:</label>
+                <select [(ngModel)]="habitacion.tipo" name="tipo">
+                    <option>Standard</option>
+                    <option>Doble</option>
+                    <option>Suite</option>
+                    <option>Familiar</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>Estado:</label>
+                <select [(ngModel)]="habitacion.estado" name="estado">
+                    <option>Disponible</option>
+                    <option>Ocupada</option>
+                    <option>Mantenimiento</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>Precio por noche:</label>
+                <input type="number" [(ngModel)]="habitacion.precio" name="precio">
+            </div>
+
+            <div class="form-group">
+                <label>Capacidad:</label>
+                <input type="number" [(ngModel)]="habitacion.capacidad" name="capacidad">
+            </div>
+
+            <div class="form-group">
+                <label>Descripción:</label>
+                <textarea [(ngModel)]="habitacion.descripcion" name="descripcion" rows="3"></textarea>
+            </div>
+
+            <div class="actions">
+                <button type="submit" class="btn-primary">💾 Guardar</button>
+                <a routerLink="/dashboard-admin/inicio" class="btn-secondary">⬅ Cancelar</a>
+            </div>
+        </form>
+    </div>
+</div>

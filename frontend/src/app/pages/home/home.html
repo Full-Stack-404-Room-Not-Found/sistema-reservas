@@ -1,3 +1,174 @@
-<main>
-  <router-outlet></router-outlet>
-</main>
+<section class="hero">
+  <div class="hero-content">
+    <h1>Gestión Hotelera Premium</h1>
+    <p>El confort de tu hogar, la magia de la ciudad</p>
+
+    <div class="search-hero-container">
+      <form class="row g-0 align-items-center search-hero-form">
+        <div class="col-12 col-md-4 search-col">
+          <div class="input-group-custom">
+            <i class="fas fa-map-marker-alt search-icon"></i>
+            <select name="hotel" class="search-select" aria-label="Seleccionar sucursal del hotel">
+              <option value="Cordoba">404 Room Not Found - Cordoba</option>
+              <option value="Buenos Aires">404 Room Not Found - Buenos Aires</option>
+              <option value="Rosario">404 Room Not Found - Rosario</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-3 search-col">
+          <div class="input-group-custom">
+            <i class="fas fa-calendar-alt search-icon"></i>
+            <input
+              type="text"
+              placeholder="Check-in"
+              (focus)="$any($event.target).type = 'date'"
+              class="search-input"
+            />
+          </div>
+        </div>
+
+        <div class="col-12 col-md-3 search-col">
+          <div class="input-group-custom">
+            <i class="fas fa-calendar-alt search-icon"></i>'
+            <!-- 
+              TRUCO DE UX PARA PLACEHOLDER:
+              Inicia como type="text" para que el navegador respete y muestre el placeholder ("Check-in"). 
+              Al hacer clic (focus), cambia dinámicamente a type="date" para abrir el calendario nativo.
+              Se utiliza $any() para evitar errores de tipado estricto de TypeScript en la plantilla.
+            -->
+            <input
+              type="text"
+              placeholder="Check-out"
+              (focus)="$any($event.target).type = 'date'"
+              class="search-input"
+            />
+          </div>
+        </div>
+
+        <div class="col-12 col-md-2">
+          <!-- TODO: cuando el buscador filtre habitaciones de verdad, pasar
+               fechas/huéspedes como query params a esta ruta. -->
+          <a routerLink="/dashboard-usuario/inicio" class="btn-search-hero">BUSCAR</a>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<section class="container" style="margin-top: -60px; position: relative; z-index: 10">
+  <div class="row g-4 justify-content-center">
+    <div class="col-12 col-md-4">
+      <div class="card h-100 shadow-sm border-0" style="border-radius: 15px; padding: 10px">
+        <div class="card-body">
+          <h2
+            class="card-title"
+            style="
+              font-size: 1.1rem;
+              color: var(--charcoal-grey);
+              border-left: 4px solid var(--gold-accent);
+              padding-left: 10px;
+              margin-bottom: 15px;
+            "
+          >
+            Ocupación diaria
+          </h2>
+          <div class="chart-placeholder">
+            <img
+              src="/imagenes_home/card1.jpeg"
+              alt="Gráfico de Ocupación"
+              class="img-dashboard-stats"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-12 col-md-4">
+      <div class="card h-100 shadow-sm border-0" style="border-radius: 15px; padding: 10px">
+        <div class="card-body">
+          <h2
+            class="card-title"
+            style="
+              font-size: 1.1rem;
+              color: var(--charcoal-grey);
+              border-left: 4px solid var(--gold-accent);
+              padding-left: 10px;
+              margin-bottom: 15px;
+            "
+          >
+            Servicios populares
+          </h2>
+          <div class="chart-placeholder">
+            <img src="/imagenes_home/card2.jpeg" alt="Lista de Servicios" class="img-dashboard-stats" />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-12 col-md-4">
+      <div class="card h-100 shadow-sm border-0" style="border-radius: 15px; padding: 10px">
+        <div class="card-body">
+          <h2
+            class="card-title"
+            style="
+              font-size: 1.1rem;
+              color: var(--charcoal-grey);
+              border-left: 4px solid var(--gold-accent);
+              padding-left: 10px;
+              margin-bottom: 15px;
+            "
+          >
+            Métricas del hotel
+          </h2>
+          <div class="chart-placeholder">
+            <img src="/imagenes_home/card3.jpeg" alt="Métricas del Hotel" class="img-dashboard-stats" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="gallery-section">
+  <div class="gallery-header">
+    <h2>Experiencia 404</h2>
+    <p>
+      Habitaciones diseñadas para el descanso absoluto. Nuestro sistema permite a los hoteles
+      gestionar reservas, habitaciones y servicios desde una sola plataforma, optimizando la
+      ocupación en tiempo real y brindando a cada huésped una experiencia personalizada desde el
+      check-in hasta el check-out.
+    </p>
+  </div>
+
+  <div class="gallery-grid">
+    <div class="gallery-item large">
+      <img src="/imagenes_home/suite.jpg" alt="Suite Lujo" />
+      <div class="overlay"><span>Master Suite</span></div>
+    </div>
+    <div class="gallery-item">
+      <img src="/imagenes_home/baño.jpg" alt="Baño Premium" />
+      <div class="overlay"><span>Spa &amp; Relax</span></div>
+    </div>
+    <div class="gallery-item">
+      <img src="/imagenes_home/suite2.jpg" alt="Detalle Habitación" />
+      <div class="overlay"><span>Detalles Modernos</span></div>
+    </div>
+    <div class="gallery-item tall">
+      <img src="/imagenes_home/suite3.jpg" alt="Ducha de Lujo" />
+      <div class="overlay"><span>Confort</span></div>
+    </div>
+    <div class="gallery-item tall">
+      <img src="/imagenes_home/suite3.jpg" alt="Ducha de Lujo" />
+      <div class="overlay"><span>Confort</span></div>
+    </div>
+    <div class="gallery-item">
+      <img src="/imagenes_home/baño.jpg" alt="Baño Premium" />
+      <div class="overlay"><span>Spa &amp; Relax</span></div>
+    </div>
+    <div class="gallery-item">
+      <img src="/imagenes_home/suite2.jpg" alt="Detalle Habitación" />
+      <div class="overlay"><span>Detalles Modernos</span></div>
+    </div>
+  </div>
+</section>

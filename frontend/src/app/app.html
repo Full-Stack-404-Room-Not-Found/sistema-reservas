@@ -1,14 +1,16 @@
 <header>
   <nav class="navbar">
     <div class="nav-left">
-      <a href="../index.html" class="nav-home">
+      <a routerLink="/" class="nav-home">
         <div class="logo-container">
-          <img src="./imagenes_home/logo.png" alt="404 Logo" class="logo-img" />
+          <img src="/imagenes_home/logo.png" alt="404 Logo" class="logo-img" />
         </div>
         <span class="brand-name">404 Room Not Found</span>
       </a>
     </div>
 
+    <!-- Menú mobile: técnica CSS-only (checkbox + label), sin JavaScript,
+         igual que en la maqueta original. -->
     <input type="checkbox" id="menu-toggle" class="menu-checkbox" />
     <label for="menu-toggle" class="mobile-menu-btn">
       <i class="fas fa-bars"></i>
@@ -16,11 +18,30 @@
 
     <ul class="nav-links">
       <li>
-        <a routerLink="/quienes-somos" class="nav-item">Quiénes Somos</a>
+        <a
+          routerLink="/"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{ exact: true }"
+          class="nav-item"
+          >Inicio</a
+        >
       </li>
-      <li><a routerLink="/registro" class="nav-item">Registrar</a></li>
+      <li>
+        <a routerLink="/quienes-somos" routerLinkActive="active" class="nav-item">Quiénes Somos</a>
+      </li>
+      <li>
+        <a routerLink="/registro" routerLinkActive="active" class="nav-item">Registrar</a>
+      </li>
+      <li>
+        <a routerLink="/login" routerLinkActive="active" class="nav-item">Iniciar Sesión</a>
+      </li>
+      <!-- TODO: temporal para probar el ruteo de ambos dashboards. Cuando
+           exista el login real y el guard por rol, este link va a depender
+           de si hay sesión iniciada y de qué rol tiene el usuario. -->
+      <li><a routerLink="/dashboard-usuario" class="btn-reservation">Reservar Ahora</a></li>
       <li><a routerLink="/inicio-usuario" class="nav-item">Reservar Ahora</a></li>
       <li><a routerLink="/historial-reservas" class="nav-item">Mis Reservas</a></li>
+
     </ul>
   </nav>
 </header>
@@ -33,7 +54,7 @@
   <div class="footer-content">
     <div class="footer-brand">
       <div class="footer-logo-circle">
-        <img src="./imagenes_home/logo.png" alt="404 Logo" />
+        <img src="/imagenes_home/logo.png" alt="404 Logo" />
       </div>
     </div>
     <hr class="footer-line" />
