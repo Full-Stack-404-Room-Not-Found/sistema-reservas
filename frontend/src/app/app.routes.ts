@@ -16,7 +16,7 @@ export const routes: Routes = [
   // ========== RUTA PRINCIPAL ==========
   { path: '', redirectTo: 'home', pathMatch: 'full' },
 
-  // ========== RUTAS PÚBLICAS ==========
+
   { path: 'home', component: Home, title: 'Inicio' },
   { path: 'quienes-somos', component: QuienesSomos },
   { path: 'registro', component: Registro },
