@@ -1,0 +1,25 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1;
+}
+
+.simple-footer {
+  margin-top: auto;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+
+/* 
+TO DO:
+- Migrar las clases de styles.css a app.css
+- Revisar clases utilizadas en styles.css y agregarlas en los respectivos componentes que la estén utilizando.
+*/

@@ -41,22 +41,49 @@
     <section class="room-card-detail">
         <h2>Reservar</h2>
         <p>Para realizar una reserva, por favor completa el formulario de reserva con los datos solicitados.</p>
-        <form action="../dashboard-usuario/confirmacion-de-reserva.html" method="get">
+        <form (ngSubmit)="onEnviar($event)" [formGroup]="form">
             <!--se cambio el post por get para poder seguir el flujo-->
             <div class="form-group-data">
                 <label for="nombre-apellido">Nombre y apellido:</label>
-                <input type="text" id="nombre-apellido" name="nombre-apellido">
+                <input type="text" formControlName="nombreApellido" name="nombre-apellido">
+                @if (form.get('nombreApellido')?.errors && form.get('nombreApellido')?.touched) {
+                    @if (form.get('nombreApellido')?.hasError('required')) {
+                        <p class="error">
+                            El nombre y apellido es obligatorio.
+                        </p>
+                    }
+                }
             </div>
             <div class="form-group-data">
                 <label for="telefono">Teléfono:</label>
-                <input type="text" id="telefono" name="telefono">
+                <input type="text" formControlName="telefono" name="telefono">
+                @if (form.get('telefono')?.errors && form.get('telefono')?.touched) {
+                    @if (form.get('telefono')?.hasError('required')) {
+                        <p class="error">
+                            El teléfono es obligatorio.
+                        </p>
+                    }
+                }
             </div>
             <div class="form-group-data">
                 <label for="email">Email:</label>
-                <input type="email" id="email" name="email">
+                <input type="email" formControlName="email" name="email">
+                @if (form.get('email')?.errors && form.get('email')?.touched) {
+                    @if (form.get('email')?.hasError('required')) {
+                        <p class="error">
+                            El email es obligatorio.
+                        </p>
+                    }
+                    @else if (form.get('email')?.hasError('email')) {
+                        <p class="error">
+                            Ingresá un email válido.
+                        </p>
+                    }
+                }
             </div>
             <div class="form-decision">
-                <a routerLink="/confirmar-reserva" class="btn btn-confirm-booking">Confirmar Reserva</a>
+                <button type="submit" class="btn btn-confirm-booking">Confirmar Reserva</button>
+                <!-- <a routerLink="/confirmar-reserva" class="btn btn-confirm-booking">Confirmar Reserva</a> -->
                 <a routerLink="/inicio-usuario" class="btn btn-cancel-booking">Cancelar Reserva</a>
             </div>
         </form>
