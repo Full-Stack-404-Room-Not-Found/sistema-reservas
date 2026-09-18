@@ -1,0 +1,96 @@
+.contenedor {
+    padding: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.contenedor h2 {
+    color: #1b263b;
+    font-family: 'Inter', sans-serif;
+    margin-bottom: 20px;
+}
+
+.detalle-card {
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+}
+
+.detalle-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 12px 0;
+    border-bottom: 1px solid #dde1e7;
+}
+
+.detalle-item:last-of-type {
+    border-bottom: none;
+}
+
+.label {
+    font-weight: 600;
+    color: #415a77;
+    font-family: 'Inter', sans-serif;
+}
+
+.value {
+    color: #1b263b;
+    font-family: 'Inter', sans-serif;
+}
+
+.badge {
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.badge.available {
+    background: #d4edda;
+    color: #155724;
+}
+
+.badge.occupied {
+    background: #f8d7da;
+    color: #721c24;
+}
+
+.badge.maintenance {
+    background: #fff3cd;
+    color: #856404;
+}
+
+.actions {
+    margin-top: 20px;
+    display: flex;
+    gap: 10px;
+}
+
+.btn-warning {
+    background: #c9a84c;
+    color: white;
+    padding: 10px 25px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-family: 'Inter', sans-serif;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-warning:hover {
+    background: #b8942e;
+}
+
+.btn-secondary {
+    background: #415a77;
+    color: white;
+    padding: 10px 25px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-family: 'Inter', sans-serif;
+}
+
+.btn-secondary:hover {
+    background: #1b263b;
+}
