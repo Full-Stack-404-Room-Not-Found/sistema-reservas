@@ -38,6 +38,19 @@
             </div>
 
             <div class="form-group">
+                <label>Comodidades:</label>
+                <div class="checkbox-group">
+                    @for (comodidad of comodidadesDisponibles; track comodidad; let i = $index) {
+                        <label class="checkbox-option">
+                            <input type="checkbox" [(ngModel)]="habitacion.comodidades[i]"
+                                [name]="'comodidad-' + i">
+                            {{ comodidad }}
+                        </label>
+                    }
+                </div>
+            </div>
+
+            <div class="form-group">
                 <label>Descripción:</label>
                 <textarea [(ngModel)]="habitacion.descripcion" name="descripcion" rows="3"></textarea>
             </div>

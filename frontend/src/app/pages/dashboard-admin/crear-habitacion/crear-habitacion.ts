@@ -15,12 +15,15 @@ export class CrearHabitacion implements OnInit {
 
   private router = inject(Router);
 
+  comodidadesDisponibles = ['Tv', 'Wifi', 'Aire acondicionado'];
+
   habitacion = {
     numero: '',
     tipo: 'Standard',
     estado: 'Disponible',
     precio: 120,
     capacidad: 2,
+    comodidades: [false, false, false],
     descripcion: 'Habitación con vista al mar'
   };
 
