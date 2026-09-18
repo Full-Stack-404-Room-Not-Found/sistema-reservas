@@ -1,5 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { Component, inject, Input, OnInit } from '@angular/core';
+import { Router, RouterLink } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
@@ -12,6 +12,8 @@ import { CommonModule } from '@angular/common';
 })
 export class CrearHabitacion implements OnInit {
   @Input() id!: string;
+
+  private router = inject(Router);
 
   habitacion = {
     numero: '',
@@ -27,6 +29,8 @@ export class CrearHabitacion implements OnInit {
   }
 
   guardar() {
-    alert('✅ Habitación guardada correctamente');
+    // TODO: conectar con el servicio de habitaciones
+    console.log(this.habitacion);
+    this.router.navigate(['/dashboard-admin/inicio']);
   }
 }
