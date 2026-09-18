@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
@@ -10,17 +10,21 @@ import { CommonModule } from '@angular/common';
   templateUrl: './crear-habitacion.html',
   styleUrl: './crear-habitacion.css'
 })
-export class CrearHabitacion {
+export class CrearHabitacion implements OnInit {
   @Input() id!: string;
 
   habitacion = {
-    numero: this.id || '',
+    numero: '',
     tipo: 'Standard',
     estado: 'Disponible',
     precio: 120,
     capacidad: 2,
     descripcion: 'Habitación con vista al mar'
   };
+
+  ngOnInit(): void {
+    if (this.id) this.habitacion.numero = this.id;
+  }
 
   guardar() {
     alert('✅ Habitación guardada correctamente');
