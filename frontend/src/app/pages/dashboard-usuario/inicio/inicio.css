@@ -80,6 +80,10 @@
     background-color: var(--gold);
 }
 
+.room-card {
+    width: 18rem;
+}
+
 .img-card{
     height: 13.75rem;
 }
