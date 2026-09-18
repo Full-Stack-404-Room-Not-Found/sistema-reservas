@@ -5,6 +5,7 @@
             <h1>Suite Junior</h1>
         </div>
     </section>
+
     <section class="room-card-detail">
         <h2>Detalles de la Habitación</h2>
         <p>Nuestra Suite Junior combina elegancia y confort en un espacio amplio y moderno, diseñado para
@@ -40,12 +41,19 @@
 
     <section class="room-card-detail">
         <h2>Reservar</h2>
+
         <p>Para realizar una reserva, por favor completa el formulario de reserva con los datos solicitados.</p>
+
         <form (ngSubmit)="onEnviar($event)" [formGroup]="form">
-            <!--se cambio el post por get para poder seguir el flujo-->
+
             <div class="form-group-data">
                 <label for="nombre-apellido">Nombre y apellido:</label>
-                <input type="text" formControlName="nombreApellido" name="nombre-apellido">
+                <input
+                    type="text"
+                    formControlName="nombreApellido"
+                    name="nombre-apellido"
+                    id="nombre-apellido">
+
                 @if (form.get('nombreApellido')?.errors && form.get('nombreApellido')?.touched) {
                     @if (form.get('nombreApellido')?.hasError('required')) {
                         <p class="error">
@@ -54,37 +62,77 @@
                     }
                 }
             </div>
+
             <div class="form-group-data">
-                <label for="telefono">Teléfono:</label>
-                <input type="text" formControlName="telefono" name="telefono">
-                @if (form.get('telefono')?.errors && form.get('telefono')?.touched) {
-                    @if (form.get('telefono')?.hasError('required')) {
+                <label for="fecha-checkin">Fecha de check-in:</label>
+                <input
+                    type="date"
+                    formControlName="fechaCheckin"
+                    name="fecha-checkin"
+                    id="fecha-checkin">
+
+                @if (form.get('fechaCheckin')?.errors && form.get('fechaCheckin')?.touched) {
+                    @if (form.get('fechaCheckin')?.hasError('required')) {
                         <p class="error">
-                            El teléfono es obligatorio.
+                            La fecha de check-in es obligatoria.
                         </p>
                     }
                 }
             </div>
+
             <div class="form-group-data">
-                <label for="email">Email:</label>
-                <input type="email" formControlName="email" name="email">
-                @if (form.get('email')?.errors && form.get('email')?.touched) {
-                    @if (form.get('email')?.hasError('required')) {
+                <label for="fecha-checkout">Fecha de check-out:</label>
+                <input
+                    type="date"
+                    formControlName="fechaCheckout"
+                    name="fecha-checkout"
+                    id="fecha-checkout">
+
+                @if (form.get('fechaCheckout')?.errors && form.get('fechaCheckout')?.touched) {
+                    @if (form.get('fechaCheckout')?.hasError('required')) {
                         <p class="error">
-                            El email es obligatorio.
+                            La fecha de check-out es obligatoria.
                         </p>
                     }
-                    @else if (form.get('email')?.hasError('email')) {
+                }
+
+                @if (fechaInvalida) {
+                    <p class="error">
+                        La fecha de check-out debe ser posterior a la fecha de check-in.
+                    </p>
+                }
+            </div>
+
+            <div class="form-group-data">
+                <label for="cantidad-huespedes">Cantidad de huéspedes:</label>
+                <input
+                    type="number"
+                    formControlName="cantidadHuespedes"
+                    name="cantidad-huespedes"
+                    id="cantidad-huespedes"
+                    min="1"
+                    max="2">
+
+                @if (form.get('cantidadHuespedes')?.errors && form.get('cantidadHuespedes')?.touched) {
+                    @if (form.get('cantidadHuespedes')?.hasError('required')) {
                         <p class="error">
-                            Ingresá un email válido.
+                            La cantidad de huéspedes es obligatoria.
                         </p>
                     }
                 }
             </div>
+
             <div class="form-decision">
-                <button type="submit" class="btn btn-confirm-booking">Confirmar Reserva</button>
-                <a routerLink="/dashboard-usuario/inicio" class="btn btn-cancel-booking">Cancelar Reserva</a>
+                <button type="submit" class="btn btn-confirm-booking">
+                    Confirmar Reserva
+                </button>
+
+                <a routerLink="/dashboard-usuario/inicio" class="btn btn-cancel-booking">
+                    Cancelar Reserva
+                </a>
             </div>
+
         </form>
     </section>
+
 </main>
