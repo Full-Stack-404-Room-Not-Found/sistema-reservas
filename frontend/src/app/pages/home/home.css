@@ -94,6 +94,12 @@
 }
 
 /* --- Stats --- */
+.cards-overlap {
+  margin-top: -60px;
+  position: relative;
+  z-index: 10;
+}
+
 .card {
   background: white;
   padding: 25px;
@@ -104,6 +110,19 @@
 
 .card:hover {
   transform: translateY(-5px);
+}
+
+.card-stats {
+  border-radius: 15px;
+  padding: 10px;
+}
+
+.card-stats-title {
+  font-size: 1.1rem;
+  color: var(--charcoal-grey);
+  border-left: 4px solid var(--gold-accent);
+  padding-left: 10px;
+  margin-bottom: 15px;
 }
 
 .chart-placeholder {
