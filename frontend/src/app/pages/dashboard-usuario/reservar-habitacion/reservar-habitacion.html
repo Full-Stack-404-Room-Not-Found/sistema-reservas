@@ -47,23 +47,6 @@
         <form (ngSubmit)="onEnviar($event)" [formGroup]="form">
 
             <div class="form-group-data">
-                <label for="nombre-apellido">Nombre y apellido:</label>
-                <input
-                    type="text"
-                    formControlName="nombreApellido"
-                    name="nombre-apellido"
-                    id="nombre-apellido">
-
-                @if (form.get('nombreApellido')?.errors && form.get('nombreApellido')?.touched) {
-                    @if (form.get('nombreApellido')?.hasError('required')) {
-                        <p class="error">
-                            El nombre y apellido es obligatorio.
-                        </p>
-                    }
-                }
-            </div>
-
-            <div class="form-group-data">
                 <label for="fecha-checkin">Fecha de check-in:</label>
                 <input
                     type="date"

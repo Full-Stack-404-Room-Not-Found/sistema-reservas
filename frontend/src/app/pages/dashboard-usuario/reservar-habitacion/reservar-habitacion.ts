@@ -1,9 +1,6 @@
 import { Component } from '@angular/core';
-
 import { RouterLink, Router } from '@angular/router';
-
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-
 import { ReservaService } from '../../../services/reserva.service';
 
 @Component({
@@ -16,21 +13,14 @@ import { ReservaService } from '../../../services/reserva.service';
 export class ReservarHabitacion {
 
   form: FormGroup;
-
   fechaInvalida = false;
-
-  get NombreApellido() {
-    return this.form.get('nombreApellido');
-  }
 
   get FechaCheckin() {
     return this.form.get('fechaCheckin');
   }
-
   get FechaCheckout() {
     return this.form.get('fechaCheckout');
   }
-
   get CantidadHuespedes() {
     return this.form.get('cantidadHuespedes');
   }
@@ -42,19 +32,13 @@ export class ReservarHabitacion {
   ) {
 
     this.form = this.formBuilder.group({
-
-      nombreApellido: ['', [Validators.required]],
-
       fechaCheckin: ['', [Validators.required]],
-
       fechaCheckout: ['', [Validators.required]],
-
       cantidadHuespedes: [1, [
         Validators.required,
         Validators.min(1),
         Validators.max(2)
       ]]
-
     });
 
   }
@@ -62,7 +46,6 @@ export class ReservarHabitacion {
   onEnviar(event: Event) {
 
     console.log(this.form.value);
-
     this.fechaInvalida = false;
 
     if (this.form.valid) {
@@ -71,7 +54,6 @@ export class ReservarHabitacion {
       const fechaCheckout = new Date(this.form.value.fechaCheckout);
 
       if (fechaCheckout <= fechaCheckin) {
-
         this.fechaInvalida = true;
         return;
 
@@ -92,25 +74,17 @@ export class ReservarHabitacion {
       this.reservaService.crearReserva(reserva).subscribe({
 
         next: (respuesta) => {
-
           console.log('Reserva creada:', respuesta);
-
           this.router.navigate(['/dashboard-usuario/confirmacion']);
-
         },
 
         error: (error) => {
-
           console.error('Error al crear la reserva:', error);
-
         }
-
       });
 
     } else {
-
       this.form.markAllAsTouched();
-
     }
 
   }
