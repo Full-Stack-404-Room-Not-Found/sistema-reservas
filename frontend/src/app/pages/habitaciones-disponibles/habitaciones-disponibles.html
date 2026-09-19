@@ -1,0 +1,39 @@
+<div class="disponibles-container">
+    <h2>🛏️ Habitaciones Disponibles</h2>
+    <p class="subtitle">Estas son las habitaciones que podés reservar ahora</p>
+
+    @if (cargando) {
+    <div class="estado">
+        <p>⏳ Cargando habitaciones...</p>
+    </div>
+    }
+
+    @if (error) {
+    <div class="estado error">
+        <p>{{ error }}</p>
+    </div>
+    }
+
+    @if (!cargando && habitaciones.length === 0) {
+    <div class="estado">
+        <p>😔 No hay habitaciones disponibles en este momento.</p>
+    </div>
+    }
+
+    @if (!cargando && habitaciones.length > 0) {
+    <div class="grid">
+        @for (hab of habitaciones; track hab.id) {
+        <div class="card">
+            <h3>Habitación {{ hab.numero }}</h3>
+            <p><strong>Tipo:</strong> {{ hab.tipo }}</p>
+            <p><strong>Capacidad:</strong> {{ hab.capacidad }} personas</p>
+            <p><strong>Precio por noche:</strong> ${{ hab.precio_noche }}</p>
+            <p class="descripcion">{{ hab.descripcion }}</p>
+            <a [routerLink]="['/reservar-habitacion']" [queryParams]="{ habitacionId: hab.id }" class="btn-reservar">
+                📅 Reservar
+            </a>
+        </div>
+        }
+    </div>
+    }
+</div>
