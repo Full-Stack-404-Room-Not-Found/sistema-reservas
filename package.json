@@ -1,0 +1,5 @@
+{
+  "devDependencies": {
+    "@compodoc/compodoc": "^2.0.0"
+  }
+}
