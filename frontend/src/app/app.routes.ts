@@ -14,17 +14,11 @@ import { CrearHabitacion } from './pages/dashboard-admin/crear-habitacion/crear-
 import { DetalleHabitacion } from './pages/dashboard-admin/detalle-habitacion/detalle-habitacion';
 import { NotFound } from './pages/not-found/not-found';
 
-// ⭐ TU RUTA
-import { HabitacionesDisponibles } from './pages/habitaciones-disponibles/habitaciones-disponibles';
-
 export const routes: Routes = [
   { path: '', component: Home, title: 'Inicio' },
   { path: 'quienes-somos', component: QuienesSomos, title: 'Quiénes somos' },
   { path: 'login', component: Login, title: 'Iniciar sesión' },
   { path: 'registro', component: Registro, title: 'Registrarse' },
-
-  // ⭐ TU RUTA (antes del **)
-  { path: 'habitaciones-disponibles', component: HabitacionesDisponibles, title: 'Habitaciones disponibles' },
 
   {
     path: 'dashboard-usuario',
