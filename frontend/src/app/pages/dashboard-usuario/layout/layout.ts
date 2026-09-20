@@ -1,10 +1,9 @@
 import { Component } from '@angular/core';
-import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 
 @Component({
-  selector: 'app-dashboard-usuario-layout',
-  imports: [RouterLink, RouterLinkActive, RouterOutlet],
-  templateUrl: './layout.html',
+  imports: [],
+  selector: 'app-layout',
   styleUrl: './layout.css',
+  templateUrl: './layout.html',
 })
-export class DashboardUsuarioLayout {}
+export class Layout {}

@@ -48,25 +48,6 @@
     border-color: transparent;
 }
 
-.checkbox-group {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 18px;
-}
-
-.checkbox-option {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    margin-bottom: 0;
-    font-weight: 400;
-}
-
-.checkbox-option input {
-    width: auto;
-    padding: 0;
-}
-
 .actions {
     margin-top: 20px;
     display: flex;

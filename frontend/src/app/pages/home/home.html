@@ -30,7 +30,7 @@
 
         <div class="col-12 col-md-3 search-col">
           <div class="input-group-custom">
-            <i class="fas fa-calendar-alt search-icon"></i>
+            <i class="fas fa-calendar-alt search-icon"></i>'
             <!-- 
               TRUCO DE UX PARA PLACEHOLDER:
               Inicia como type="text" para que el navegador respete y muestre el placeholder ("Check-in"). 
@@ -49,19 +49,30 @@
         <div class="col-12 col-md-2">
           <!-- TODO: cuando el buscador filtre habitaciones de verdad, pasar
                fechas/huéspedes como query params a esta ruta. -->
-          <a routerLink="/dashboard-usuario/inicio" class="btn-search-hero">BUSCAR</a>
+          <a routerLink="/inicio-usuario" class="btn-search-hero">BUSCAR</a>
         </div>
       </form>
     </div>
   </div>
 </section>
 
-<section class="container cards-overlap">
+<section class="container" style="margin-top: -60px; position: relative; z-index: 10">
   <div class="row g-4 justify-content-center">
     <div class="col-12 col-md-4">
-      <div class="card h-100 shadow-sm border-0 card-stats">
+      <div class="card h-100 shadow-sm border-0" style="border-radius: 15px; padding: 10px">
         <div class="card-body">
-          <h2 class="card-title card-stats-title">Ocupación diaria</h2>
+          <h2
+            class="card-title"
+            style="
+              font-size: 1.1rem;
+              color: var(--charcoal-grey);
+              border-left: 4px solid var(--gold-accent);
+              padding-left: 10px;
+              margin-bottom: 15px;
+            "
+          >
+            Ocupación diaria
+          </h2>
           <div class="chart-placeholder">
             <img
               src="/imagenes_home/card1.jpeg"
@@ -74,9 +85,20 @@
     </div>
 
     <div class="col-12 col-md-4">
-      <div class="card h-100 shadow-sm border-0 card-stats">
+      <div class="card h-100 shadow-sm border-0" style="border-radius: 15px; padding: 10px">
         <div class="card-body">
-          <h2 class="card-title card-stats-title">Servicios populares</h2>
+          <h2
+            class="card-title"
+            style="
+              font-size: 1.1rem;
+              color: var(--charcoal-grey);
+              border-left: 4px solid var(--gold-accent);
+              padding-left: 10px;
+              margin-bottom: 15px;
+            "
+          >
+            Servicios populares
+          </h2>
           <div class="chart-placeholder">
             <img src="/imagenes_home/card2.jpeg" alt="Lista de Servicios" class="img-dashboard-stats" />
           </div>
@@ -85,9 +107,20 @@
     </div>
 
     <div class="col-12 col-md-4">
-      <div class="card h-100 shadow-sm border-0 card-stats">
+      <div class="card h-100 shadow-sm border-0" style="border-radius: 15px; padding: 10px">
         <div class="card-body">
-          <h2 class="card-title card-stats-title">Métricas del hotel</h2>
+          <h2
+            class="card-title"
+            style="
+              font-size: 1.1rem;
+              color: var(--charcoal-grey);
+              border-left: 4px solid var(--gold-accent);
+              padding-left: 10px;
+              margin-bottom: 15px;
+            "
+          >
+            Métricas del hotel
+          </h2>
           <div class="chart-placeholder">
             <img src="/imagenes_home/card3.jpeg" alt="Métricas del Hotel" class="img-dashboard-stats" />
           </div>
