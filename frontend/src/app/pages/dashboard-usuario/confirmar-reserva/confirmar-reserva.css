@@ -1,0 +1,24 @@
+.dashboard-container {
+    min-height: 100vh;
+    background-color: var(--white-smoke);
+    flex-direction: column;
+    display: flex; 
+}
+
+.btn-confirm-booking {
+    width: 16rem;
+    padding: 12px;
+    color: var(--white-smoke);
+    border-radius: 8px;
+    font-weight: 600;
+    background-color: var(--midnight-blue);
+}
+.btn-confirm-booking:hover {
+    background-color: var(--gold);
+    color: var(--midnight-blue);
+}
+
+.status-confirmed {
+    color: var(--success-green);
+    font-weight: bold;
+}

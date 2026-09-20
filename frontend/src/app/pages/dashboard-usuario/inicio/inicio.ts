@@ -3,8 +3,8 @@ import { RouterLink } from '@angular/router';
 
 @Component({
   imports: [RouterLink],
-  selector: 'app-dashboard-usuario-inicio',
+  selector: 'app-inicio',
   styleUrl: './inicio.css',
   templateUrl: './inicio.html',
 })
-export class DashboardUsuarioInicio {}
+export class InicioUsuario {}
