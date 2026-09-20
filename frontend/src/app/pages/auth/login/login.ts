@@ -23,7 +23,7 @@ export class Login {
     if(this.LoginForm.valid)
     {
       console.log(this.LoginForm.value)
-      this.router.navigate(['dashboard-usuario'])
+      this.router.navigate(['/dashboard-usuario'])
     }
     else
     {

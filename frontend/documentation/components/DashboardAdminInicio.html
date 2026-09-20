@@ -1,0 +1,668 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>frontend documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+          <script>
+              // --- Iframe navigation tracking for Template Playground ---
+              function sendCurrentUrlToParent() {
+                  if (window.parent && window.parent !== window) {
+                      window.parent.postMessage({
+                          type: 'compodoc-iframe-navigate',
+                          url: window.location.pathname + window.location.hash
+                      }, '*');
+                  }
+              }
+              window.addEventListener('hashchange', sendCurrentUrlToParent, false);
+              window.addEventListener('popstate', sendCurrentUrlToParent, false);
+              window.addEventListener('DOMContentLoaded', sendCurrentUrlToParent, false);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">frontend documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search">
+    <button type="button"
+        class="search-input-clear"
+        aria-label="Clear search"
+        data-search-input-clear>&times;</button>
+</div>
+            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  DashboardAdminInicio</li>
+</ol>
+
+<div class="io-file io-file-path" data-compodoc="entity-file-path">
+    <span class="icon ion-ios-document" aria-hidden="true"></span>
+    <code>src/app/pages/dashboard-admin/inicio/inicio.ts</code>
+</div>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#styleData" class="nav-link"
+                role="tab" id="styleData-tab" data-bs-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info">
+
+
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+            <tr>
+                <td class="col-md-3">changeDetection</td>
+                <td class="col-md-9"><code>ChangeDetectionStrategy.OnPush</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-dashboard-admin-inicio</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">standalone</td>
+                <td class="col-md-9"><code>true</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">imports</td>
+                <td class="col-md-9">
+                        <div>        <code><a href="https://angular.dev/api/router/RouterLink" target="_blank" >RouterLink</a></code>
+</div>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./inicio.css</code></td>
+            </tr>
+
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./inicio.html</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">styleUrl</td>
+                <td class="col-md-9"><code>./inicio.css</code></td>
+            </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+        <section data-compodoc="block-relationships">
+            <h3>Relationships</h3>
+
+            <div class="row pt-3">
+                <div class="col-sm-6">
+                    <h4>Used by</h4>
+                        <p class="comment"><i>No results matching.</i></p>
+                </div>
+
+                <div class="col-sm-6">
+                    <h4>Depends on</h4>
+                        <ul class="list-unstyled relationships-list">
+                                <li>
+                                            <code><a href="https://angular.dev/api/router/RouterLink" target="_blank" >RouterLink</a></code>
+                                </li>
+                        </ul>
+                </div>
+            </div>
+        </section>
+</div>
+
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component } from &#x27;@angular/core&#x27;;
+import { RouterLink } from &#x27;@angular/router&#x27;;
+
+@Component({
+  imports: [RouterLink],
+  selector: &#x27;app-dashboard-admin-inicio&#x27;,
+  styleUrl: &#x27;./inicio.css&#x27;,
+  templateUrl: &#x27;./inicio.html&#x27;,
+})
+export class DashboardAdminInicio { }
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;contenedor&quot;&gt;
+    &lt;h1&gt;SISTEMA DE GESTIÓN HOTELERA - ADMINISTRADOR&lt;/h1&gt;
+
+    &lt;div class&#x3D;&quot;summary-cards&quot;&gt;
+        &lt;div class&#x3D;&quot;card available&quot;&gt;
+            &lt;div class&#x3D;&quot;number&quot;&gt;12&lt;/div&gt;
+            &lt;div&gt;🟢 Habitaciones Disponibles&lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class&#x3D;&quot;card occupied&quot;&gt;
+            &lt;div class&#x3D;&quot;number&quot;&gt;8&lt;/div&gt;
+            &lt;div&gt;🔴 Habitaciones Ocupadas&lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class&#x3D;&quot;card maintenance&quot;&gt;
+            &lt;div class&#x3D;&quot;number&quot;&gt;4&lt;/div&gt;
+            &lt;div&gt;🟡 En Mantenimiento&lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;table class&#x3D;&quot;rooms-table&quot;&gt;
+        &lt;thead&gt;
+            &lt;tr&gt;
+                &lt;th&gt;N° Hab.&lt;/th&gt;
+                &lt;th&gt;Tipo&lt;/th&gt;
+                &lt;th&gt;Estado&lt;/th&gt;
+                &lt;th&gt;Acciones&lt;/th&gt;
+            &lt;/tr&gt;
+        &lt;/thead&gt;
+        &lt;tbody&gt;
+            &lt;tr&gt;
+                &lt;td class&#x3D;&quot;text-center fw-bold&quot;&gt;101&lt;/td&gt;
+                &lt;td&gt;Standard&lt;/td&gt;
+                &lt;td&gt;&lt;span class&#x3D;&quot;status available-text&quot;&gt;🟢 Disponible&lt;/span&gt;&lt;/td&gt;
+                &lt;td class&#x3D;&quot;actions&quot;&gt;
+                    &lt;a routerLink&#x3D;&quot;/dashboard-admin/habitacion/101&quot; class&#x3D;&quot;btn btn-primary btn-sm&quot;&gt;Ver&lt;/a&gt;
+                    &lt;a routerLink&#x3D;&quot;/dashboard-admin/habitacion/101/editar&quot; class&#x3D;&quot;btn btn-warning btn-sm&quot;&gt;Editar&lt;/a&gt;
+                &lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr&gt;
+                &lt;td class&#x3D;&quot;text-center fw-bold&quot;&gt;102&lt;/td&gt;
+                &lt;td&gt;Standard&lt;/td&gt;
+                &lt;td&gt;&lt;span class&#x3D;&quot;status available-text&quot;&gt;🟢 Disponible&lt;/span&gt;&lt;/td&gt;
+                &lt;td class&#x3D;&quot;actions&quot;&gt;
+                    &lt;a routerLink&#x3D;&quot;/dashboard-admin/habitacion/102&quot; class&#x3D;&quot;btn btn-primary btn-sm&quot;&gt;Ver&lt;/a&gt;
+                    &lt;a routerLink&#x3D;&quot;/dashboard-admin/habitacion/102/editar&quot; class&#x3D;&quot;btn btn-warning btn-sm&quot;&gt;Editar&lt;/a&gt;
+                &lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr&gt;
+                &lt;td class&#x3D;&quot;text-center fw-bold&quot;&gt;103&lt;/td&gt;
+                &lt;td&gt;Doble&lt;/td&gt;
+                &lt;td&gt;&lt;span class&#x3D;&quot;status occupied-text&quot;&gt;🔴 Ocupada&lt;/span&gt;&lt;/td&gt;
+                &lt;td class&#x3D;&quot;actions&quot;&gt;
+                    &lt;a routerLink&#x3D;&quot;/dashboard-admin/habitacion/103&quot; class&#x3D;&quot;btn btn-primary btn-sm&quot;&gt;Ver&lt;/a&gt;
+                    &lt;a routerLink&#x3D;&quot;/dashboard-admin/habitacion/103/editar&quot; class&#x3D;&quot;btn btn-warning btn-sm&quot;&gt;Editar&lt;/a&gt;
+                &lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr&gt;
+                &lt;td class&#x3D;&quot;text-center fw-bold&quot;&gt;104&lt;/td&gt;
+                &lt;td&gt;Suite&lt;/td&gt;
+                &lt;td&gt;&lt;span class&#x3D;&quot;status available-text&quot;&gt;🟢 Disponible&lt;/span&gt;&lt;/td&gt;
+                &lt;td class&#x3D;&quot;actions&quot;&gt;
+                    &lt;a routerLink&#x3D;&quot;/dashboard-admin/habitacion/104&quot; class&#x3D;&quot;btn btn-primary btn-sm&quot;&gt;Ver&lt;/a&gt;
+                    &lt;a routerLink&#x3D;&quot;/dashboard-admin/habitacion/104/editar&quot; class&#x3D;&quot;btn btn-warning btn-sm&quot;&gt;Editar&lt;/a&gt;
+                &lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr&gt;
+                &lt;td class&#x3D;&quot;text-center fw-bold&quot;&gt;105&lt;/td&gt;
+                &lt;td&gt;Familiar&lt;/td&gt;
+                &lt;td&gt;&lt;span class&#x3D;&quot;status maintenance-text&quot;&gt;🟡 Mantenimiento&lt;/span&gt;&lt;/td&gt;
+                &lt;td class&#x3D;&quot;actions&quot;&gt;
+                    &lt;a routerLink&#x3D;&quot;/dashboard-admin/habitacion/105&quot; class&#x3D;&quot;btn btn-primary btn-sm&quot;&gt;Ver&lt;/a&gt;
+                    &lt;a routerLink&#x3D;&quot;/dashboard-admin/habitacion/105/editar&quot; class&#x3D;&quot;btn btn-warning btn-sm&quot;&gt;Editar&lt;/a&gt;
+                &lt;/td&gt;
+            &lt;/tr&gt;
+        &lt;/tbody&gt;
+    &lt;/table&gt;
+&lt;/div&gt;</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="styleData">
+                <p class="comment">
+                    <code>./inicio.css</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">.contenedor {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.contenedor h1 {
+    color: #1b263b;
+    font-size: 24px;
+    margin-bottom: 30px;
+    text-align: center;
+    letter-spacing: 1px;
+    font-family: &#x27;Inter&#x27;, sans-serif;
+}
+
+.summary-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.summary-cards .card {
+    background: white;
+    border-radius: 12px;
+    padding: 20px 25px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+    text-align: center;
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.summary-cards .card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
+}
+
+.summary-cards .card .number {
+    font-size: 36px;
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+.summary-cards .card.available {
+    border-left: 5px solid #27ae60;
+}
+
+.summary-cards .card.available .number {
+    color: #27ae60;
+}
+
+.summary-cards .card.occupied {
+    border-left: 5px solid #c0392b;
+}
+
+.summary-cards .card.occupied .number {
+    color: #c0392b;
+}
+
+.summary-cards .card.maintenance {
+    border-left: 5px solid #c9a84c;
+}
+
+.summary-cards .card.maintenance .number {
+    color: #c9a84c;
+}
+
+.rooms-table {
+    width: 100%;
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+    border-collapse: collapse;
+}
+
+.rooms-table thead {
+    background: #1b263b;
+    color: white;
+}
+
+.rooms-table th {
+    padding: 14px 20px;
+    text-align: left;
+    font-weight: 600;
+    font-size: 14px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    font-family: &#x27;Inter&#x27;, sans-serif;
+}
+
+.rooms-table td {
+    padding: 12px 20px;
+    border-bottom: 1px solid #dde1e7;
+    font-size: 14px;
+    font-family: &#x27;Inter&#x27;, sans-serif;
+}
+
+.rooms-table tbody tr:hover {
+    background: #f8f9fa;
+}
+
+.status {
+    font-weight: 600;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 13px;
+    display: inline-block;
+}
+
+.available-text {
+    color: #27ae60;
+}
+
+.occupied-text {
+    color: #c0392b;
+}
+
+.maintenance-text {
+    color: #c9a84c;
+}
+
+.actions {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.btn {
+    padding: 6px 14px;
+    border: none;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    font-family: &#x27;Inter&#x27;, sans-serif;
+}
+
+.btn-primary {
+    background: #415a77;
+    color: white;
+}
+
+.btn-primary:hover {
+    background: #1b263b;
+}
+
+.btn-warning {
+    background: #c9a84c;
+    color: white;
+}
+
+.btn-warning:hover {
+    background: #b8942e;
+}
+
+.btn-sm {
+    padding: 4px 10px;
+    font-size: 12px;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.fw-bold {
+    font-weight: 700;
+}
+
+@media (max-width: 768px) {
+    .summary-cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .contenedor h1 {
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .summary-cards {
+        grid-template-columns: 1fr;
+    }
+
+    .actions {
+        flex-direction: column;
+        gap: 4px;
+    }
+}</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis-network.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><div class="contenedor">    <h1>SISTEMA DE GESTIÓN HOTELERA - ADMINISTRADOR</h1>    <div class="summary-cards">        <div class="card available">            <div class="number">12</div>            <div>🟢 Habitaciones Disponibles</div>        </div>        <div class="card occupied">            <div class="number">8</div>            <div>🔴 Habitaciones Ocupadas</div>        </div>        <div class="card maintenance">            <div class="number">4</div>            <div>🟡 En Mantenimiento</div>        </div>    </div>    <table class="rooms-table">        <thead>            <tr>                <th>N° Hab.</th>                <th>Tipo</th>                <th>Estado</th>                <th>Acciones</th>            </tr>        </thead>        <tbody>            <tr>                <td class="text-center fw-bold">101</td>                <td>Standard</td>                <td><span class="status available-text">🟢 Disponible</span></td>                <td class="actions">                    <a routerLink="/dashboard-admin/habitacion/101" class="btn btn-primary btn-sm">Ver</a>                    <a routerLink="/dashboard-admin/habitacion/101/editar" class="btn btn-warning btn-sm">Editar</a>                </td>            </tr>            <tr>                <td class="text-center fw-bold">102</td>                <td>Standard</td>                <td><span class="status available-text">🟢 Disponible</span></td>                <td class="actions">                    <a routerLink="/dashboard-admin/habitacion/102" class="btn btn-primary btn-sm">Ver</a>                    <a routerLink="/dashboard-admin/habitacion/102/editar" class="btn btn-warning btn-sm">Editar</a>                </td>            </tr>            <tr>                <td class="text-center fw-bold">103</td>                <td>Doble</td>                <td><span class="status occupied-text">🔴 Ocupada</span></td>                <td class="actions">                    <a routerLink="/dashboard-admin/habitacion/103" class="btn btn-primary btn-sm">Ver</a>                    <a routerLink="/dashboard-admin/habitacion/103/editar" class="btn btn-warning btn-sm">Editar</a>                </td>            </tr>            <tr>                <td class="text-center fw-bold">104</td>                <td>Suite</td>                <td><span class="status available-text">🟢 Disponible</span></td>                <td class="actions">                    <a routerLink="/dashboard-admin/habitacion/104" class="btn btn-primary btn-sm">Ver</a>                    <a routerLink="/dashboard-admin/habitacion/104/editar" class="btn btn-warning btn-sm">Editar</a>                </td>            </tr>            <tr>                <td class="text-center fw-bold">105</td>                <td>Familiar</td>                <td><span class="status maintenance-text">🟡 Mantenimiento</span></td>                <td class="actions">                    <a routerLink="/dashboard-admin/habitacion/105" class="btn btn-primary btn-sm">Ver</a>                    <a routerLink="/dashboard-admin/habitacion/105/editar" class="btn btn-warning btn-sm">Editar</a>                </td>            </tr>        </tbody>    </table></div></div>'
+    var COMPONENTS = [{'name': 'App', 'selector': 'app-root'},{'name': 'ConfirmacionReserva', 'selector': 'app-confirmacion-reserva'},{'name': 'CrearHabitacion', 'selector': 'app-crear-habitacion'},{'name': 'DashboardAdminInicio', 'selector': 'app-dashboard-admin-inicio'},{'name': 'DashboardAdminLayout', 'selector': 'app-dashboard-admin-layout'},{'name': 'DashboardUsuarioInicio', 'selector': 'app-dashboard-usuario-inicio'},{'name': 'DashboardUsuarioLayout', 'selector': 'app-dashboard-usuario-layout'},{'name': 'DetalleHabitacion', 'selector': 'app-detalle-habitacion'},{'name': 'HistorialReservas', 'selector': 'app-historial-reservas'},{'name': 'Home', 'selector': 'app-home'},{'name': 'Login', 'selector': 'app-login'},{'name': 'NotFound', 'selector': 'app-not-found'},{'name': 'QuienesSomos', 'selector': 'app-quienes-somos'},{'name': 'Registro', 'selector': 'app-registro'},{'name': 'ReservarHabitacion', 'selector': 'app-reservar-habitacion'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'DashboardAdminInicio'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'DashboardAdminInicio.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var updateDarkModeSwitchOffset = function () {
+                    var content = document.querySelector('.content');
+                    var scrollbarWidth = 0;
+
+                    if (content) {
+                         scrollbarWidth = Math.max(0, content.offsetWidth - content.clientWidth);
+                    }
+
+                    document.documentElement.style.setProperty(
+                         '--content-scrollbar-width',
+                         scrollbarWidth + 'px'
+                    );
+               };
+
+               updateDarkModeSwitchOffset();
+               requestAnimationFrame(updateDarkModeSwitchOffset);
+               window.addEventListener('resize', updateDarkModeSwitchOffset);
+
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

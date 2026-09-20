@@ -1,1 +1,11 @@
-<p>layout works!</p>
+<div class="dashboard-container">
+  <nav class="dashboard-nav">
+    <a routerLink="inicio" routerLinkActive="active">Inicio</a>
+    <a routerLink="reservar" routerLinkActive="active">Reservar habitación</a>
+    <a routerLink="historial" routerLinkActive="active">Historial de reservas</a>
+  </nav>
+
+  <main class="main-content">
+    <router-outlet></router-outlet>
+  </main>
+</div>
