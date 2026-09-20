@@ -16,7 +16,8 @@ export class Habitaciones {
     return this._httpClient.get<InterfaceHabitaciones[]>(this.url);
 
   }
-
- 
+  crearHabitacion(habitacion: InterfaceHabitaciones): Observable<InterfaceHabitaciones> {
+          return this._httpClient.post<InterfaceHabitaciones>(this.url, habitacion);
+      }
 
 }

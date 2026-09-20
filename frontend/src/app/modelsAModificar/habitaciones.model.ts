@@ -1,5 +1,5 @@
 export interface InterfaceHabitaciones{
-    id: number | string,
+    id?: number | string,
     numero: string,
     tipo: string,
     capacidad: number,

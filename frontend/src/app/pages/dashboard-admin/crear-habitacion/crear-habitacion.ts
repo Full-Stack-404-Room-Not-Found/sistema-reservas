@@ -2,6 +2,8 @@ import { Component, inject, Input, OnInit } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { Habitaciones} from '../../../services/habitaciones-services';
+import { InterfaceHabitaciones } from '../../../modelsAModificar/habitaciones.model';
 
 @Component({
   selector: 'app-crear-habitacion',
@@ -14,16 +16,16 @@ export class CrearHabitacion implements OnInit {
   @Input() id!: string;
 
   private router = inject(Router);
+  private habitacionesService = inject(Habitaciones)
 
   comodidadesDisponibles = ['Tv', 'Wifi', 'Aire acondicionado'];
 
-  habitacion = {
+  habitacion: InterfaceHabitaciones = {
     numero: '',
     tipo: 'Standard',
     estado: 'Disponible',
-    precio: 120,
+    precio_noche: 120,
     capacidad: 2,
-    comodidades: [false, false, false],
     descripcion: 'Habitación con vista al mar'
   };
 
@@ -32,8 +34,16 @@ export class CrearHabitacion implements OnInit {
   }
 
   guardar() {
-    // TODO: conectar con el servicio de habitaciones
-    console.log(this.habitacion);
-    this.router.navigate(['/dashboard-admin/inicio']);
+
+    this.habitacionesService.crearHabitacion(this.habitacion)
+    .subscribe({
+      next:(respuesta) => {
+        console.log('Habitación creada correctamente:', respuesta);
+        this.router.navigate(['/dashboard-admin/inicio']);
+      },
+      error:(error) => {
+        console.error('Error al crear la habitación:', error);
+      }   
+    })
   }
 }
