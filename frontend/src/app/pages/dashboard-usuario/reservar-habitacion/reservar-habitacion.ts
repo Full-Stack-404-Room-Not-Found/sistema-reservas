@@ -30,7 +30,7 @@ export class ReservarHabitacion {
     onEnviar(event: Event) {
     console.log(this.form.value);
     if (this.form.valid) {
-      this.router.navigate(['/confirmar-reserva']);
+      this.router.navigate(['/dashboard-usuario/confirmacion']);
     } else {
       this.form.markAllAsTouched();
     }
