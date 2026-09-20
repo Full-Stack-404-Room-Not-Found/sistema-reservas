@@ -1,2 +1,8 @@
 # Archivos personales de notas
 NOTAS.md
+
+# Dependencias
+node_modules/
+
+# Documentacion generada por compodoc
+frontend/documentation/
