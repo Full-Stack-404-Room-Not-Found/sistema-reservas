@@ -1,3 +1,5 @@
+<!-- Caso de uso Registrarse, paso 2: nombre, apellido, correo y contraseña.
+     No se pide teléfono porque el caso de uso no lo enumera -->
 <div class="login-wrapper-background">
   <div class="form-card">
     <h1>Crear Cuenta</h1>
@@ -96,6 +98,11 @@
             Las contraseñas no coinciden.
           }
         </p>
+      }
+
+      <!-- Flujo alternativo B: el correo ya está registrado -->
+      @if (errorRegistro) {
+        <p class="field-error">{{ errorRegistro }}</p>
       }
 
       <div class="form-submit">
