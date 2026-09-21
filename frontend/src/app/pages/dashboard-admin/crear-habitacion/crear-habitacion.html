@@ -42,7 +42,7 @@
                 <div class="checkbox-group">
                     @for (comodidad of comodidadesDisponibles; track comodidad; let i = $index) {
                         <label class="checkbox-option">
-                            <input type="checkbox" [(ngModel)]="habitacion.comodidades[i]"
+                            <input type="checkbox" [(ngModel)]="comodidadesSeleccionadas[i]"
                                 [name]="'comodidad-' + i">
                             {{ comodidad }}
                         </label>
