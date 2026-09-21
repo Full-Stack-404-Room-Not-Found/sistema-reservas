@@ -1,13 +1,35 @@
+<!-- Paso 11 del caso de uso: la confirmación muestra la reserva creada,
+     no un texto fijo. El id llega por query param -->
 <div class="container mt-5">
-    <div class="alert alert-success" role="alert">
-        <h1 class="alert-heading status-confirmed">¡Reserva confirmada!</h1>
-        <p>
-            Su reserva ha sido registrada correctamente.
-        </p>
-        <hr>
-        <p class="mb-0">
-            Gracias por elegir 404 Room Not Found.
-        </p>
-    </div>
-    <a routerLink="/dashboard-usuario/historial" class="btn btn-confirm-booking">Ver mis Reservas</a>
+  <div class="alert alert-success" role="alert">
+    <h1 class="alert-heading status-confirmed">¡Reserva confirmada!</h1>
+    <p>Su reserva ha sido registrada correctamente.</p>
+
+    @if (reservaCreada) {
+      <hr />
+      <p class="mb-1">Reserva N° {{ reservaCreada.id }}</p>
+      @if (habitacion) {
+        <p class="mb-1">{{ habitacion.tipo }} {{ habitacion.numero }}</p>
+      }
+      <p class="mb-1">
+        Del {{ reservaCreada.fecha_checkin }} al {{ reservaCreada.fecha_checkout }},
+        {{ reservaCreada.cantidad_huespedes }} huésped(es)
+      </p>
+      <p class="mb-1">Total: ${{ reservaCreada.precio_total }}</p>
+      <p class="mb-1">Estado: {{ reservaCreada.estado }}</p>
+    }
+
+    <!-- El pago se registra solo, en estado Pendiente -->
+    @if (pago) {
+      <p class="mb-1 status-pending">Pago {{ pago.estado }}: ${{ pago.monto }}</p>
+    }
+
+    @if (error) {
+      <p class="mb-1 text-danger">{{ error }}</p>
+    }
+
+    <hr />
+    <p class="mb-0">Gracias por elegir 404 Room Not Found.</p>
+  </div>
+  <a routerLink="/dashboard-usuario/historial" class="btn btn-confirm-booking">Ver mis Reservas</a>
 </div>
