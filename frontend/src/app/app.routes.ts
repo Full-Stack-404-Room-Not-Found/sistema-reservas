@@ -26,7 +26,7 @@ export const routes: Routes = [
     children: [
       { path: '', redirectTo: 'inicio', pathMatch: 'full' },
       { path: 'inicio', component: DashboardUsuarioInicio, title: 'Mi panel' },
-      { path: 'reservar', component: ReservarHabitacion, title: 'Reservar habitación' },
+      { path: 'reservar/:id', component: ReservarHabitacion, title: 'Reservar habitación' },
       { path: 'historial', component: HistorialReservas, title: 'Historial de reservas' },
       { path: 'confirmacion', component: ConfirmacionReserva, title: 'Reserva confirmada' },
     ],

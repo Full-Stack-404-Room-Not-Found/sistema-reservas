@@ -1,63 +1,75 @@
+<!-- CU-03 Gestión de Habitaciones: consultar el catálogo y eliminar -->
 <div class="contenedor">
   <h1>SISTEMA DE GESTIÓN HOTELERA - ADMINISTRADOR</h1>
 
+  <!-- Los números se cuentan sobre las habitaciones recibidas, no están guardados -->
   <div class="summary-cards">
     <div class="card available">
-      <div class="number">{{ disponiblesCount }}</div>
+      <div class="number">{{ contar('Disponible') }}</div>
       <div>🟢 Habitaciones Disponibles</div>
     </div>
     <div class="card occupied">
-      <div class="number">{{ ocupadasCount }}</div>
+      <div class="number">{{ contar('Ocupada') }}</div>
       <div>🔴 Habitaciones Ocupadas</div>
     </div>
     <div class="card maintenance">
-      <div class="number">{{ mantenimientoCount }}</div>
+      <div class="number">{{ contar('Mantenimiento') }}</div>
       <div>🟡 En Mantenimiento</div>
     </div>
   </div>
 
-  <table class="rooms-table">
-    <thead>
-      <tr>
-        <th>N° Hab.</th>
-        <th>Tipo</th>
-        <th>Estado</th>
-        <th>Acciones</th>
-      </tr>
-    </thead>
-    <tbody>
-      @for (hab of habitacionesList(); track hab.id) {
+  @if (error) {
+    <p class="text-danger">{{ error }}</p>
+  }
+
+  @if (cargado && habitaciones.length === 0) {
+    <p>No hay habitaciones registradas.</p>
+  }
+
+  <!-- El contenedor con scroll propio evita que la tabla empuje la página en pantallas chicas -->
+  <div class="tabla-scroll">
+    <table class="rooms-table">
+      <thead>
         <tr>
-          <td class="text-center fw-bold">{{ hab.numero }}</td>
-          <td>{{ hab.tipo }}</td>
-
-          <td>
-            @if (hab.estado === 'Disponible') {
-              <span class="status available-text">🟢 Disponible</span>
-            } @else if (hab.estado === 'Ocupada') {
-              <span class="status occupied-text">🔴 Ocupada</span>
-            } @else {
-              <span class="status maintenance-text">🟡 Mantenimiento</span>
-            }
-          </td>
-
-          <td class="actions">
-            <a [routerLink]="['/dashboard-admin/habitacion', hab.id]" class="btn btn-primary btn-sm"
-              >Ver</a
-            >
-
-            <a
-              [routerLink]="['/dashboard-admin/habitacion', hab.id, 'editar']"
-              class="btn btn-warning btn-sm"
-              >Editar</a
-            >
-          </td>
+          <th>N° Hab.</th>
+          <th>Tipo</th>
+          <th>Estado</th>
+          <th>Acciones</th>
         </tr>
-      } @empty {
-        <tr>
-          <td colspan="4" class="text-center">Cargando Habitaciones ...</td>
-        </tr>
-      }
-    </tbody>
-  </table>
+      </thead>
+      <tbody>
+        @for (habitacion of habitaciones; track habitacion.id) {
+          <tr>
+            <td class="text-center fw-bold">{{ habitacion.numero }}</td>
+            <td>{{ habitacion.tipo }}</td>
+            <td>
+              <span class="status" [class]="claseEstado(habitacion.estado)">
+                {{ iconoEstado(habitacion.estado) }} {{ habitacion.estado }}
+              </span>
+            </td>
+            <td class="actions">
+              <a
+                [routerLink]="['/dashboard-admin/habitacion', habitacion.id]"
+                class="btn btn-primary btn-sm"
+                >Ver</a
+              >
+              <a
+                [routerLink]="['/dashboard-admin/habitacion', habitacion.id, 'editar']"
+                class="btn btn-warning btn-sm"
+                >Editar</a
+              >
+              <button
+                type="button"
+                class="btn btn-danger btn-sm"
+                [disabled]="borrando"
+                (click)="eliminar(habitacion)"
+              >
+                Eliminar
+              </button>
+            </td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  </div>
 </div>

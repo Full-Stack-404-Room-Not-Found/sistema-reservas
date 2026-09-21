@@ -1,71 +1,334 @@
 {
   "roles": [
-    { "id": 1, "nombre_rol": "Administrador" },
-    { "id": 2, "nombre_rol": "Usuario" }
+    {
+      "id": 1,
+      "nombre_rol": "Administrador"
+    },
+    {
+      "id": 2,
+      "nombre_rol": "Usuario"
+    }
   ],
-
   "usuarios": [
-    { "id": 1, "id_rol": 1, "nombre": "Carolina", "apellido": "Ahumada", "email": "admin@404roomnotfound.com", "telefono": "351-4000000", "clave_acceso": "admin123", "fecha_registro": "2026-02-10" },
-    { "id": 2, "id_rol": 2, "nombre": "Martina", "apellido": "Ferreyra", "email": "martina.ferreyra@gmail.com", "telefono": "351-5512233", "clave_acceso": "martina123", "fecha_registro": "2026-04-02" },
-    { "id": 3, "id_rol": 2, "nombre": "Diego", "apellido": "Sosa", "email": "diego.sosa@gmail.com", "telefono": "351-6698745", "clave_acceso": "diego123", "fecha_registro": "2026-06-21" }
+    {
+      "id": 1,
+      "id_rol": 1,
+      "nombre": "Carolina",
+      "apellido": "Ahumada",
+      "email": "admin@404roomnotfound.com",
+      "telefono": "351-4000000",
+      "clave_acceso": "admin123",
+      "fecha_registro": "2026-02-10"
+    },
+    {
+      "id": 2,
+      "id_rol": 2,
+      "nombre": "Martina",
+      "apellido": "Ferreyra",
+      "email": "martina.ferreyra@gmail.com",
+      "telefono": "351-5512233",
+      "clave_acceso": "martina123",
+      "fecha_registro": "2026-04-02"
+    },
+    {
+      "id": 3,
+      "id_rol": 2,
+      "nombre": "Diego",
+      "apellido": "Sosa",
+      "email": "diego.sosa@gmail.com",
+      "telefono": "351-6698745",
+      "clave_acceso": "diego123",
+      "fecha_registro": "2026-06-21"
+    }
   ],
-
   "habitaciones": [
-    { "id": 1, "numero": "101", "tipo": "Standard", "capacidad": 2, "precio_noche": 85000, "estado": "Disponible", "descripcion": "Habitación standard con cama matrimonial, baño privado y vista interna." },
-    { "id": 2, "numero": "102", "tipo": "Standard", "capacidad": 2, "precio_noche": 85000, "estado": "Disponible", "descripcion": "Habitación standard con dos camas individuales y baño privado." },
-    { "id": 3, "numero": "103", "tipo": "Doble", "capacidad": 3, "precio_noche": 120000, "estado": "Ocupada", "descripcion": "Habitación doble con cama matrimonial y un sofá cama, balcón al jardín." },
-    { "id": 4, "numero": "104", "tipo": "Suite", "capacidad": 2, "precio_noche": 250000, "estado": "Disponible", "descripcion": "Suite con área de estar, cama king y vista panorámica a la ciudad." },
-    { "id": 5, "numero": "105", "tipo": "Familiar", "capacidad": 4, "precio_noche": 180000, "estado": "Mantenimiento", "descripcion": "Habitación familiar con una cama matrimonial y dos individuales." }
+    {
+      "id": 1,
+      "numero": "101",
+      "tipo": "Standard",
+      "capacidad": 2,
+      "precio_noche": 85000,
+      "estado": "Disponible",
+      "descripcion": "Habitación standard con cama matrimonial, baño privado y vista interna."
+    },
+    {
+      "id": 2,
+      "numero": "102",
+      "tipo": "Standard",
+      "capacidad": 2,
+      "precio_noche": 85000,
+      "estado": "Disponible",
+      "descripcion": "Habitación standard con dos camas individuales y baño privado."
+    },
+    {
+      "id": 3,
+      "numero": "103",
+      "tipo": "Doble",
+      "capacidad": 3,
+      "precio_noche": 120000,
+      "estado": "Ocupada",
+      "descripcion": "Habitación doble con cama matrimonial y un sofá cama, balcón al jardín."
+    },
+    {
+      "id": 4,
+      "numero": "104",
+      "tipo": "Suite",
+      "capacidad": 2,
+      "precio_noche": 250000,
+      "estado": "Disponible",
+      "descripcion": "Suite con área de estar, cama king y vista panorámica a la ciudad."
+    },
+    {
+      "id": 5,
+      "numero": "105",
+      "tipo": "Familiar",
+      "capacidad": 4,
+      "precio_noche": 180000,
+      "estado": "Mantenimiento",
+      "descripcion": "Habitación familiar con una cama matrimonial y dos individuales."
+    }
   ],
-
   "comodidades": [
-    { "id": 1, "nombre_comodidad": "Tv" },
-    { "id": 2, "nombre_comodidad": "Wifi" },
-    { "id": 3, "nombre_comodidad": "Aire acondicionado" }
+    {
+      "id": 1,
+      "nombre_comodidad": "Tv"
+    },
+    {
+      "id": 2,
+      "nombre_comodidad": "Wifi"
+    },
+    {
+      "id": 3,
+      "nombre_comodidad": "Aire acondicionado"
+    }
   ],
-
   "habitacion_comodidad": [
-    { "id": 1, "id_habitacion": 1, "id_comodidad": 1 },
-    { "id": 2, "id_habitacion": 1, "id_comodidad": 2 },
-    { "id": 3, "id_habitacion": 2, "id_comodidad": 2 },
-    { "id": 4, "id_habitacion": 3, "id_comodidad": 1 },
-    { "id": 5, "id_habitacion": 3, "id_comodidad": 2 },
-    { "id": 6, "id_habitacion": 3, "id_comodidad": 3 },
-    { "id": 7, "id_habitacion": 4, "id_comodidad": 1 },
-    { "id": 8, "id_habitacion": 4, "id_comodidad": 2 },
-    { "id": 9, "id_habitacion": 4, "id_comodidad": 3 },
-    { "id": 10, "id_habitacion": 5, "id_comodidad": 2 },
-    { "id": 11, "id_habitacion": 5, "id_comodidad": 3 }
+    {
+      "id": 1,
+      "id_habitacion": 1,
+      "id_comodidad": 1
+    },
+    {
+      "id": 2,
+      "id_habitacion": 1,
+      "id_comodidad": 2
+    },
+    {
+      "id": 3,
+      "id_habitacion": 2,
+      "id_comodidad": 2
+    },
+    {
+      "id": 4,
+      "id_habitacion": 3,
+      "id_comodidad": 1
+    },
+    {
+      "id": 5,
+      "id_habitacion": 3,
+      "id_comodidad": 2
+    },
+    {
+      "id": 6,
+      "id_habitacion": 3,
+      "id_comodidad": 3
+    },
+    {
+      "id": 7,
+      "id_habitacion": 4,
+      "id_comodidad": 1
+    },
+    {
+      "id": 8,
+      "id_habitacion": 4,
+      "id_comodidad": 2
+    },
+    {
+      "id": 9,
+      "id_habitacion": 4,
+      "id_comodidad": 3
+    },
+    {
+      "id": 10,
+      "id_habitacion": 5,
+      "id_comodidad": 2
+    },
+    {
+      "id": 11,
+      "id_habitacion": 5,
+      "id_comodidad": 3
+    }
   ],
-
   "reservas": [
-    { "id": 1, "id_usuario": 2, "id_habitacion": 4, "fecha_checkin": "2026-08-14", "fecha_checkout": "2026-08-18", "cantidad_huespedes": 2, "estado": "Finalizada", "precio_total": 1000000 },
-    { "id": 2, "id_usuario": 3, "id_habitacion": 3, "fecha_checkin": "2026-09-15", "fecha_checkout": "2026-09-20", "cantidad_huespedes": 3, "estado": "Confirmada", "precio_total": 600000 },
-    { "id": 3, "id_usuario": 2, "id_habitacion": 1, "fecha_checkin": "2026-10-03", "fecha_checkout": "2026-10-05", "cantidad_huespedes": 2, "estado": "Confirmada", "precio_total": 170000 },
-    { "id": 4, "id_usuario": 3, "id_habitacion": 5, "fecha_checkin": "2026-11-20", "fecha_checkout": "2026-11-23", "cantidad_huespedes": 4, "estado": "Pendiente", "precio_total": 540000 },
-    { "id": 5, "id_usuario": 2, "id_habitacion": 2, "fecha_checkin": "2026-12-26", "fecha_checkout": "2026-12-28", "cantidad_huespedes": 2, "estado": "Cancelada", "precio_total": 170000 }
+    {
+      "id": 1,
+      "id_usuario": 2,
+      "id_habitacion": 4,
+      "fecha_checkin": "2026-08-14",
+      "fecha_checkout": "2026-08-18",
+      "cantidad_huespedes": 2,
+      "estado": "Finalizada",
+      "precio_total": 1000000
+    },
+    {
+      "id": 2,
+      "id_usuario": 3,
+      "id_habitacion": 3,
+      "fecha_checkin": "2026-09-15",
+      "fecha_checkout": "2026-09-20",
+      "cantidad_huespedes": 3,
+      "estado": "Confirmada",
+      "precio_total": 600000
+    },
+    {
+      "id": 3,
+      "id_usuario": 2,
+      "id_habitacion": 1,
+      "fecha_checkin": "2026-10-03",
+      "fecha_checkout": "2026-10-05",
+      "cantidad_huespedes": 2,
+      "estado": "Confirmada",
+      "precio_total": 170000
+    },
+    {
+      "id": 4,
+      "id_usuario": 3,
+      "id_habitacion": 5,
+      "fecha_checkin": "2026-11-20",
+      "fecha_checkout": "2026-11-23",
+      "cantidad_huespedes": 4,
+      "estado": "Pendiente",
+      "precio_total": 540000
+    },
+    {
+      "id": 5,
+      "id_usuario": 2,
+      "id_habitacion": 2,
+      "fecha_checkin": "2026-12-26",
+      "fecha_checkout": "2026-12-28",
+      "cantidad_huespedes": 2,
+      "estado": "Cancelada",
+      "precio_total": 170000
+    },
+    {
+      "id_usuario": 2,
+      "id_habitacion": 4,
+      "fecha_checkin": "2026-09-19",
+      "fecha_checkout": "2026-09-22",
+      "cantidad_huespedes": 1,
+      "estado": "Pendiente",
+      "precio_total": 0,
+      "id": 6
+    },
+    {
+      "id_usuario": 2,
+      "id_habitacion": 4,
+      "fecha_checkin": "2026-09-20",
+      "fecha_checkout": "2026-09-23",
+      "cantidad_huespedes": 1,
+      "estado": "Pendiente",
+      "precio_total": 0,
+      "id": 7
+    }
   ],
-
   "servicios": [
-    { "id": 1, "nombre": "Desayuno", "descripcion": "Desayuno buffet, de 7 a 10.", "precio": 12000 },
-    { "id": 2, "nombre": "Spa", "descripcion": "Acceso al spa por día, con toallas incluidas.", "precio": 25000 },
-    { "id": 3, "nombre": "Traslado al aeropuerto", "descripcion": "Traslado ida o vuelta al aeropuerto Taravella.", "precio": 30000 },
-    { "id": 4, "nombre": "Cochera", "descripcion": "Cochera cubierta por noche.", "precio": 8000 }
+    {
+      "id": 1,
+      "nombre": "Desayuno",
+      "descripcion": "Desayuno buffet, de 7 a 10.",
+      "precio": 12000
+    },
+    {
+      "id": 2,
+      "nombre": "Spa",
+      "descripcion": "Acceso al spa por día, con toallas incluidas.",
+      "precio": 25000
+    },
+    {
+      "id": 3,
+      "nombre": "Traslado al aeropuerto",
+      "descripcion": "Traslado ida o vuelta al aeropuerto Taravella.",
+      "precio": 30000
+    },
+    {
+      "id": 4,
+      "nombre": "Cochera",
+      "descripcion": "Cochera cubierta por noche.",
+      "precio": 8000
+    }
   ],
-
   "reserva_servicio": [
-    { "id": 1, "id_reserva": 1, "id_servicio": 1, "cantidad": 4, "precio_unitario": 11000 },
-    { "id": 2, "id_reserva": 1, "id_servicio": 2, "cantidad": 2, "precio_unitario": 25000 },
-    { "id": 3, "id_reserva": 2, "id_servicio": 1, "cantidad": 5, "precio_unitario": 12000 },
-    { "id": 4, "id_reserva": 3, "id_servicio": 4, "cantidad": 2, "precio_unitario": 8000 },
-    { "id": 5, "id_reserva": 4, "id_servicio": 3, "cantidad": 1, "precio_unitario": 30000 }
+    {
+      "id": 1,
+      "id_reserva": 1,
+      "id_servicio": 1,
+      "cantidad": 4,
+      "precio_unitario": 11000
+    },
+    {
+      "id": 2,
+      "id_reserva": 1,
+      "id_servicio": 2,
+      "cantidad": 2,
+      "precio_unitario": 25000
+    },
+    {
+      "id": 3,
+      "id_reserva": 2,
+      "id_servicio": 1,
+      "cantidad": 5,
+      "precio_unitario": 12000
+    },
+    {
+      "id": 4,
+      "id_reserva": 3,
+      "id_servicio": 4,
+      "cantidad": 2,
+      "precio_unitario": 8000
+    },
+    {
+      "id": 5,
+      "id_reserva": 4,
+      "id_servicio": 3,
+      "cantidad": 1,
+      "precio_unitario": 30000
+    }
   ],
-
   "pagos": [
-    { "id": 1, "id_reserva": 1, "estado": "Confirmado", "monto": 500000, "fecha": "2026-08-01T10:15:00" },
-    { "id": 2, "id_reserva": 1, "estado": "Confirmado", "monto": 594000, "fecha": "2026-08-14T09:02:00" },
-    { "id": 3, "id_reserva": 2, "estado": "Confirmado", "monto": 330000, "fecha": "2026-09-05T18:40:00" },
-    { "id": 4, "id_reserva": 3, "estado": "Pendiente", "monto": 186000, "fecha": "2026-09-16T12:00:00" },
-    { "id": 5, "id_reserva": 5, "estado": "Rechazado", "monto": 170000, "fecha": "2026-09-10T20:25:00" }
+    {
+      "id": 1,
+      "id_reserva": 1,
+      "estado": "Confirmado",
+      "monto": 500000,
+      "fecha": "2026-08-01T10:15:00"
+    },
+    {
+      "id": 2,
+      "id_reserva": 1,
+      "estado": "Confirmado",
+      "monto": 594000,
+      "fecha": "2026-08-14T09:02:00"
+    },
+    {
+      "id": 3,
+      "id_reserva": 2,
+      "estado": "Confirmado",
+      "monto": 330000,
+      "fecha": "2026-09-05T18:40:00"
+    },
+    {
+      "id": 4,
+      "id_reserva": 3,
+      "estado": "Pendiente",
+      "monto": 186000,
+      "fecha": "2026-09-16T12:00:00"
+    },
+    {
+      "id": 5,
+      "id_reserva": 5,
+      "estado": "Rechazado",
+      "monto": 170000,
+      "fecha": "2026-09-10T20:25:00"
+    }
   ]
 }
