@@ -1,4 +1,4 @@
-<!-- CU-03 Gestión de Habitaciones, flujo 4: consultar el catálogo -->
+<!-- CU-03 Gestión de Habitaciones: consultar el catálogo y eliminar -->
 <div class="contenedor">
   <h1>SISTEMA DE GESTIÓN HOTELERA - ADMINISTRADOR</h1>
 
@@ -58,6 +58,14 @@
                 class="btn btn-warning btn-sm"
                 >Editar</a
               >
+              <button
+                type="button"
+                class="btn btn-danger btn-sm"
+                [disabled]="borrando"
+                (click)="eliminar(habitacion)"
+              >
+                Eliminar
+              </button>
             </td>
           </tr>
         }
