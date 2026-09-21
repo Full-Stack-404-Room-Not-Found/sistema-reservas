@@ -64,6 +64,10 @@
     color: #c9a84c;
 }
 
+.tabla-scroll {
+    overflow-x: auto;
+}
+
 .rooms-table {
     width: 100%;
     background: white;

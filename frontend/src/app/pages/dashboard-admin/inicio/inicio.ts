@@ -1,60 +1,67 @@
-import { Component, OnInit, inject, signal } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { InterfaceHabitaciones } from '../../../modelsAModificar/habitaciones.model';
-import { Habitaciones } from '../../../services/habitaciones-services';
+import { HabitacionService } from '../../../services/habitacion.service';
+import { Habitacion } from '../../../models/habitacion';
 
+// CU-03 Gestión de Habitaciones, flujo 4: consultar el catálogo.
 @Component({
   imports: [RouterLink],
   selector: 'app-dashboard-admin-inicio',
   styleUrl: './inicio.css',
   templateUrl: './inicio.html',
 })
-export class DashboardAdminInicio implements OnInit{ 
+export class DashboardAdminInicio implements OnInit {
+  private habitacionService = inject(HabitacionService);
+  private cd = inject(ChangeDetectorRef);
 
-  private _habitacionesService = inject(Habitaciones);
- 
-  habitacionesList = signal<InterfaceHabitaciones[]>([]);
-  disponiblesCount = 0;
-  ocupadasCount = 0;
-  mantenimientoCount= 0;
+  habitaciones: Habitacion[] = [];
+  cargado = false;
+  error = '';
 
   ngOnInit(): void {
-    this.cargarHabitaciones();
+    this.cargar();
   }
 
-  cargarHabitaciones(): void{
-    this._habitacionesService.obtenerHabitaciones().subscribe({
-      next: (habitacionesList) =>{
-
-        console.log('habitaciones recibidas:', habitacionesList);
-        
-        this.habitacionesList.set(habitacionesList);
-        console.log('lista asignada', this.habitacionesList);
-        console.log('cantidad:', this.habitacionesList.length);
-
-
-        this.calcularTotales();
+  // ========== CARGA DEL CATÁLOGO ==========
+  private cargar(): void {
+    this.habitacionService.listar().subscribe({
+      next: (habitaciones) => {
+        this.habitaciones = habitaciones;
+        this.cargado = true;
+        this.cd.markForCheck();
       },
-      error:(error)=>{
-        console.error(error)
-      }
+      error: (error) => this.fallar(error),
     });
   }
 
-  calcularTotales(): void {
-    this.disponiblesCount = this.habitacionesList().filter(h => h.estado === 'Disponible').length;
-    this.ocupadasCount = this.habitacionesList().filter(h => h.estado === 'Ocupada').length;
-    this.mantenimientoCount = this.habitacionesList().filter(h => h.estado === 'Mantenimiento').length;
+  // ========== TARJETAS Y PRESENTACIÓN ==========
+  // Los contadores se calculan sobre el array recibido: no hay ningún total guardado.
+  contar(estado: string): number {
+    return this.habitaciones.filter((habitacion) => habitacion.estado === estado).length;
+  }
+
+  claseEstado(estado: string): string {
+    if (estado === 'Disponible') {
+      return 'available-text';
+    }
+    if (estado === 'Ocupada') {
+      return 'occupied-text';
+    }
+    return 'maintenance-text';
+  }
+
+  iconoEstado(estado: string): string {
+    if (estado === 'Disponible') {
+      return '🟢';
+    }
+    if (estado === 'Ocupada') {
+      return '🔴';
+    }
+    return '🟡';
+  }
+
+  private fallar(error: Error): void {
+    this.error = error.message;
+    this.cd.markForCheck();
   }
 }
-
-
-
-
-
-
-
- 
-  
-
-
