@@ -19,6 +19,7 @@ export class CrearHabitacion implements OnInit {
   private habitacionesService = inject(Habitaciones)
 
   comodidadesDisponibles = ['Tv', 'Wifi', 'Aire acondicionado'];
+  comodidadesSeleccionadas = [false, false, false];
 
   habitacion: InterfaceHabitaciones = {
     numero: '',
