@@ -1,37 +1,56 @@
+<!-- CU-03, flujo 4: ver los detalles de una habitación del catálogo -->
 <div class="contenedor">
-    <h2>🛏️ Detalle de Habitación #{{ id }}</h2>
+  @if (error) {
+    <p class="text-danger">{{ error }}</p>
+  }
+
+  @if (habitacion) {
+    <h2>🛏️ Detalle de Habitación #{{ habitacion.numero }}</h2>
 
     <div class="detalle-card">
-        <div class="detalle-item">
-            <span class="label">Número:</span>
-            <span class="value">{{ id }}</span>
-        </div>
-        <div class="detalle-item">
-            <span class="label">Tipo:</span>
-            <span class="value">Standard</span>
-        </div>
-        <div class="detalle-item">
-            <span class="label">Estado:</span>
-            <span class="badge available">🟢 Disponible</span>
-        </div>
-        <div class="detalle-item">
-            <span class="label">Precio por noche:</span>
-            <span class="value">$40</span>
-        </div>
-        <div class="detalle-item">
-            <span class="label">Capacidad:</span>
-            <span class="value">4 personas</span>
-        </div>
-        <div class="detalle-item">
-            <span class="label">Descripción:</span>
-            <span class="value">habitacion en suite con capacidad para 4 personas.cuenta con 1 cama matrimonial y dos
-                camas individuales,baño privado completo, aire acondicionado,tv led, wifi,minibar y balcon con vista al
-                jardin .incluye servicio de limpieza diario y desayuno</span>
-        </div>
+      <div class="detalle-item">
+        <span class="label">Número:</span>
+        <span class="value">{{ habitacion.numero }}</span>
+      </div>
+      <div class="detalle-item">
+        <span class="label">Tipo:</span>
+        <span class="value">{{ habitacion.tipo }}</span>
+      </div>
+      <div class="detalle-item">
+        <span class="label">Estado:</span>
+        <span class="badge" [class]="claseEstado(habitacion.estado)">
+          {{ iconoEstado(habitacion.estado) }} {{ habitacion.estado }}
+        </span>
+      </div>
+      <div class="detalle-item">
+        <span class="label">Precio por noche:</span>
+        <span class="value">${{ habitacion.precio_noche }}</span>
+      </div>
+      <div class="detalle-item">
+        <span class="label">Capacidad:</span>
+        <span class="value">{{ habitacion.capacidad }} personas</span>
+      </div>
+      <div class="detalle-item">
+        <span class="label">Descripción:</span>
+        <span class="value">{{ habitacion.descripcion }}</span>
+      </div>
+      <div class="detalle-item">
+        <span class="label">Comodidades:</span>
+        <span class="value">
+          @if (comodidades.length > 0) {
+            {{ comodidades.join(', ') }}
+          } @else {
+            Sin comodidades cargadas
+          }
+        </span>
+      </div>
 
-        <div class="actions">
-            <a [routerLink]="['/dashboard-admin/habitacion', id, 'editar']" class="btn-warning">✏️ Editar</a>
-            <a routerLink="/dashboard-admin/inicio" class="btn-secondary">⬅ Volver</a>
-        </div>
+      <div class="actions">
+        <a [routerLink]="['/dashboard-admin/habitacion', id, 'editar']" class="btn-warning"
+          >✏️ Editar</a
+        >
+        <a routerLink="/dashboard-admin/inicio" class="btn-secondary">⬅ Volver</a>
+      </div>
     </div>
+  }
 </div>
