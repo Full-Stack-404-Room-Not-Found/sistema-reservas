@@ -15,3 +15,6 @@ class RolView(APIView):
 
 class UserView(APIView):
     pass
+
+class UserLogin(APIView):
+    pass
