@@ -1,4 +1,3 @@
 from django.db import models
 
-class Pago(models.Model):
-    pass
+# Create your models here.
