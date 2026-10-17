@@ -1,34 +1,14 @@
-# Bytecode / Caché de Python
-__pycache__/
-*.py[cod]
-*$py.class
-*.so
-.Python
-
-# Entornos virtuales (como el directorio 'venv/' de tu proyecto)
+# Entorno virtual de Python (cada integrante crea el suyo)
 venv/
-env/
-ENV/
 .venv/
+env/
 
-# Base de datos local de desarrollo (como tu archivo 'db.sqlite3')
-db.sqlite3
-db.sqlite3-journal
+# Archivos compilados de Python
+__pycache__/
+*.pyc
 
-# Archivos de configuración de entorno y secretos
+# Credenciales locales: nunca se suben al repositorio
 .env
-.env.local
-local_settings.py
 
-# Archivos estáticos y multimedia de Django
-staticfiles/
-media/
-
-# Entornos de desarrollo / IDEs (VS Code)
-.vscode/
-*.swp
-*.swo
-
-# Archivos del sistema operativo
-.DS_Store
-Thumbs.db
+# Base SQLite por defecto de Django (el proyecto usa MySQL)
+db.sqlite3
