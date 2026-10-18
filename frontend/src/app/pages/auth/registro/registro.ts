@@ -7,6 +7,7 @@ import {
   Validators,
 } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
+import { EMPTY, switchMap } from 'rxjs';
 import { AuthService } from '../../../services/auth.service';
 import { Usuario } from '../../../models/usuario';
 
@@ -68,38 +69,38 @@ export class Registro {
     this.errorRegistro = '';
     const datos = this.form.getRawValue();
 
-    this.authService.buscarPorEmail(datos.email).subscribe({
-      next: (usuarios) => {
-        if (usuarios.length > 0) {
-          this.errorRegistro = 'El correo electrónico ya se encuentra registrado';
-          this.cd.markForCheck();
-          return;
-        }
-
-        const usuario: Usuario = {
-          id_rol: 2,
-          nombre: datos.nombre,
-          apellido: datos.apellido,
-          email: datos.email,
-          clave_acceso: datos.password,
-          fecha_registro: this.fechaDeHoy(),
-        };
-
-        this.authService.registrar(usuario).subscribe({
-          next: () => {
-            this.router.navigateByUrl('/login');
-          },
-          error: (error) => {
-            this.errorRegistro = error.message;
+    // switchMap encadena los dos pedidos en una sola suscripción: con el resultado
+    // de la búsqueda decide si registra (devuelve el POST) o corta (EMPTY).
+    this.authService
+      .buscarPorEmail(datos.email)
+      .pipe(
+        switchMap((usuarios) => {
+          if (usuarios.length > 0) {
+            this.errorRegistro = 'El correo electrónico ya se encuentra registrado';
             this.cd.markForCheck();
-          },
-        });
-      },
-      error: (error) => {
-        this.errorRegistro = error.message;
-        this.cd.markForCheck();
-      },
-    });
+            return EMPTY;
+          }
+
+          const usuario: Usuario = {
+            id_rol: 2,
+            nombre: datos.nombre,
+            apellido: datos.apellido,
+            email: datos.email,
+            clave_acceso: datos.password,
+            fecha_registro: this.fechaDeHoy(),
+          };
+          return this.authService.registrar(usuario);
+        }),
+      )
+      .subscribe({
+        next: () => {
+          this.router.navigateByUrl('/login');
+        },
+        error: (error) => {
+          this.errorRegistro = error.message;
+          this.cd.markForCheck();
+        },
+      });
   }
 
   // ========== AUXILIARES ==========
