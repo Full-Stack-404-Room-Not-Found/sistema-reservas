@@ -1,5 +1,6 @@
 import { ChangeDetectorRef, Component, OnInit, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import { EMPTY, switchMap } from 'rxjs';
 import { HabitacionService } from '../../../services/habitacion.service';
 import { ReservaService } from '../../../services/reserva.service';
 import { Habitacion } from '../../../models/habitacion';
@@ -83,40 +84,39 @@ export class DashboardAdminInicio implements OnInit {
     this.borrando = true;
     const id = String(habitacion.id);
 
-    this.reservaService.listarPorHabitacion(id).subscribe({
-      next: (reservas) => {
-        // CU-03-A5: no se borra si quedan reservas activas o futuras
-        const vigentes = reservas.filter(
-          (reserva) =>
-            reserva.estado !== 'Cancelada' && reserva.fecha_checkout >= this.fechaDeHoy(),
-        );
+    // switchMap: con las reservas decide si borra (devuelve el DELETE) o corta (EMPTY)
+    this.reservaService
+      .listarPorHabitacion(id)
+      .pipe(
+        switchMap((reservas) => {
+          // CU-03-A5: no se borra si quedan reservas activas o futuras
+          const vigentes = reservas.filter(
+            (reserva) =>
+              reserva.estado !== 'Cancelada' && reserva.fecha_checkout >= this.fechaDeHoy(),
+          );
 
-        if (vigentes.length > 0) {
-          this.error =
-            'No se puede eliminar la habitación porque tiene reservas activas o futuras. ' +
-            'Podés marcarla como Inactiva en vez de eliminarla.';
+          if (vigentes.length > 0) {
+            this.error =
+              'No se puede eliminar la habitación porque tiene reservas activas o futuras. ' +
+              'Podés marcarla como Inactiva en vez de eliminarla.';
+            this.borrando = false;
+            this.cd.markForCheck();
+            return EMPTY;
+          }
+
+          // Las comodidades se borran solas en el backend (ON DELETE CASCADE, según el MR)
+          return this.habitacionService.eliminar(id);
+        }),
+      )
+      .subscribe({
+        next: () => {
+          // No se vuelve a consultar la API: la fila se saca de la lista que ya está en memoria.
+          this.habitaciones = this.habitaciones.filter((habitacion) => String(habitacion.id) !== id);
           this.borrando = false;
           this.cd.markForCheck();
-          return;
-        }
-
-        // Las comodidades se borran solas en el backend (ON DELETE CASCADE, según el MR)
-        this.borrarHabitacion(id);
-      },
-      error: (error) => this.fallar(error),
-    });
-  }
-
-  private borrarHabitacion(id: string): void {
-    this.habitacionService.eliminar(id).subscribe({
-      next: () => {
-        // No se vuelve a consultar la API: la fila se saca de la lista que ya está en memoria.
-        this.habitaciones = this.habitaciones.filter((habitacion) => String(habitacion.id) !== id);
-        this.borrando = false;
-        this.cd.markForCheck();
-      },
-      error: (error) => this.fallar(error),
-    });
+        },
+        error: (error) => this.fallar(error),
+      });
   }
 
   private fechaDeHoy(): string {
