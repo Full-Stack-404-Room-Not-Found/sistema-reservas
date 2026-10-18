@@ -123,6 +123,10 @@
     color: #c9a84c;
 }
 
+.inactive-text {
+    color: #7f8c8d;
+}
+
 .actions {
     display: flex;
     gap: 8px;

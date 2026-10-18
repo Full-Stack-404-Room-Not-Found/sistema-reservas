@@ -36,8 +36,11 @@ export class ComodidadService {
       .pipe(catchError(this.handleError));
   }
 
-  eliminarRelacion(id: number): Observable<unknown> {
-    return this.http.delete(`${this.urlRelaciones}/${id}`).pipe(catchError(this.handleError));
+  // La tabla puente tiene PK compuesta (MR): la relación se identifica por el par de claves
+  eliminarRelacion(idHabitacion: number, idComodidad: number): Observable<unknown> {
+    return this.http
+      .delete(`${this.urlRelaciones}/${idHabitacion}/${idComodidad}`)
+      .pipe(catchError(this.handleError));
   }
 
   // json-server no hace joins: el cruce de la tabla puente se resuelve acá

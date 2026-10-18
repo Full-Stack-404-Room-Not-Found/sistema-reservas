@@ -16,9 +16,19 @@ export class AuthService {
 
   constructor(private http: HttpClient) {}
 
-  login(email: string, clave: string): Observable<Usuario[]> {
-    const consulta = `email=${encodeURIComponent(email)}&clave_acceso=${encodeURIComponent(clave)}`;
-    return this.http.get<Usuario[]>(`${this.url}?${consulta}`).pipe(catchError(this.handleError));
+  // POST /login de Django: la clave viaja en el cuerpo del pedido y no en la URL.
+  // Devuelve el usuario si las credenciales coinciden, o un error 401 si no.
+  login(email: string, clave: string): Observable<Usuario> {
+    return this.http
+      .post<Usuario>(`${API_URL}/login`, { email, clave_acceso: clave })
+      .pipe(
+        catchError((error: HttpErrorResponse) => {
+          if (error.status === 401) {
+            return throwError(() => new Error('correo electrónico o contraseña incorrectos'));
+          }
+          return this.handleError(error);
+        }),
+      );
   }
 
   buscarPorEmail(email: string): Observable<Usuario[]> {
