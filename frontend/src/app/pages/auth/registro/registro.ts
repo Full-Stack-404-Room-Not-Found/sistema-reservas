@@ -10,21 +10,6 @@ import { Router, RouterLink } from '@angular/router';
 import { AuthService } from '../../../services/auth.service';
 import { Usuario } from '../../../models/usuario';
 
-function passwordsMatchValidator(group: AbstractControl): ValidationErrors | null {
-  const passwordControl = group.get('password');
-  const confirmPasswordControl = group.get('confirmPassword');
-
-  if (passwordControl && confirmPasswordControl) {
-    const password = passwordControl.value;
-    const confirmPassword = confirmPasswordControl.value;
-
-    if (password && confirmPassword && password !== confirmPassword) {
-      return { passwordsMismatch: true };
-    }
-  }
-  return null;
-}
-
 // Caso de uso Registrarse. El formulario pide nombre, apellido, correo y
 // contraseña, que son los campos que enumera el paso 2 del caso de uso.
 @Component({
@@ -34,6 +19,23 @@ function passwordsMatchValidator(group: AbstractControl): ValidationErrors | nul
   templateUrl: './registro.html',
 })
 export class Registro {
+  // Validador de grupo: compara la contraseña con su confirmación. Es estático
+  // porque no usa el estado del componente y se pasa como referencia al FormBuilder.
+  static passwordsMatchValidator(group: AbstractControl): ValidationErrors | null {
+    const passwordControl = group.get('password');
+    const confirmPasswordControl = group.get('confirmPassword');
+
+    if (passwordControl && confirmPasswordControl) {
+      const password = passwordControl.value;
+      const confirmPassword = confirmPasswordControl.value;
+
+      if (password && confirmPassword && password !== confirmPassword) {
+        return { passwordsMismatch: true };
+      }
+    }
+    return null;
+  }
+
   private readonly fb = inject(FormBuilder);
   private readonly router = inject(Router);
   private readonly authService = inject(AuthService);
@@ -47,7 +49,7 @@ export class Registro {
       password: ['', [Validators.required, Validators.minLength(6)]],
       confirmPassword: ['', [Validators.required]],
     },
-    { validators: passwordsMatchValidator },
+    { validators: Registro.passwordsMatchValidator },
   );
 
   protected submitted = false;
