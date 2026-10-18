@@ -66,6 +66,9 @@ export class DetalleHabitacion implements OnInit {
     if (estado === 'Ocupada') {
       return 'occupied';
     }
+    if (estado === 'Inactiva') {
+      return 'inactive';
+    }
     return 'maintenance';
   }
 
@@ -75,6 +78,9 @@ export class DetalleHabitacion implements OnInit {
     }
     if (estado === 'Ocupada') {
       return '🔴';
+    }
+    if (estado === 'Inactiva') {
+      return '⚫';
     }
     return '🟡';
   }

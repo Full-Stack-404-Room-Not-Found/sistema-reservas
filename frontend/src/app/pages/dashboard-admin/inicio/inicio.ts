@@ -52,6 +52,9 @@ export class DashboardAdminInicio implements OnInit {
     if (estado === 'Ocupada') {
       return 'occupied-text';
     }
+    if (estado === 'Inactiva') {
+      return 'inactive-text';
+    }
     return 'maintenance-text';
   }
 
@@ -61,6 +64,9 @@ export class DashboardAdminInicio implements OnInit {
     }
     if (estado === 'Ocupada') {
       return '🔴';
+    }
+    if (estado === 'Inactiva') {
+      return '⚫';
     }
     return '🟡';
   }
@@ -88,7 +94,7 @@ export class DashboardAdminInicio implements OnInit {
         if (vigentes.length > 0) {
           this.error =
             'No se puede eliminar la habitación porque tiene reservas activas o futuras. ' +
-            'Podés marcarla como Mantenimiento en vez de eliminarla.';
+            'Podés marcarla como Inactiva en vez de eliminarla.';
           this.borrando = false;
           this.cd.markForCheck();
           return;
