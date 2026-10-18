@@ -1,7 +1,6 @@
 import { ChangeDetectorRef, Component, OnInit, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { HabitacionService } from '../../../services/habitacion.service';
-import { ComodidadService } from '../../../services/comodidad.service';
 import { ReservaService } from '../../../services/reserva.service';
 import { Habitacion } from '../../../models/habitacion';
 
@@ -15,7 +14,6 @@ import { Habitacion } from '../../../models/habitacion';
 })
 export class DashboardAdminInicio implements OnInit {
   private habitacionService = inject(HabitacionService);
-  private comodidadService = inject(ComodidadService);
   private reservaService = inject(ReservaService);
   private cd = inject(ChangeDetectorRef);
 
@@ -68,8 +66,8 @@ export class DashboardAdminInicio implements OnInit {
   }
 
   // ========== ELIMINAR UNA HABITACIÓN ==========
-  // Flujo 3 del CU-03: confirmar, verificar que no tenga reservas vigentes,
-  // borrar sus comodidades y recién entonces la habitación.
+  // Flujo 3 del CU-03: confirmar, verificar que no tenga reservas vigentes
+  // y recién entonces borrar la habitación.
   eliminar(habitacion: Habitacion): void {
     if (!confirm('¿Está seguro de eliminar esta habitación?')) {
       return;
@@ -96,33 +94,8 @@ export class DashboardAdminInicio implements OnInit {
           return;
         }
 
-        this.borrarComodidadesY(id);
-      },
-      error: (error) => this.fallar(error),
-    });
-  }
-
-  // Las filas de la tabla puente se borran primero, para no dejar claves foráneas huérfanas
-  private borrarComodidadesY(id: string): void {
-    this.comodidadService.listarRelaciones(id).subscribe({
-      next: (relaciones) => {
-        if (relaciones.length === 0) {
-          this.borrarHabitacion(id);
-          return;
-        }
-
-        let restantes = relaciones.length;
-        relaciones.forEach((relacion) => {
-          this.comodidadService.eliminarRelacion(Number(relacion.id)).subscribe({
-            next: () => {
-              restantes--;
-              if (restantes === 0) {
-                this.borrarHabitacion(id);
-              }
-            },
-            error: (error) => this.fallar(error),
-          });
-        });
+        // Las comodidades se borran solas en el backend (ON DELETE CASCADE, según el MR)
+        this.borrarHabitacion(id);
       },
       error: (error) => this.fallar(error),
     });
@@ -131,8 +104,7 @@ export class DashboardAdminInicio implements OnInit {
   private borrarHabitacion(id: string): void {
     this.habitacionService.eliminar(id).subscribe({
       next: () => {
-        // No se vuelve a consultar la API: json-server recarga el archivo después de escribir
-        // y el pedido inmediato puede fallar. La fila se saca de la lista que ya está en memoria.
+        // No se vuelve a consultar la API: la fila se saca de la lista que ya está en memoria.
         this.habitaciones = this.habitaciones.filter((habitacion) => String(habitacion.id) !== id);
         this.borrando = false;
         this.cd.markForCheck();

@@ -177,7 +177,8 @@ export class CrearHabitacion implements OnInit {
         altas.push(Number(comodidad.id));
       }
       if (!this.seleccionadas[i] && previa) {
-        bajas.push(Number(previa.id));
+        // Sin id propio (PK compuesta): la baja se identifica por el id de la comodidad
+        bajas.push(Number(comodidad.id));
       }
     });
 
@@ -201,8 +202,8 @@ export class CrearHabitacion implements OnInit {
       });
     });
 
-    bajas.forEach((idRelacion) => {
-      this.comodidadService.eliminarRelacion(idRelacion).subscribe({
+    bajas.forEach((idComodidad) => {
+      this.comodidadService.eliminarRelacion(idHabitacion, idComodidad).subscribe({
         next: terminar,
         error: (error) => this.fallar(error),
       });
