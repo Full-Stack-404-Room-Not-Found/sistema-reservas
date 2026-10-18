@@ -1,6 +1,7 @@
 import { ChangeDetectorRef, Component, inject } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { RouterLink } from '@angular/router';
+import { forkJoin } from 'rxjs';
 import { HabitacionService } from '../../../services/habitacion.service';
 import { ReservaService } from '../../../services/reserva.service';
 import { Habitacion } from '../../../models/habitacion';
@@ -51,25 +52,20 @@ export class DashboardUsuarioInicio {
       return;
     }
 
-    this.habitacionService.listarDisponibles(tipo, Number(huespedes)).subscribe({
-      next: (habitaciones) => {
-        this.reservaService.listar().subscribe({
-          next: (reservas) => {
-            this.habitaciones = this.habitacionService.filtrarPorFechas(
-              habitaciones,
-              reservas,
-              checkin,
-              checkout,
-            );
-            this.filtros = { checkin, checkout, huespedes };
-            this.buscado = true;
-            this.cd.markForCheck();
-          },
-          error: (error) => {
-            this.errorBusqueda = error.message;
-            this.cd.markForCheck();
-          },
-        });
+    forkJoin({
+      habitaciones: this.habitacionService.listarDisponibles(tipo, Number(huespedes)),
+      reservas: this.reservaService.listar(),
+    }).subscribe({
+      next: ({ habitaciones, reservas }) => {
+        this.habitaciones = this.habitacionService.filtrarPorFechas(
+          habitaciones,
+          reservas,
+          checkin,
+          checkout,
+        );
+        this.filtros = { checkin, checkout, huespedes };
+        this.buscado = true;
+        this.cd.markForCheck();
       },
       error: (error) => {
         this.errorBusqueda = error.message;
