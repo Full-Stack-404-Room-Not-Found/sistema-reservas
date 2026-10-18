@@ -1,4 +1,5 @@
 import { ChangeDetectorRef, Component, OnInit, inject } from '@angular/core';
+import { forkJoin } from 'rxjs';
 import { ReservaService, ReservaConHabitacion } from '../../../services/reserva.service';
 import { HabitacionService } from '../../../services/habitacion.service';
 import { AuthService } from '../../../services/auth.service';
@@ -33,19 +34,14 @@ export class HistorialReservas implements OnInit {
       return;
     }
 
-    this.reservaService.listarPorUsuario(String(this.usuario.id)).subscribe({
-      next: (reservas) => {
-        this.habitacionService.listar().subscribe({
-          next: (habitaciones) => {
-            this.items = this.reservaService.conHabitacion(reservas, habitaciones);
-            this.cargado = true;
-            this.cd.markForCheck();
-          },
-          error: (error) => {
-            this.error = error.message;
-            this.cd.markForCheck();
-          },
-        });
+    forkJoin({
+      reservas: this.reservaService.listarPorUsuario(String(this.usuario.id)),
+      habitaciones: this.habitacionService.listar(),
+    }).subscribe({
+      next: ({ reservas, habitaciones }) => {
+        this.items = this.reservaService.conHabitacion(reservas, habitaciones);
+        this.cargado = true;
+        this.cd.markForCheck();
       },
       error: (error) => {
         this.error = error.message;

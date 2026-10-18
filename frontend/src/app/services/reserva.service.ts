@@ -47,7 +47,22 @@ export class ReservaService {
   }
 
   crear(reserva: Reserva): Observable<Reserva> {
-    return this.http.post<Reserva>(this.url, reserva).pipe(catchError(this.handleError));
+    return this.http
+      .post<Reserva>(this.url, reserva)
+      .pipe(catchError((error: HttpErrorResponse) => this.errorAlCrear(error)));
+  }
+
+  // El backend revalida la reserva (Reserva.clean()) y, si la rechaza, responde 400
+  // con el motivo por campo, por ejemplo { fecha_checkin: ['La habitación ya tiene...'] }.
+  private errorAlCrear(error: HttpErrorResponse) {
+    if (error.status !== 400) {
+      return this.handleError(error);
+    }
+    const cuerpo = typeof error.error === 'object' && error.error !== null ? error.error : {};
+    const primero = Object.values(cuerpo)[0];
+    const texto = Array.isArray(primero) ? primero[0] : primero;
+    const mensaje = typeof texto === 'string' ? texto : 'No se pudo registrar la reserva.';
+    return throwError(() => new Error(mensaje));
   }
 
   private handleError(error: HttpErrorResponse) {

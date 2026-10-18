@@ -37,14 +37,9 @@ export class Login {
     const clave = this.LoginForm.value.password ?? '';
 
     this.authService.login(email, clave).subscribe({
-      next: (usuarios) => {
-        if (usuarios.length !== 1) {
-          this.errorLogin = 'correo electrónico o contraseña incorrectos';
-          this.cd.markForCheck();
-          return;
-        }
-
-        const usuario = usuarios[0];
+      // La API ya validó las credenciales: si llega acá, el usuario existe.
+      // Si no coinciden, responde 401 y el mensaje llega por error.
+      next: (usuario) => {
         this.authService.guardarSesion(usuario);
 
         // id_rol 1 es Administrador, 2 es Usuario

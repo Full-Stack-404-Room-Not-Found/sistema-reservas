@@ -1,6 +1,7 @@
 import { ChangeDetectorRef, Component, Input, OnInit } from '@angular/core';
 import { RouterLink, Router } from '@angular/router';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { forkJoin, map, switchMap } from 'rxjs';
 import { HabitacionService } from '../../../services/habitacion.service';
 import { ComodidadService } from '../../../services/comodidad.service';
 import { ReservaService } from '../../../services/reserva.service';
@@ -88,18 +89,13 @@ export class ReservarHabitacion implements OnInit {
       },
     });
 
-    this.comodidadService.listarRelaciones(this.id).subscribe({
-      next: (relaciones) => {
-        this.comodidadService.listar().subscribe({
-          next: (comodidades) => {
-            this.comodidades = this.comodidadService.nombresDe(relaciones, comodidades);
-            this.cd.markForCheck();
-          },
-          error: (error) => {
-            this.errorDetalle = error.message;
-            this.cd.markForCheck();
-          },
-        });
+    forkJoin({
+      relaciones: this.comodidadService.listarRelaciones(this.id),
+      comodidades: this.comodidadService.listar(),
+    }).subscribe({
+      next: ({ relaciones, comodidades }) => {
+        this.comodidades = this.comodidadService.nombresDe(relaciones, comodidades);
+        this.cd.markForCheck();
       },
       error: (error) => {
         this.errorDetalle = error.message;
@@ -156,38 +152,38 @@ export class ReservarHabitacion implements OnInit {
       precio_total: this.precioTotal,
     };
 
-    this.reservaService.crear(reserva).subscribe({
-      next: (creada) => {
+    // switchMap encadena los pedidos en orden: cada uno arranca cuando terminó el
+    // anterior. map(() => creada) pasa la reserva creada al paso siguiente.
+    this.reservaService
+      .crear(reserva)
+      .pipe(
         // Paso 12 del caso de uso: el pago queda pendiente y la habitación pasa a ocupada
-        this.pagoService
-          .crear({
-            id_reserva: Number(creada.id),
-            estado: 'Pendiente',
-            monto: creada.precio_total,
-            fecha: new Date().toISOString(),
-          })
-          .subscribe({
-            next: () => {
-              this.habitacionService.actualizarEstado(Number(this.id), 'Ocupada').subscribe({
-                next: () => {
-                  this.router.navigate(['/dashboard-usuario/confirmacion'], {
-                    queryParams: { reserva: creada.id },
-                  });
-                },
-                error: (error) => {
-                  this.fallo(error);
-                },
-              });
-            },
-            error: (error) => {
-              this.fallo(error);
-            },
+        switchMap((creada) =>
+          this.pagoService
+            .crear({
+              id_reserva: Number(creada.id),
+              estado: 'Pendiente',
+              monto: creada.precio_total,
+              fecha: new Date().toISOString(),
+            })
+            .pipe(map(() => creada)),
+        ),
+        switchMap((creada) =>
+          this.habitacionService
+            .actualizarEstado(Number(this.id), 'Ocupada')
+            .pipe(map(() => creada)),
+        ),
+      )
+      .subscribe({
+        next: (creada) => {
+          this.router.navigate(['/dashboard-usuario/confirmacion'], {
+            queryParams: { reserva: creada.id },
           });
-      },
-      error: (error) => {
-        this.fallo(error);
-      },
-    });
+        },
+        error: (error) => {
+          this.fallo(error);
+        },
+      });
   }
 
   private fallo(error: Error): void {

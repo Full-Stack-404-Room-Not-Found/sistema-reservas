@@ -51,7 +51,9 @@ export class HabitacionService {
   }
 
   eliminar(id: string): Observable<unknown> {
-    return this.http.delete(`${this.url}/${id}`).pipe(catchError(this.handleError));
+    return this.http
+      .delete(`${this.url}/${id}`)
+      .pipe(catchError((error: HttpErrorResponse) => this.errorAlEliminar(error)));
   }
 
   actualizarEstado(id: number, estado: string): Observable<Habitacion> {
@@ -74,6 +76,18 @@ export class HabitacionService {
       .map((reserva) => reserva.id_habitacion);
 
     return habitaciones.filter((habitacion) => !ocupadas.includes(Number(habitacion.id)));
+  }
+
+  // El backend no borra una habitación que tenga reservas, aunque sean pasadas o
+  // canceladas (PROTECT del MR): responde 409 y se muestra un mensaje del CU-03-A5.
+  private errorAlEliminar(error: HttpErrorResponse) {
+    if (error.status !== 409) {
+      return this.handleError(error);
+    }
+    const mensaje =
+      'No se puede eliminar la habitación porque tiene reservas registradas. ' +
+      'Podés marcarla como Inactiva en vez de eliminarla.';
+    return throwError(() => new Error(mensaje));
   }
 
   private handleError(error: HttpErrorResponse) {

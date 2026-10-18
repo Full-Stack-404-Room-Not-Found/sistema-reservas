@@ -1,7 +1,8 @@
 import { ChangeDetectorRef, Component, inject, Input, OnInit } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
-import { FormsModule } from '@angular/forms';
+import { FormArray, FormBuilder, FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { EMPTY, Observable, forkJoin, of, switchMap } from 'rxjs';
 import { HabitacionService } from '../../../services/habitacion.service';
 import { ComodidadService } from '../../../services/comodidad.service';
 import { Habitacion } from '../../../models/habitacion';
@@ -13,47 +14,65 @@ import { HabitacionComodidad } from '../../../models/habitacion-comodidad';
 @Component({
   selector: 'app-crear-habitacion',
   standalone: true,
-  imports: [CommonModule, RouterLink, FormsModule],
+  imports: [CommonModule, RouterLink, ReactiveFormsModule],
   templateUrl: './crear-habitacion.html',
   styleUrl: './crear-habitacion.css',
 })
 export class CrearHabitacion implements OnInit {
   @Input() id!: string;
 
+  private fb = inject(FormBuilder);
   private router = inject(Router);
   private habitacionService = inject(HabitacionService);
   private comodidadService = inject(ComodidadService);
   private cd = inject(ChangeDetectorRef);
 
   comodidadesDisponibles: Comodidad[] = [];
-  seleccionadas: boolean[] = [];
   private relacionesPrevias: HabitacionComodidad[] = [];
 
   error = '';
   guardando = false;
 
-  habitacion = {
-    numero: '',
-    tipo: '',
-    estado: 'Disponible',
-    precio_noche: null as number | null,
-    capacidad: null as number | null,
-    descripcion: '',
-  };
+  // Formulario reactivo, como el resto de la aplicación. Los mensajes del CU-03
+  // se siguen armando en guardar(), en el mismo orden que antes.
+  form = this.fb.group({
+    numero: this.fb.nonNullable.control('', Validators.required),
+    tipo: this.fb.nonNullable.control('', Validators.required),
+    estado: this.fb.nonNullable.control('Disponible'),
+    precio_noche: this.fb.control<number | null>(null, Validators.required),
+    capacidad: this.fb.control<number | null>(null, Validators.required),
+    descripcion: this.fb.nonNullable.control('', Validators.required),
+    // Un checkbox por comodidad, en el mismo orden que comodidadesDisponibles
+    comodidades: this.fb.array<FormControl<boolean>>([]),
+  });
+
+  get comodidadesForm(): FormArray<FormControl<boolean>> {
+    return this.form.controls.comodidades;
+  }
 
   // ========== CARGA INICIAL ==========
   // Las comodidades salen de la API, no de una lista fija: sin eso no se conocen
   // los id que necesitan las filas de la tabla puente.
   ngOnInit(): void {
-    this.comodidadService.listar().subscribe({
-      next: (comodidades) => {
-        this.comodidadesDisponibles = comodidades;
-        this.seleccionadas = comodidades.map(() => false);
-        this.cd.markForCheck();
+    // forkJoin trae las comodidades y, en la edición, las que ya tiene la habitación.
+    // En el alta no hay relaciones previas: of([]) emite una lista vacía.
+    const relaciones$ = this.id
+      ? this.comodidadService.listarRelaciones(this.id)
+      : of([] as HabitacionComodidad[]);
 
-        if (this.id) {
-          this.cargarRelaciones();
-        }
+    forkJoin({ comodidades: this.comodidadService.listar(), relaciones: relaciones$ }).subscribe({
+      next: ({ comodidades, relaciones }) => {
+        this.comodidadesDisponibles = comodidades;
+        this.relacionesPrevias = relaciones;
+        this.comodidadesForm.clear();
+        comodidades.forEach((comodidad) =>
+          this.comodidadesForm.push(
+            this.fb.nonNullable.control(
+              relaciones.some((relacion) => relacion.id_comodidad === comodidad.id),
+            ),
+          ),
+        );
+        this.cd.markForCheck();
       },
       error: (error) => this.fallar(error),
     });
@@ -61,32 +80,19 @@ export class CrearHabitacion implements OnInit {
     if (this.id) {
       this.habitacionService.obtener(this.id).subscribe({
         next: (habitacion) => {
-          this.habitacion = {
+          this.form.patchValue({
             numero: habitacion.numero,
             tipo: habitacion.tipo,
             estado: habitacion.estado,
             precio_noche: habitacion.precio_noche,
             capacidad: habitacion.capacidad,
-            descripcion: habitacion.descripcion,
-          };
+            descripcion: habitacion.descripcion ?? '',
+          });
           this.cd.markForCheck();
         },
         error: (error) => this.fallar(error),
       });
     }
-  }
-
-  private cargarRelaciones(): void {
-    this.comodidadService.listarRelaciones(this.id).subscribe({
-      next: (relaciones) => {
-        this.relacionesPrevias = relaciones;
-        this.seleccionadas = this.comodidadesDisponibles.map((comodidad) =>
-          relaciones.some((relacion) => relacion.id_comodidad === comodidad.id),
-        );
-        this.cd.markForCheck();
-      },
-      error: (error) => this.fallar(error),
-    });
   }
 
   // ========== GUARDAR ==========
@@ -95,19 +101,14 @@ export class CrearHabitacion implements OnInit {
   guardar(): void {
     this.error = '';
 
-    const numero = String(this.habitacion.numero).trim();
-    const descripcion = this.habitacion.descripcion.trim();
-    const precio = Number(this.habitacion.precio_noche);
-    const capacidad = Number(this.habitacion.capacidad);
+    const valores = this.form.getRawValue();
+    const numero = String(valores.numero).trim();
+    const descripcion = valores.descripcion.trim();
+    const precio = Number(valores.precio_noche);
+    const capacidad = Number(valores.capacidad);
 
-    // CU-03-A2
-    if (
-      !numero ||
-      !this.habitacion.tipo ||
-      !descripcion ||
-      this.habitacion.precio_noche === null ||
-      this.habitacion.capacidad === null
-    ) {
+    // CU-03-A2: algún obligatorio vacío (form.invalid) o con solo espacios
+    if (this.form.invalid || !numero || !descripcion) {
       this.error = 'Complete todos los campos obligatorios';
       return;
     }
@@ -126,87 +127,65 @@ export class CrearHabitacion implements OnInit {
 
     this.guardando = true;
 
-    // CU-03-A1
-    this.habitacionService.buscarPorNumero(numero).subscribe({
-      next: (existentes) => {
-        const duplicada = existentes.some((otra) => String(otra.id) !== this.id);
-        if (duplicada) {
-          this.error = 'Ya existe una habitación con ese número';
-          this.guardando = false;
-          this.cd.markForCheck();
-          return;
-        }
+    // CU-03-A1, y después el guardado: cada switchMap arranca cuando terminó el pedido anterior
+    this.habitacionService
+      .buscarPorNumero(numero)
+      .pipe(
+        switchMap((existentes) => {
+          const duplicada = existentes.some((otra) => String(otra.id) !== this.id);
+          if (duplicada) {
+            this.error = 'Ya existe una habitación con ese número';
+            this.guardando = false;
+            this.cd.markForCheck();
+            return EMPTY;
+          }
 
-        this.persistir({
-          numero,
-          tipo: this.habitacion.tipo,
-          estado: this.habitacion.estado,
-          precio_noche: precio,
-          capacidad,
-          descripcion,
-        });
-      },
-      error: (error) => this.fallar(error),
-    });
+          return this.persistir({
+            numero,
+            tipo: valores.tipo,
+            estado: valores.estado,
+            precio_noche: precio,
+            capacidad,
+            descripcion,
+          });
+        }),
+        switchMap((guardada) =>
+          this.sincronizarComodidades(this.id ? Number(this.id) : Number(guardada.id)),
+        ),
+      )
+      .subscribe({
+        next: () => this.volverAlListado(),
+        error: (error) => this.fallar(error),
+      });
   }
 
   // ========== PERSISTENCIA ==========
-  private persistir(datos: Habitacion): void {
+  // Devuelve el pedido sin suscribirse: quien lo encadena es guardar()
+  private persistir(datos: Habitacion): Observable<Habitacion> {
     if (this.id) {
-      this.habitacionService.actualizar(this.id, { ...datos, id: Number(this.id) }).subscribe({
-        next: () => this.sincronizarComodidades(Number(this.id)),
-        error: (error) => this.fallar(error),
-      });
-      return;
+      return this.habitacionService.actualizar(this.id, { ...datos, id: Number(this.id) });
     }
-
-    this.habitacionService.crear(datos).subscribe({
-      next: (creada) => this.sincronizarComodidades(Number(creada.id)),
-      error: (error) => this.fallar(error),
-    });
+    return this.habitacionService.crear(datos);
   }
 
-  // Sin forkJoin: se lanzan los pedidos y se cuentan las respuestas
-  private sincronizarComodidades(idHabitacion: number): void {
-    const altas: number[] = [];
-    const bajas: number[] = [];
+  // forkJoin lanza las altas y bajas de la tabla puente a la vez y emite cuando terminaron
+  // todas. Si no cambió ninguna comodidad, of(null) deja seguir igual.
+  private sincronizarComodidades(idHabitacion: number): Observable<unknown> {
+    const pedidos: Observable<unknown>[] = [];
 
     this.comodidadesDisponibles.forEach((comodidad, i) => {
       const previa = this.relacionesPrevias.find((r) => r.id_comodidad === comodidad.id);
-      if (this.seleccionadas[i] && !previa) {
-        altas.push(Number(comodidad.id));
+      const marcada = this.comodidadesForm.at(i).value;
+      if (marcada && !previa) {
+        pedidos.push(this.comodidadService.crearRelacion(idHabitacion, Number(comodidad.id)));
       }
-      if (!this.seleccionadas[i] && previa) {
-        bajas.push(Number(previa.id));
+      if (!marcada && previa) {
+        // Sin id propio (PK compuesta): la baja se identifica por el id de la comodidad
+        pedidos.push(this.comodidadService.eliminarRelacion(idHabitacion, Number(comodidad.id)));
       }
     });
 
-    let restantes = altas.length + bajas.length;
-    if (restantes === 0) {
-      this.volverAlListado();
-      return;
-    }
-
-    const terminar = () => {
-      restantes--;
-      if (restantes === 0) {
-        this.volverAlListado();
-      }
-    };
-
-    altas.forEach((idComodidad) => {
-      this.comodidadService.crearRelacion(idHabitacion, idComodidad).subscribe({
-        next: terminar,
-        error: (error) => this.fallar(error),
-      });
-    });
-
-    bajas.forEach((idRelacion) => {
-      this.comodidadService.eliminarRelacion(idRelacion).subscribe({
-        next: terminar,
-        error: (error) => this.fallar(error),
-      });
-    });
+    return pedidos.length > 0 ? forkJoin(pedidos) : of(null);
   }
 
   private volverAlListado(): void {

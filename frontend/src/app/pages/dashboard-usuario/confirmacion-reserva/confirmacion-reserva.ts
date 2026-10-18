@@ -1,5 +1,6 @@
 import { ChangeDetectorRef, Component, Input, OnInit } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import { switchMap, tap } from 'rxjs';
 import { ReservaService } from '../../../services/reserva.service';
 import { HabitacionService } from '../../../services/habitacion.service';
 import { PagoService } from '../../../services/pago.service';
@@ -36,27 +37,26 @@ export class ConfirmacionReserva implements OnInit {
       return;
     }
 
-    this.reservaService.obtener(this.reserva).subscribe({
-      next: (reserva) => {
-        this.reservaCreada = reserva;
-        this.cd.markForCheck();
-
-        this.habitacionService.obtener(String(reserva.id_habitacion)).subscribe({
-          next: (habitacion) => {
-            this.habitacion = habitacion;
-            this.cd.markForCheck();
-          },
-          error: (error) => {
-            this.error = error.message;
-            this.cd.markForCheck();
-          },
-        });
-      },
-      error: (error) => {
-        this.error = error.message;
-        this.cd.markForCheck();
-      },
-    });
+    // tap muestra la reserva apenas llega; switchMap usa su id_habitacion para pedir la habitación
+    this.reservaService
+      .obtener(this.reserva)
+      .pipe(
+        tap((reserva) => {
+          this.reservaCreada = reserva;
+          this.cd.markForCheck();
+        }),
+        switchMap((reserva) => this.habitacionService.obtener(String(reserva.id_habitacion))),
+      )
+      .subscribe({
+        next: (habitacion) => {
+          this.habitacion = habitacion;
+          this.cd.markForCheck();
+        },
+        error: (error) => {
+          this.error = error.message;
+          this.cd.markForCheck();
+        },
+      });
 
     this.pagoService.listarPorReserva(this.reserva).subscribe({
       next: (pagos) => {

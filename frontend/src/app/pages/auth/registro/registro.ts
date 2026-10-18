@@ -7,23 +7,9 @@ import {
   Validators,
 } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
+import { EMPTY, switchMap } from 'rxjs';
 import { AuthService } from '../../../services/auth.service';
 import { Usuario } from '../../../models/usuario';
-
-function passwordsMatchValidator(group: AbstractControl): ValidationErrors | null {
-  const passwordControl = group.get('password');
-  const confirmPasswordControl = group.get('confirmPassword');
-
-  if (passwordControl && confirmPasswordControl) {
-    const password = passwordControl.value;
-    const confirmPassword = confirmPasswordControl.value;
-
-    if (password && confirmPassword && password !== confirmPassword) {
-      return { passwordsMismatch: true };
-    }
-  }
-  return null;
-}
 
 // Caso de uso Registrarse. El formulario pide nombre, apellido, correo y
 // contraseña, que son los campos que enumera el paso 2 del caso de uso.
@@ -34,6 +20,23 @@ function passwordsMatchValidator(group: AbstractControl): ValidationErrors | nul
   templateUrl: './registro.html',
 })
 export class Registro {
+  // Validador de grupo: compara la contraseña con su confirmación. Es estático
+  // porque no usa el estado del componente y se pasa como referencia al FormBuilder.
+  static passwordsMatchValidator(group: AbstractControl): ValidationErrors | null {
+    const passwordControl = group.get('password');
+    const confirmPasswordControl = group.get('confirmPassword');
+
+    if (passwordControl && confirmPasswordControl) {
+      const password = passwordControl.value;
+      const confirmPassword = confirmPasswordControl.value;
+
+      if (password && confirmPassword && password !== confirmPassword) {
+        return { passwordsMismatch: true };
+      }
+    }
+    return null;
+  }
+
   private readonly fb = inject(FormBuilder);
   private readonly router = inject(Router);
   private readonly authService = inject(AuthService);
@@ -47,7 +50,7 @@ export class Registro {
       password: ['', [Validators.required, Validators.minLength(6)]],
       confirmPassword: ['', [Validators.required]],
     },
-    { validators: passwordsMatchValidator },
+    { validators: Registro.passwordsMatchValidator },
   );
 
   protected submitted = false;
@@ -66,38 +69,38 @@ export class Registro {
     this.errorRegistro = '';
     const datos = this.form.getRawValue();
 
-    this.authService.buscarPorEmail(datos.email).subscribe({
-      next: (usuarios) => {
-        if (usuarios.length > 0) {
-          this.errorRegistro = 'El correo electrónico ya se encuentra registrado';
-          this.cd.markForCheck();
-          return;
-        }
-
-        const usuario: Usuario = {
-          id_rol: 2,
-          nombre: datos.nombre,
-          apellido: datos.apellido,
-          email: datos.email,
-          clave_acceso: datos.password,
-          fecha_registro: this.fechaDeHoy(),
-        };
-
-        this.authService.registrar(usuario).subscribe({
-          next: () => {
-            this.router.navigateByUrl('/login');
-          },
-          error: (error) => {
-            this.errorRegistro = error.message;
+    // switchMap encadena los dos pedidos en una sola suscripción: con el resultado
+    // de la búsqueda decide si registra (devuelve el POST) o corta (EMPTY).
+    this.authService
+      .buscarPorEmail(datos.email)
+      .pipe(
+        switchMap((usuarios) => {
+          if (usuarios.length > 0) {
+            this.errorRegistro = 'El correo electrónico ya se encuentra registrado';
             this.cd.markForCheck();
-          },
-        });
-      },
-      error: (error) => {
-        this.errorRegistro = error.message;
-        this.cd.markForCheck();
-      },
-    });
+            return EMPTY;
+          }
+
+          const usuario: Usuario = {
+            id_rol: 2,
+            nombre: datos.nombre,
+            apellido: datos.apellido,
+            email: datos.email,
+            clave_acceso: datos.password,
+            fecha_registro: this.fechaDeHoy(),
+          };
+          return this.authService.registrar(usuario);
+        }),
+      )
+      .subscribe({
+        next: () => {
+          this.router.navigateByUrl('/login');
+        },
+        error: (error) => {
+          this.errorRegistro = error.message;
+          this.cd.markForCheck();
+        },
+      });
   }
 
   // ========== AUXILIARES ==========

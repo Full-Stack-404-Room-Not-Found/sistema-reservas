@@ -61,6 +61,11 @@
     color: #856404;
 }
 
+.badge.inactive {
+    background: #e2e3e5;
+    color: #383d41;
+}
+
 .actions {
     margin-top: 20px;
     display: flex;

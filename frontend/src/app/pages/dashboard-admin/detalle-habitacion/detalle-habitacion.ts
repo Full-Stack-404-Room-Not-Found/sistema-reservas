@@ -1,6 +1,7 @@
 import { ChangeDetectorRef, Component, Input, OnInit, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { forkJoin } from 'rxjs';
 import { HabitacionService } from '../../../services/habitacion.service';
 import { ComodidadService } from '../../../services/comodidad.service';
 import { Habitacion } from '../../../models/habitacion';
@@ -38,18 +39,14 @@ export class DetalleHabitacion implements OnInit {
       },
     });
 
-    this.comodidadService.listarRelaciones(this.id).subscribe({
-      next: (relaciones) => {
-        this.comodidadService.listar().subscribe({
-          next: (comodidades) => {
-            this.comodidades = this.comodidadService.nombresDe(relaciones, comodidades);
-            this.cd.markForCheck();
-          },
-          error: (error) => {
-            this.error = error.message;
-            this.cd.markForCheck();
-          },
-        });
+    // forkJoin lanza los dos pedidos a la vez y emite una sola vez, cuando terminaron ambos
+    forkJoin({
+      relaciones: this.comodidadService.listarRelaciones(this.id),
+      comodidades: this.comodidadService.listar(),
+    }).subscribe({
+      next: ({ relaciones, comodidades }) => {
+        this.comodidades = this.comodidadService.nombresDe(relaciones, comodidades);
+        this.cd.markForCheck();
       },
       error: (error) => {
         this.error = error.message;
@@ -66,6 +63,9 @@ export class DetalleHabitacion implements OnInit {
     if (estado === 'Ocupada') {
       return 'occupied';
     }
+    if (estado === 'Inactiva') {
+      return 'inactive';
+    }
     return 'maintenance';
   }
 
@@ -75,6 +75,9 @@ export class DetalleHabitacion implements OnInit {
     }
     if (estado === 'Ocupada') {
       return '🔴';
+    }
+    if (estado === 'Inactiva') {
+      return '⚫';
     }
     return '🟡';
   }
